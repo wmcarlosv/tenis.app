@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
+use App\Region;
 
 class CitiesController extends Controller
 {
@@ -13,7 +15,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::where('id','<>', 1)->get();
+        return view('admin.cities.home', ['cities' => $cities]);
     }
 
     /**
@@ -23,7 +26,15 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        $regions = Region::where('id','<>', 1)->get();
+        $region_array = [];
+        $region_array[''] = '-';
+
+        foreach ($regions as $region) {
+            $region_array[$region->id] = $region->name;
+        }
+
+        return view('admin.cities.add', ['regions' => $region_array]);
     }
 
     /**
@@ -34,7 +45,16 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'region_id' => 'required'
+        ]);
+
+        $city = City::create($request->all());
+
+        flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
+
+        return redirect()->route('cities.index');
     }
 
     /**
@@ -56,7 +76,16 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $city = City::findOrFail($id);
+        $regions = Region::where('id','<>', 1)->get();
+        $region_array = [];
+        $region_array[''] = '-';
+
+        foreach ($regions as $region) {
+            $region_array[$region->id] = $region->name;
+        }
+
+        return view('admin.cities.edit', ['city' => $city, 'regions' => $region_array]);
     }
 
     /**
@@ -68,7 +97,18 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'region_id' => 'required'
+        ]);
+
+        $city = City::findOrFail($id);
+        $city->name = $request->input('name');
+        $city->save();
+
+        flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
+
+        return redirect()->route('cities.index');
     }
 
     /**
@@ -79,6 +119,9 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $city = City::findOrFail($id);
+        $city->delete();
+        flash()->overlay('Registro Eliminado con Exito!!','Alerta!!');
+        return redirect()->route('cities.index');
     }
 }

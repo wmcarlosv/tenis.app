@@ -8,4 +8,8 @@ class Region extends Model
 {
     protected $table = 'regions';
     protected $fillable = ['name'];
+
+    public function cities(){
+    	return $this->belongsToMany('App\City');
+    }
 }

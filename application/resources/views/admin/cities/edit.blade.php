@@ -1,7 +1,7 @@
 @extends('adminlte::page')
-@section('title', 'Editar Departamento')
+@section('title', 'Editar Ciudad')
 @section('content_header')
-    <h1>Departamentos</h1>
+    <h1>Ciudades</h1>
 @stop
 
 @section('content')
@@ -19,16 +19,20 @@
             @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2>Editar Departamento</h2>
+                    <h2>Editar Ciudad</h2>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['method' => 'PUT', 'route' => ['states.update',$state->id]]) !!}
+                    {!! Form::open(['method' => 'PUT', 'route' => ['cities.update',$city->id]]) !!}
+                        <div class="form-group">
+                            {!! Form::label('region_id','Region: ') !!}
+                            {!! Form::select('region_id',$regions,$city->region_id,['class' => 'form-control', 'id' => 'region_id']) !!}
+                        </div>
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre: ') !!}
-                            {!! Form::text('name',$state->name,['class' => 'form-control', 'id' => 'name']) !!}
+                            {!! Form::text('name',$city->name,['class' => 'form-control', 'id' => 'name']) !!}
                         </div>
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
-                        <a href="{{ route('states.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+                        <a href="{{ route('cities.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                     {!! Form::close() !!}
                 </div>
             </div>

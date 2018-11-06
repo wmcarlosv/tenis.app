@@ -1,7 +1,7 @@
 @extends('adminlte::page')
-@section('title', 'Nuevo Departamento')
+@section('title', 'Nuevo Ciudad')
 @section('content_header')
-    <h1>Departamentos</h1>
+    <h1>Ciudades</h1>
 @stop
 
 @section('content')
@@ -19,16 +19,20 @@
             @endif
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2>Nuevo Departamento</h2>
+                    <h2>Nuevo Ciudad</h2>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'states.store','autocomplete' => 'off']) !!}
+                    {!! Form::open(['route' => 'cities.store','autocomplete' => 'off']) !!}
+                    <div class="form-group">
+                        {!! Form::label('region_id','Region: ') !!}
+                        {!! Form::select('region_id',$regions,null,['class' => 'form-control', 'id' => 'region_id']) !!}
+                    </div>
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre: ') !!}
                             {!! Form::text('name',null,['class' => 'form-control', 'id' => 'name']) !!}
                         </div>
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
-                        <a href="{{ route('states.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+                        <a href="{{ route('cities.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                     {!! Form::close() !!}
                 </div>
             </div>
