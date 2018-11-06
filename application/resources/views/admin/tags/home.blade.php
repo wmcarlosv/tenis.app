@@ -1,9 +1,5 @@
 @extends('adminlte::page')
 @section('title', 'Tags')
-@section('content_header')
-    <h1>Tags</h1>
-@stop
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
