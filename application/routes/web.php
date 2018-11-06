@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function(){
 	Route::resource('regions','RegionsController');
 	Route::resource('cities','CitiesController');
+	Route::resource('tags','tagsController');
 });
