@@ -27,4 +27,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('/clubes/delete_logo/{id}','ClubesController@delete_logo');
 	Route::get('/clubes/delete_cover/{id}','ClubesController@delete_cover');
 	Route::resource('payment_methods','PaymentMethodsController');
+	Route::resource('player_categories','PlayerCategoriesController');
+	Route::resource('notice_categories','NoticeCategoriesController');
 });
