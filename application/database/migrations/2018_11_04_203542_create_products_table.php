@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 60)->nullable(false);
             $table->float('price')->nullable(false);
             $table->boolean('is_recurrent')->defaul(false);
-            $table->enum('recurrent_type',['year','month','week','day'])->nullable(false);
+            $table->enum('recurrent_type',['year','month','week','day'])->nullable(true);
             $table->timestamps();
         });
     }

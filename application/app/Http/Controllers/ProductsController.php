@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Region;
+use App\Product;
 
-class RegionsController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RegionsController extends Controller
      */
     public function index()
     {
-        $regions = Region::where('id','<>', 1)->get();
-        return view('admin.regions.home', ['regions' => $regions]);
+        $products = Product::all();
+        return view('admin.products.home', ['products' => $products]);
     }
 
     /**
@@ -25,7 +25,7 @@ class RegionsController extends Controller
      */
     public function create()
     {
-        return view('admin.regions.add');
+        return view('admin.products.add');
     }
 
     /**
@@ -37,14 +37,15 @@ class RegionsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required'
         ]);
 
-        $region = Region::create($request->all());
+        $product = Product::create($request->all());
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
 
-        return redirect()->route('regions.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -66,8 +67,8 @@ class RegionsController extends Controller
      */
     public function edit($id)
     {
-        $region = Region::findOrFail($id);
-        return view('admin.regions.edit', ['region' => $region]);
+        $product = Product::findOrFail($id);
+        return view('admin.products.edit', ['product' => $product]);
     }
 
     /**
@@ -80,16 +81,20 @@ class RegionsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required'
         ]);
 
-        $region = Region::findOrFail($id);
-        $region->name = $request->input('name');
-        $region->save();
+        $product = Product::findOrFail($id);
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->is_recurrent = $request->input('is_recurrent');
+        $product->recurrent_type = $request->input('recurrent_type');
+        $product->update();
 
         flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
 
-        return redirect()->route('regions.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -100,9 +105,9 @@ class RegionsController extends Controller
      */
     public function destroy($id)
     {
-        $region = Region::findOrFail($id);
-        $region->delete();
+        $product = Product::findOrFail($id);
+        $product->delete();
         flash()->overlay('Registro Eliminado con Exito!!','Alerta!!');
-        return redirect()->route('regions.index');
+        return redirect()->route('products.index');
     }
 }

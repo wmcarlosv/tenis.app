@@ -29,4 +29,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('payment_methods','PaymentMethodsController');
 	Route::resource('player_categories','PlayerCategoriesController');
 	Route::resource('notice_categories','NoticeCategoriesController');
+	Route::resource('products','ProductsController');
 });
