@@ -43,6 +43,10 @@
                             {!! Form::label('logo', 'Logo: ') !!}
                             {!! Form::file('logo',['class' => 'form-control', 'id' => 'address']) !!}
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('cover', 'Cover: ') !!}
+                            {!! Form::file('cover',['class' => 'form-control', 'id' => 'cover']) !!}
+                        </div>
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
                         <a href="{{ route('clubes.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                     {!! Form::close() !!}
@@ -52,3 +56,25 @@
     </div>
 </div>
 @endsection
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#region_id").change(function(){
+            $("#city_id").empty();
+            var id = $(this).val();
+            var url = '{{ asset("/admin/cities/getCities") }}/'+id;
+            $("#city_id").append('<option value="">-</option>');
+
+            $.get(url, function( response ){
+                if(response){
+                    $.each(JSON.parse(response), function(index, obj){
+                        $("#city_id").append('<option value="'+obj.value+'">'+obj.text+'</option>');
+                    });   
+                }
+                
+            });
+        });
+    });
+</script>
+@stop

@@ -18,9 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('regions','RegionsController');
 	Route::resource('cities','CitiesController');
+	Route::get('/cities/getCities/{id}','CitiesController@getCities');
 	Route::resource('tags','TagsController');
 	Route::resource('clubes','ClubesController');
+	Route::get('/clubes/delete_logo/{id}','ClubesController@delete_logo');
+	Route::get('/clubes/delete_cover/{id}','ClubesController@delete_cover');
+	Route::resource('payment_methods','PaymentMethodsController');
 });

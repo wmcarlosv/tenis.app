@@ -137,17 +137,17 @@ return [
         ],
         [
             'text' => 'Metodos de Pago',
-            'url'  => 'admin/payment-methods',
+            'url'  => 'admin/payment_methods',
             'icon' => 'credit-card',
         ],
         [
             'text' => 'Categorias de Jugador',
-            'url'  => 'admin/player-categories',
+            'url'  => 'admin/player_categories',
             'icon' => 'list-ol',
         ],
         [
             'text' => 'Categoria de Noticias',
-            'url'  => 'admin/notice-categories',
+            'url'  => 'admin/notice_categories',
             'icon' => 'list-ul',
         ],
         [

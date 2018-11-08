@@ -124,4 +124,17 @@ class CitiesController extends Controller
         flash()->overlay('Registro Eliminado con Exito!!','Alerta!!');
         return redirect()->route('cities.index');
     }
+
+    public function getCities($id = NULL){
+        $cities = City::where('region_id','=',$id)->get();
+        $city_array = [];
+        $cont = 0;
+        foreach ($cities as $city) {
+            $city_array[$cont]['value'] = $city->id;
+            $city_array[$cont]['text'] = $city->name;
+            $cont++;
+        }
+
+        print json_encode($city_array);
+    }
 }
