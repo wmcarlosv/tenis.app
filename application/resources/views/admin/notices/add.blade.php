@@ -38,7 +38,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         {!! Form::label('status', 'Estatus: ') !!}
-                        {!! Form::select('status',['draf' => 'borrador', 'publisher' => 'Publicado'],$notice->status,['class' => 'form-control']) !!}
+                        {!! Form::select('status',['draf' => 'borrador', 'publisher' => 'Publicado'],null,['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::label('notice_category_id', 'Categoria: ') !!}
