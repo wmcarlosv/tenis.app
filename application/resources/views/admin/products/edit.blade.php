@@ -57,6 +57,7 @@
     $(document).ready(function(){
         @if($product->is_recurrent == 1)
             $("#ir_si").attr("checked",true);
+            $("#recurrent_type").attr("disabled",false);
         @endif
 
         $("input[type=radio]").click(function(){

@@ -19,8 +19,8 @@ class CreateNoticeTagsTable extends Migration
             $table->integer('tag_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('notice_id')->references('id')->on('notices')->onUpdate('restrict')->onDelete('restrict');
-            $table->foreign('tag_id')->references('id')->on('tags')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('notice_id')->references('id')->on('notices')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

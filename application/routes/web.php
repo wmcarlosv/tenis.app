@@ -30,4 +30,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('player_categories','PlayerCategoriesController');
 	Route::resource('notice_categories','NoticeCategoriesController');
 	Route::resource('products','ProductsController');
+	Route::resource('notices','NoticesController');
+	Route::get('/notices/delete_avatar/{id}','NoticesController@delete_avatar');
 });
