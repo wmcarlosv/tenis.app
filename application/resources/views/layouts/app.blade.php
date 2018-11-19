@@ -10,11 +10,11 @@
         <link rel="icon" href="favicon.ico">
         <title>TenisApp - @yield('title','Home')</title>
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <!-- Custom styles for this template -->
-        <link href="css/jquery.bxslider.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="{{ asset('css/jquery.bxslider.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         @yield('css')
     </head>
     <body>
