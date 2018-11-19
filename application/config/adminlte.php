@@ -188,6 +188,11 @@ return [
             'url'  => 'admin/users',
             'icon' => 'user',
         ],
+        [
+            'text' => 'Configuracion de sitio',
+            'url'  => 'admin/sites/edit',
+            'icon' => 'home',
+        ]
         /*[
             'text'    => 'Multilevel',
             'icon'    => 'share',

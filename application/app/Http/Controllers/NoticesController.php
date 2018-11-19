@@ -18,7 +18,7 @@ class NoticesController extends Controller
      */
     public function index()
     {
-        $notices = Notice::where('id','<>', 1)->get();
+        $notices = Notice::all();
         return view('admin.notices.home', ['notices' => $notices]);
     }
 

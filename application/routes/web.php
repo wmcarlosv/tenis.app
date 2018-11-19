@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','SitesController@index')->name('sites.home');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('regions','RegionsController');
@@ -32,4 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('products','ProductsController');
 	Route::resource('notices','NoticesController');
 	Route::get('/notices/delete_avatar/{id}','NoticesController@delete_avatar');
+	Route::resource('championships','ChampionshipsController');
+	Route::resource('games','GamesController');
+	Route::get('/sites/edit','SitesController@edit')->name('sites.edit');
+	Route::put('/sites/update','SitesController@update')->name('sites.update');
 });
