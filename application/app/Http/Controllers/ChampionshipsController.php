@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Championship;
 
 class ChampionshipsController extends Controller
@@ -27,7 +28,6 @@ class ChampionshipsController extends Controller
     {
         return view('admin.championships.add');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,10 +37,27 @@ class ChampionshipsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'datefrom' => 'required',
+            'dateto' => 'required',
+            'point_to_winner_game' => 'required',
+            'total_points' => 'required'
         ]);
 
-        $championship = Championship::create($request->all());
+        $championship = new Championship();
+        $championship->title = $request->input('title');
+        $championship->description = $request->input('description');
+        if($request->hasFile('cover')){
+            $championship->cover = $request->cover->store('public/championships/covers');
+        }else{
+            $championship->cover = NULL;
+        }
+        $championship->datefrom = date('Y-m-d',strtotime($request->input('datefrom')));
+        $championship->dateto = date('Y-m-d',strtotime($request->input('dateto')));
+        $championship->point_to_winner_game = $request->input('point_to_winner_game');
+        $championship->total_points = $request->input('total_points');
+        $championship->save();
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
 
@@ -55,7 +72,12 @@ class ChampionshipsController extends Controller
      */
     public function show($id)
     {
-        //
+        $championship = Championship::findOrFail($id);
+        Storage::delete($championship->cover);
+        $championship->cover = NULL;
+        $championship->update();
+
+        print json_encode(['borrado' => 'si']);
     }
 
     /**
@@ -80,12 +102,25 @@ class ChampionshipsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'datefrom' => 'required',
+            'dateto' => 'required',
+            'point_to_winner_game' => 'required',
+            'total_points' => 'required'
         ]);
 
         $championship = Championship::findOrFail($id);
-        $championship->name = $request->input('name');
-        $championship->save();
+        $championship->title = $request->input('title');
+        $championship->description = $request->input('description');
+        if($request->hasFile('cover')){
+            $championship->cover = $request->cover->store('public/championships/covers');
+        }
+        $championship->datefrom = date('Y/m/d',strtotime($request->input('datefrom')));
+        $championship->dateto = date('Y/m/d',strtotime($request->input('dateto')));
+        $championship->point_to_winner_game = $request->input('point_to_winner_game');
+        $championship->total_points = $request->input('total_points');
+        $championship->update();
 
         flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
 
@@ -101,6 +136,7 @@ class ChampionshipsController extends Controller
     public function destroy($id)
     {
         $championship = Championship::findOrFail($id);
+        Storage::delete($championship->cover);
         $championship->delete();
         flash()->overlay('Registro Eliminado con Exito!!','Alerta!!');
         return redirect()->route('championships.index');

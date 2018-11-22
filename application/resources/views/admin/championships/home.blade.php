@@ -29,9 +29,15 @@
                                     <td>{{ $championship->id }}</td>
                                     <td>{{ $championship->title }}</td>
                                     <td>{{ $championship->description }}</td>
-                                    <td>{{ $championship->cover }}</td>
-                                    <td>{{ $championship->datefrom }}</td>
-                                    <td>{{ $championship->dateto }}</td>
+                                    <td>
+                                        @if($championship->cover)
+                                        <img src="{{ asset('application/storage/app/'.$championship->cover) }}" class="img-thumbnail" width="80" height="100">
+                                        @else
+
+                                        @endif
+                                    </td>
+                                    <td>{{ date('d/m/Y',strtotime($championship->datefrom)) }}</td>
+                                    <td>{{ date('d/m/Y',strtotime($championship->dateto)) }}</td>
                                     <td>
                                         <a class="btn btn-info" href="{{ route('championships.edit',['id' => $championship->id]) }}"><i class="fa fa-pencil"></i> Editar</a>
                                         {!! Form::open(['method' => 'DELETE','style' => 'display:inline','route' => ['championships.destroy', $championship->id]]) !!}

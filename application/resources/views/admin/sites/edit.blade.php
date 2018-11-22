@@ -22,7 +22,7 @@
                     <h2>Editar Configuraciones</h2>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['method' => 'PUT', 'route' => ['sites.update',$site->id], 'files' => true]) !!}
+                    {!! Form::open(['method' => 'PUT', 'route' => ['sites.update'], 'files' => true, 'autocomplete' => 'off']) !!}
                         <div class="form-group">
                             {!! Form::label('title', 'Titulo: ') !!}
                             {!! Form::text('title',$site->title,['class' => 'form-control', 'id' => 'title']) !!}
@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('tags', 'Tags: ') !!}
-                            {!! Form::textarea('tags',$site->title,['class' => 'form-control', 'id' => 'tags']) !!}
+                            {!! Form::textarea('tags',$site->tags,['class' => 'form-control', 'id' => 'tags']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('logo', 'Logo: ') !!}
