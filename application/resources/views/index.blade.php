@@ -1,2 +1,2 @@
 @extends('layouts.app')
-@section('title',$site->title)
+@section('title','Tenis Tournament')
