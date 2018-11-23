@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Site;
+use App\Notice;
 
 class SitesController extends Controller
 {
@@ -14,7 +15,13 @@ class SitesController extends Controller
         if(!$site){
             $site = [];
         }
-    	return view('index', ['site' => $site]);
+
+        $notices = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(8)->get();
+
+        if(!$notices){
+            $notices = [];
+        }
+    	return view('index', ['site' => $site, 'notices' => $notices]);
     }
 
     public function edit(){
@@ -44,18 +51,27 @@ class SitesController extends Controller
                 $site->logo = NULL;
             }
 
+            $site->slider_1_title = $request->input('slider_1_title');
+            $site->slider_1_subtitle = $request->input('slider_1_subtitle');
+            $site->slider_1_link = $request->input('slider_1_link');
             if($request->hasFile('slider_1')){
                 $site->slider_1 = $request->slider_1->store('public/sites');
             }else{
                 $site->slider_1 = NULL;
             }
 
+            $site->slider_2_title = $request->input('slider_2_title');
+            $site->slider_2_subtitle = $request->input('slider_2_subtitle');
+            $site->slider_2_link = $request->input('slider_2_link');
             if($request->hasFile('slider_2')){
                 $site->slider_2 = $request->slider_2->store('public/sites');
             }else{
                 $site->slider_2 = NULL;
             }
 
+            $site->slider_3_title = $request->input('slider_3_title');
+            $site->slider_3_subtitle = $request->input('slider_3_subtitle');
+            $site->slider_3_link = $request->input('slider_3_link');
             if($request->hasFile('slider_3')){
                 $site->slider_3 = $request->slider_3->store('public/sites');
             }else{
@@ -64,7 +80,8 @@ class SitesController extends Controller
 
             $site->facebook = $request->input('facebook');
             $site->twitter = $request->input('twitter');
-            $site->instagram = $request->input('instagram');
+            $site->linkedin = $request->input('linkedin');
+            $site->vimeo = $request->input('vimeo');
             $site->googleplus = $request->input('googleplus');
 
             $site->save();
@@ -77,18 +94,26 @@ class SitesController extends Controller
                 $logo = $site->logo;
             }
 
+            $slider_1_title = $request->input('slider_1_title');
+            $slider_1_subtitle = $request->input('slider_1_subtitle');
+            $slider_1_link = $request->input('slider_1_link');
             if($request->hasFile('slider_1')){
                 $slider_1 = $request->slider_1->store('public/sites');
             }else{
                 $slider_1 = $site->slider_1;
             }
 
+            $slider_2_title = $request->input('slider_2_title');
+            $slider_2_subtitle = $request->input('slider_2_subtitle');
+            $slider_2_link = $request->input('slider_2_link');
             if($request->hasFile('slider_2')){
                 $slider_2 = $request->slider_2->store('public/sites');
             }else{
                 $slider_2 = $site->slider_2;
             }
-
+            $slider_3_title = $request->input('slider_3_title');
+            $slider_3_subtitle = $request->input('slider_3_subtitle');
+            $slider_3_link = $request->input('slider_3_link');
             if($request->hasFile('slider_3')){
                 $slider_3 = $request->slider_3->store('public/sites');
             }else{
@@ -102,12 +127,22 @@ class SitesController extends Controller
                 'description' => $request->input('description'),
                 'tags' => $request->input('tags'),
                 'logo' => $logo,
+                'slider_1_title' => $slider_1_title,
+                'slider_1_subtitle' => $slider_1_subtitle,
                 'slider_1' => $slider_1,
+                'slider_1_link' => $slider_1_link,
+                'slider_2_title' => $slider_2_title,
+                'slider_2_subtitle' => $slider_2_subtitle,
                 'slider_2' => $slider_2,
+                'slider_2_link' => $slider_2_link,
+                'slider_3_title' => $slider_3_title,
+                'slider_3_subtitle' => $slider_3_subtitle,
                 'slider_3' => $slider_3,
+                'slider_3_link' => $slider_3_link,
                 'facebook' => $request->input('facebook'),
                 'twitter' => $request->input('twitter'),
-                'instagram' => $request->input('instagram'),
+                'linkedin' => $request->input('linkedin'),
+                'vimeo' => $request->input('vimeo'),
                 'googleplus' => $request->input('googleplus')
             ]);
         }
@@ -115,5 +150,25 @@ class SitesController extends Controller
     	flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
 
         return redirect()->route('sites.edit');
+    }
+
+    public function drop_image($image = NULL){
+
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        Storage::delete($site->$image);
+
+        DB::table('sites')
+            ->where('title','<>', NULL)
+            ->update([
+               $image => NULL
+             ]);
+
+        $site->save();
+
+        print json_encode(['borrado' => 'si']);
     }
 }

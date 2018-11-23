@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Tennis - @yield('title')</title>
+    <title>@yield('title')</title>
     <!--BOOTSTRAP CSS-->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <!--SLICK SLIDER CSS-->
@@ -47,11 +47,11 @@
       <div class="topbar">
         <div class="container">
         <ul class="social-wrap">
-          <li><a href="#" class="fa fa-vimeo"></a></li>
-          <li><a href="#" class="fa fa-google-plus"></a></li>
-          <li><a href="#" class="fa fa-linkedin"></a></li>
-          <li><a href="#" class="fa fa-facebook"></a></li>
-          <li><a href="#" class="fa fa-twitter"></a></li>
+          <li><a href="{{ $site->vimeo }}" class="fa fa-vimeo"></a></li>
+          <li><a href="{{ $site->googleplus }}" class="fa fa-google-plus"></a></li>
+          <li><a href="{{ $site->linkedin }}" class="fa fa-linkedin"></a></li>
+          <li><a href="{{ $site->facebook }}" class="fa fa-facebook"></a></li>
+          <li><a href="{{ $site->twitter }}" class="fa fa-twitter"></a></li>
           </ul>
         <div class="pull-right">
           <ul class="login-wrap">
@@ -94,7 +94,7 @@
       <div class="logo-wrap">
         <div class="container">
         <div class="tennis-logo">
-          <a href="#"><img src="images/tennis-logo.png" alt=""></a>
+          <a href="#"><img src="{{ asset('application/storage/app/'.$site->logo) }}" alt=""></a>
         </div>
         <div class="tennis-nav">
           <ul class="navigation">
@@ -202,44 +202,50 @@
       <ul class="bxslider7">
         <li>
         <!--// Main Banner Wrap//-->
+        @if($site->slider_1)
         <div class="tns-banner-wrap">
-          <img src="extra-images/tennis-banner1.jpg" alt="">
+          <img src="{{ asset('application/storage/app/'.$site->slider_1) }}" width="1344" height="579" alt="{{ $site->slider_1_title }}">
           <div class="container">
           <div class="text-caption text-left">
-            <span>Lawn TEnnis</span>
-            <p>A Game Of Champions ! . . . Play Like A Champion Today</p>
-            <a href="#">Join US</a>
+            <span>{{ $site->slider_1_title }}</span>
+            <p>{{ $site->slider_1_subtitle }}</p>
+            <a href="{{ $site->slider_1_link }}">Join US</a>
           </div>
           </div>
         </div>
+        @endif
         <!--// Main Banner Wrap//-->
         </li>
         <li>
         <!--// Main Banner Wrap//-->
+        @if($site->slider_2)
         <div class="tns-banner-wrap">
-          <img src="extra-images/tennis-banner2.jpg" alt="">
+          <img src="{{ asset('application/storage/app/'.$site->slider_2) }}" width="1344" height="579" alt="{{ $site->slider_2_title }}">
           <div class="container">
-          <div class="text-caption text-center">
-            <span>Lawn TEnnis</span>
-            <p>A Game Of Champions ! . . . Play Like A Champion Today</p>
-            <a href="#">Join US</a>
+          <div class="text-caption text-left">
+            <span>{{ $site->slider_2_title }}</span>
+            <p>{{ $site->slider_2_subtitle }}</p>
+            <a href="{{ $site->slider_2_link }}">Join US</a>
           </div>
           </div>
         </div>
+        @endif
         <!--// Main Banner Wrap//-->
         </li>
         <li>
         <!--// Main Banner Wrap//-->
+        @if($site->slider_3)
         <div class="tns-banner-wrap">
-          <img src="extra-images/tennis-banner3.jpg" alt="">
+          <img src="{{ asset('application/storage/app/'.$site->slider_3) }}" width="1344" height="579" alt="{{ $site->slider_3_title }}">
           <div class="container">
-          <div class="text-caption text-right">
-            <span>Lawn TEnnis</span>
-            <p>A Game Of Champions ! . . . Play Like A Champion Today</p>
-            <a href="#">Join US</a>
+          <div class="text-caption text-left">
+            <span>{{ $site->slider_3_title }}</span>
+            <p>{{ $site->slider_3_subtitle }}</p>
+            <a href="{{ $site->slider_3_link }}">Join US</a>
           </div>
           </div>
         </div>
+        @endif
         <!--// Main Banner Wrap//-->
         </li>
       </ul>
@@ -251,124 +257,27 @@
         <div class="container">
         <!--// TENNIS HEADING //-->
         <div class="tns-heading1">
-          <p>Watch All The Stunning Matches</p>
-          <h4>Welcome to tennis</h4>
+          <p>Mantente informado con nuestra Web</p>
+          <h4>Ultimas Noticias</h4>
           <span><i class="icon-sport"></i></span>
         </div>
         <!--// TENNIS HEADING //-->
         <div class="row">
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes1.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Men's Tennis</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
+          @foreach($notices as $notice)
+            <!--// TENNIS CLASSES//-->
+            <div class="col-md-3">
+            <div class="tns-classes">
+              <div class="thumb">
+              <img src="{{ asset('application/storage/app/public/notices/avatars/'.$notice->avatar) }}" width="271" height="287" alt="">
+              <div class="thumb-caption thumb-caption-overlay">
+                <h4><a href="#">{{ $notice->title }}</a></h4>
+                <p>{!! $notice->content !!}</p>
+                <a href="#" class="tns-btn">Leer Mas...</a>
+              </div>
+              </div>
             </div>
             </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes2.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Women Tennis</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes3.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Junior Club</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes4.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Book a Court</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes5.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Adult Courses</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes6.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Youth Tennis</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes7.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Coaching Lessons</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
-          <!--// TENNIS CLASSES//-->
-          <div class="col-md-3">
-          <div class="tns-classes">
-            <div class="thumb">
-            <img src="extra-images/tns-classes8.jpg" alt="">
-            <div class="thumb-caption thumb-caption-overlay">
-              <h4><a href="#">Holiday Camps</a></h4>
-              <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.</p>
-              <a href="#" class="tns-btn">Book Now</a>
-            </div>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS CLASSES//-->
+          @endforeach
         </div>
         </div>
       </section>

@@ -32,4 +32,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('games','GamesController');
 	Route::get('/sites/edit','SitesController@edit')->name('sites.edit');
 	Route::put('/sites/update','SitesController@update')->name('sites.update');
+	Route::get('/sites/drop_image/{image}','SitesController@drop_image')->name('sites.drop_image');
 });
