@@ -209,7 +209,7 @@
           <div class="text-caption text-left">
             <span>{{ $site->slider_1_title }}</span>
             <p>{{ $site->slider_1_subtitle }}</p>
-            <a href="{{ $site->slider_1_link }}">Join US</a>
+            <a href="{{ $site->slider_1_link }}">Ver Informaci&oacute;n</a>
           </div>
           </div>
         </div>
@@ -225,7 +225,7 @@
           <div class="text-caption text-left">
             <span>{{ $site->slider_2_title }}</span>
             <p>{{ $site->slider_2_subtitle }}</p>
-            <a href="{{ $site->slider_2_link }}">Join US</a>
+            <a href="{{ $site->slider_2_link }}">Ver Informaci&oacute;n</a>
           </div>
           </div>
         </div>
@@ -241,7 +241,7 @@
           <div class="text-caption text-left">
             <span>{{ $site->slider_3_title }}</span>
             <p>{{ $site->slider_3_subtitle }}</p>
-            <a href="{{ $site->slider_3_link }}">Join US</a>
+            <a href="{{ $site->slider_3_link }}">Ver Informaci&oacute;n</a>
           </div>
           </div>
         </div>
@@ -286,8 +286,8 @@
         <div class="container">
         <!--// TENNIS HEADING //-->
         <div class="tns-heading1 white">
-          <p>Watch All The Stunning Matches</p>
-          <h4>UPCOMING GRAND SLAM EVENTS</h4>
+          <p>Participa en los Mejores torneos del Pais</p>
+          <h4>Proximos Torneos</h4>
           <span><i class="icon-sport"></i></span>
         </div>
         <!--// TENNIS HEADING //-->

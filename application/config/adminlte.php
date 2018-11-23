@@ -114,41 +114,52 @@ return [
             'url'         => 'home',
             'icon'        => 'dashboard'
         ],
-        'CONFIGURACIONES',
         [
-            'text' => 'Regiones',
-            'url'  => 'admin/regions',
-            'icon' => 'globe',
+            'text' => 'Ubicación',
+            'icon' => 'map',
+            'submenu' => [
+                [
+                    'text' => 'Regiones',
+                    'url'  => 'admin/regions',
+                    'icon' => 'globe',
+                ],
+                [
+                    'text' => 'Ciudades',
+                    'url'  => 'admin/cities',
+                    'icon' => 'map-marker',
+                ],
+            ]
         ],
         [
-            'text' => 'Ciudades',
-            'url'  => 'admin/cities',
-            'icon' => 'map-marker',
-        ],
-        [
-            'text' => 'Tags',
-            'url'  => 'admin/tags',
-            'icon' => 'tags',
+            'text' => 'Configuración',
+            'icon' => 'cog',
+            'submenu' => [
+                [
+                    'text' => 'Tags',
+                    'url'  => 'admin/tags',
+                    'icon' => 'tags',
+                ],
+                [
+                    'text' => 'Metodos de Pago',
+                    'url'  => 'admin/payment_methods',
+                    'icon' => 'credit-card',
+                ],
+                [
+                    'text' => 'Categorias de Jugador',
+                    'url'  => 'admin/player_categories',
+                    'icon' => 'list-ol',
+                ],
+                [
+                    'text' => 'Categoria de Noticias',
+                    'url'  => 'admin/notice_categories',
+                    'icon' => 'list-ul',
+                ],
+            ]
         ],
         [
             'text' => 'Clubes',
             'url'  => 'admin/clubes',
             'icon' => 'users',
-        ],
-        [
-            'text' => 'Metodos de Pago',
-            'url'  => 'admin/payment_methods',
-            'icon' => 'credit-card',
-        ],
-        [
-            'text' => 'Categorias de Jugador',
-            'url'  => 'admin/player_categories',
-            'icon' => 'list-ol',
-        ],
-        [
-            'text' => 'Categoria de Noticias',
-            'url'  => 'admin/notice_categories',
-            'icon' => 'list-ul',
         ],
         [
             'text' => 'Productos',
