@@ -1,136 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
     <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>@yield('title')</title>
-    <!--BOOTSTRAP CSS-->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-    <!--SLICK SLIDER CSS-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
-    <!--BX SLIDER CSS-->
-    <link rel="stylesheet" href="{{ asset('css/jquery.bxslider.css') }}"> 
-    <!--OWL SLIDER CSS-->
-    <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
-    <!--FLEX SLIDER CSS-->
-    <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet">
-    <!--FLEX SLIDER CSS-->
-    <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet">
-    <!--PRETTY PHOTO CSS-->
-    <link href="{{ asset('css/prettyphoto.css') }}" rel="stylesheet">
-    <!--ICONS CSS-->
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
-    <!--component CSS-->
-    <link href="{{ asset('css/component.css') }}" rel="stylesheet">
-    <link href="{{ asset('svg-icon.css') }}" rel="stylesheet">
-    <!--THEME TYPO CSS-->
-    <link href="{{ asset('css/themetypo.css') }}" rel="stylesheet">
-    <!--WIDGET CSS-->
-    <link rel="stylesheet" href="{{ asset('css/widget.css') }}">
-    <!--CUSTOM STYLE CSS-->
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <!--COLOR CSS-->
-    <link rel="stylesheet" href="{{ asset('css/color.css') }}">
-    <!--RESPONCIVE CSS-->
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    @yield('css')
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>@yield('title','Tenis')</title>
+      <!--BOOTSTRAP CSS-->
+      <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+      <!--SLICK SLIDER CSS-->
+      <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
+      <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
+      <!--BX SLIDER CSS-->
+      <link rel="stylesheet" href="{{ asset('css/jquery.bxslider.css') }}">
+      <!--OWL SLIDER CSS-->
+      <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
+      <!--FLEX SLIDER CSS-->
+      <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet">
+      <!--component CSS-->
+      <link href="{{ asset('css/component.css') }}" rel="stylesheet">
+      <!--PRETTY PHOTO CSS-->
+      <link href="{{ asset('css/prettyphoto.css') }}" rel="stylesheet">
+      <!--ICONS CSS-->
+      <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+      <link href="{{ asset('svg-icon.css') }}" rel="stylesheet">
+      <!--THEME TYPO CSS-->
+      <link href="{{ asset('css/themetypo.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/fullcalendar.css') }}" rel='stylesheet' />
+      <!--WIDGET CSS-->
+      <link rel="stylesheet" href="{{ asset('css/widget.css') }}">
+      <!--CUSTOM STYLE CSS-->
+      <link rel="stylesheet" href="{{ asset('style.css') }}">
+      <!--component CSS-->
+      <link href="{{ asset('css/component.css') }}" rel="stylesheet">
+      <!--COLOR CSS-->
+      <link rel="stylesheet" href="{{ asset('css/color.css') }}">
+      <!--RESPONCIVE CSS-->
+      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     </head>
-    <body class="kode-tennis">
-    
-    <!--// Wrapper //-->
-    <div class="kode-wrapper">
-      <!--// Header //-->
-      <header class="tennis-header">
-      <div class="topbar">
-        <div class="container">
-        <ul class="social-wrap">
-          <li><a href="{{ $site->vimeo }}" class="fa fa-vimeo"></a></li>
-          <li><a href="{{ $site->googleplus }}" class="fa fa-google-plus"></a></li>
-          <li><a href="{{ $site->linkedin }}" class="fa fa-linkedin"></a></li>
-          <li><a href="{{ $site->facebook }}" class="fa fa-facebook"></a></li>
-          <li><a href="{{ $site->twitter }}" class="fa fa-twitter"></a></li>
-          </ul>
-        <div class="pull-right">
-          <ul class="login-wrap">
-          <li>
-            <div class="login-dec">
-              <a data-target="#myModal" data-toggle="modal" href="#">login</a>
-              <a data-target="#myModalTwo" data-toggle="modal" href="#">register</a>
+    <body class="kode-football">
+      <!--// Wrapper //-->
+      <div class="kode-wrapper">
+        <!--// Header //-->
+        <header class="football-header">
+        <div class="topbar4">
+          <div class="container">
+          <div class="pull-right">
+            <div class="login-wraper3">
+              <ul class="login-meta">
+                <li><a href="#">help desk</a></li>
+                <li><a href="#">live score</a></li>
+                <li>
+                  <!-- Large modal -->
+                  <a type="button" class="btn btn-primary" data-toggle="modal" data-target=".media01">Login</a>
+
+                  <div class="modal fade bs-example-modal-lg media01" tabindex="-1" role="login" aria-labelledby="login">
+                    <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="kode_modal_body">
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <h2>member  login</h2>
+                        <form>
+                          <div class="kode_modal_field">
+                            <input type="text" placeholder="username" required>
+                          </div>
+                          <div class="kode_modal_field">
+                            <input type="text" placeholder="password" required>
+                          </div>
+                          <div class="kode_model_btn">
+                            <button>login</button>
+                            <a href="#">forget password?</a>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!-- Large modal -->
+                  <a type="button" class="btn btn-primary" data-toggle="modal" data-target=".media02">Register</a>
+                  
+                  <div class="modal fade bs-example-modal-lg media02" tabindex="-1" role="Register" aria-labelledby="Register">
+                    <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="kode_modal_body">
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <h2>Register</h2>
+                        <form>
+                          <div class="kode_modal_field">
+                            <input type="text" placeholder="username" required>
+                          </div>
+                          <div class="kode_modal_field">
+                            <input type="text" placeholder="password" required>
+                          </div>
+                          <div class="kode_modal_field">
+                            <input type="text" placeholder="confirm password" required>
+                          </div>
+                          <div class="kode_model_btn">
+                            <button>register</button>
+                            <a href="#">member  login</a>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                <li><a id="ftb_btn_link" ><i class="fa fa-search"></i></a></li>
+              </ul>
+              <div id="show-class"><form><input type="text" placeholder="your key word"></form></div>
+              <ul class="social-style3">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              </ul>
             </div>
-          </li>
-          <li>
-            <div class="dropdown">
-            <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
-            english
-            <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Français</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Polski</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Occitan</a></li>
-            </ul>
-            </div>
-          </li>
-          <li>
-            <div class="dropdown">
-            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
-            usd
-            <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ban</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Use</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Aus</a></li>
-            </ul>
-            </div>
-          </li>
-          </ul>
+          </div>
+          </div>
         </div>
-        </div>
-      </div>
-      <div class="logo-wrap">
-        <div class="container">
-        <div class="tennis-logo">
-          <a href="#"><img src="{{ asset('application/storage/app/'.$site->logo) }}" alt=""></a>
-        </div>
-        <div class="tennis-nav">
-          <ul class="navigation">
-          <li><a href="#">home</a>
-            <ul>
-              <li><a href="index.html">home</a></li>
-              <li><a href="tennis.html">tennis </a></li>
-              <li><a href="sport-news.html">sport news</a></li>
-            </ul> 
-          </li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="fixtures.html">Fixture</a>
-            <ul>
-              <li><a href="result.html">result</a></li>
-               <li><a href="tickets.html">tickets</a></li>
-                <li><a href="ticket-single.html">ticket single </a></li>
-            </ul>   
-          </li>
-          <li><a href="#">Team & Player</a>
-            <ul>
-               <li><a href="our-team.html">our team</a></li>
-                <li><a href="our-team-2.html">our team old </a></li>
-                <li><a href="single-player.html">single player</a></li>
-                <li><a href="single-player-sidebar.html">single player sidebar</a></li>
+        <div class="logo-wrap2">
+          <div class="container">
+          <div class="logo logo-3">
+            <a href="#"><img src="{{ asset('images/logo2.png') }}" alt=""></a> </div>
+          <!--// SPB TICKER //-->
+          <div class="spb-ticker spb-ticker2">
+            <span>New:</span>
+            <ul class="top_slider_bxslider">
+            <li>
+              <div class="ticker-dec">
+              <a href="#">Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean soquis bibendum auctor, entum feugiat,</a>
+              </div>
+            </li>
+            <li>
+              <div class="ticker-dec">
+              <a href="#">Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean soquis bibendum auctor, entum feugiat,</a>
+              </div>
+            </li>
             </ul>
-          </li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="blog.html">Blog</a>
-            <ul>
-               <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog2.html">blog 02 </a></li>
-                 <li><a href="blog-detail.html">blog detail</a></li>
-                <li><a href="blog-sidebar.html">blog sidebar</a></li>
-            </ul>
-          </li>
-          <li><a href="#">page</a>
+          </div>
+          <!--// SPB TICKER //-->
+          </div>
+        </div>
+
+        <div class="nav4">
+          <div class="container">
+          <ul class="kode_nave">
+            <li><a href="#">home</a>
+              <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="tennis.html">tennis </a></li>
+                <li><a href="sport-news.html">sport news</a></li>
+              </ul> 
+            </li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="fixtures.html">Fixture</a>
+              <ul>
+                <li><a href="result.html">result</a></li>
+                 <li><a href="tickets.html">tickets</a></li>
+                  <li><a href="ticket-single.html">ticket single </a></li>
+              </ul>   
+            </li>
+            <li><a href="#">Team & Player</a>
+              <ul>
+                 <li><a href="our-team.html">our team</a></li>
+                  <li><a href="our-team-2.html">our team 02 </a></li>
+                  <li><a href="single-player.html">single player</a></li>
+                  <li><a href="single-player-sidebar.html">single player sidebar</a></li>
+              </ul>
+            </li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a>
+              <ul>
+                 <li><a href="blog.html">Blog</a></li>
+                  <li><a href="blog2.html">blog 02 </a></li>
+                   <li><a href="blog-detail.html">blog detail</a></li>
+                  <li><a href="blog-sidebar.html">blog sidebar</a></li>
+              </ul>
+            </li>
+            <li><a href="#">page</a>
               <ul>
                 <li><a href="404.html">404</a></li>
                 <li><a href="404-2.html">404 02</a></li>
@@ -138,7 +189,7 @@
                 <li><a href="coming-soon.html">coming soon</a></li>
               </ul>
             </li>
-          <li><a href="#">Contact Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
           </ul>
           <!--DL Menu Start-->
           <div id="kode-responsive-navigation" class="dl-menuwrapper">
@@ -188,932 +239,1270 @@
             </ul>
           </div>
           <!--DL Menu END-->
-          <div class="ad-search">
-          <i class="fa fa-search show"></i>
-          <a href="#" ><i class="fa fa-shopping-cart"><span>02</span></i></a>
-          </div>
-        </div>
-        </div>
-      </div>
-      </header>
-      <!--// Header //-->
-      <!--// Main Banner //-->
-      <div class="tns-banner">
-      <ul class="bxslider7">
-        <li>
-        <!--// Main Banner Wrap//-->
-        @if($site->slider_1)
-        <div class="tns-banner-wrap">
-          <img src="{{ asset('application/storage/app/'.$site->slider_1) }}" width="1344" height="579" alt="{{ $site->slider_1_title }}">
-          <div class="container">
-          <div class="text-caption text-left">
-            <span>{{ $site->slider_1_title }}</span>
-            <p>{{ $site->slider_1_subtitle }}</p>
-            <a href="{{ $site->slider_1_link }}">Ver Informaci&oacute;n</a>
-          </div>
-          </div>
-        </div>
-        @endif
-        <!--// Main Banner Wrap//-->
-        </li>
-        <li>
-        <!--// Main Banner Wrap//-->
-        @if($site->slider_2)
-        <div class="tns-banner-wrap">
-          <img src="{{ asset('application/storage/app/'.$site->slider_2) }}" width="1344" height="579" alt="{{ $site->slider_2_title }}">
-          <div class="container">
-          <div class="text-caption text-left">
-            <span>{{ $site->slider_2_title }}</span>
-            <p>{{ $site->slider_2_subtitle }}</p>
-            <a href="{{ $site->slider_2_link }}">Ver Informaci&oacute;n</a>
-          </div>
-          </div>
-        </div>
-        @endif
-        <!--// Main Banner Wrap//-->
-        </li>
-        <li>
-        <!--// Main Banner Wrap//-->
-        @if($site->slider_3)
-        <div class="tns-banner-wrap">
-          <img src="{{ asset('application/storage/app/'.$site->slider_3) }}" width="1344" height="579" alt="{{ $site->slider_3_title }}">
-          <div class="container">
-          <div class="text-caption text-left">
-            <span>{{ $site->slider_3_title }}</span>
-            <p>{{ $site->slider_3_subtitle }}</p>
-            <a href="{{ $site->slider_3_link }}">Ver Informaci&oacute;n</a>
-          </div>
-          </div>
-        </div>
-        @endif
-        <!--// Main Banner Wrap//-->
-        </li>
-      </ul>
-      </div>
-      <!--// Main Banner //-->
-      <!--// Main Content //-->
-      <div class="kode-content">
-      <section>
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1">
-          <p>Mantente informado con nuestra Web</p>
-          <h4>Ultimas Noticias</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          @foreach($notices as $notice)
-            <!--// TENNIS CLASSES//-->
-            <div class="col-md-3">
-            <div class="tns-classes">
-              <div class="thumb">
-              <img src="{{ asset('application/storage/app/public/notices/avatars/'.$notice->avatar) }}" width="271" height="287" alt="">
-              <div class="thumb-caption thumb-caption-overlay">
-                <h4><a href="#">{{ $notice->title }}</a></h4>
-                <p>{!! $notice->content !!}</p>
-                <a href="#" class="tns-btn">Leer Mas...</a>
-              </div>
-              </div>
-            </div>
-            </div>
-          @endforeach
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS EVENT BG //-->
-      <section class="tns-eventbg">
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 white">
-          <p>Participa en los Mejores torneos del Pais</p>
-          <h4>Proximos Torneos</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          <!--// TENNIS EVENT WRAP //-->
-          <div class="col-md-4">
-          <div class="tns-event">
-            <div class="thumb">
-            <img src="extra-images/tns-event1.jpg" alt="">
-            </div>
-            <div class="tns-event-caption">
-            <h6>JUN 27 - JUL 10, 2016</h6>
-            <h4><a href="#">French Open Tennis Championship</a></h4>
-            <p>Wimbledon, also known The Championships, is considered by many the world's most prestigious tournament. Launched in 1877, the event is held in late June and early July at the All England Lawn Tennis and Croquet Club in London and is the only major still played on grass - the game's original surface.</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS EVENT WRAP //-->
-          <!--// TENNIS EVENT WRAP //-->
-          <div class="col-md-4">
-          <div class="tns-event">
-            <div class="thumb">
-            <img src="extra-images/tns-event2.jpg" alt="">
-            </div>
-            <div class="tns-event-caption">
-            <h6>JUN 27 - JUL 10, 2016</h6>
-            <h4><a href="#">THE CHAMPIONSHIPS, WIMBLEDON</a></h4>
-            <p>Wimbledon, also known The Championships, is considered by many the world's most prestigious tournament. Launched in 1877, the event is held in late June and early July at the All England Lawn Tennis and Croquet Club in London and is the only major still played on grass - the game's original surface.</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS EVENT WRAP //-->
-          <!--// TENNIS EVENT WRAP //-->
-          <div class="col-md-4">
-          <div class="tns-event">
-            <div class="thumb">
-            <img src="extra-images/tns-event3.jpg" alt="">
-            </div>
-            <div class="tns-event-caption">
-            <h6>August - September  </h6>
-            <h4><a href="#">FUS Open tennis championship</a></h4>
-            <p>Wimbledon, also known The Championships, is considered by many the world's most prestigious tournament. Launched in 1877, the event is held in late June and early July at the All England Lawn Tennis and Croquet Club in London and is the only major still played on grass - the game's original surface.</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS EVENT WRAP //-->
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS EVENT BG //-->
-      <!--// TENNIS EVENT FIXTURE //-->
-      <section class="tns-fixure-wrap">
-        <div class="container">
-        <div class="col-md-8">
-          <div class="tns-fixure-dec">
-          <div class="text">
-            <div class="tns-heading1">
-            <p>Watch All The Stunning Matches</p>
-            <h4>NExt Sensation Match</h4>
-            <span><i class="icon-sport"></i></span>
-            </div>
-            <div class="tns-countdown-wrap">
-            <h5>MEN'S Single 2016 SEASON KICKOFF</h5>
-            <div class="thumb-left">
-              <figure>
-              <img src="extra-images/tens-plyer1.jpg" alt="">
-              </figure>
-              <h6><a href="#">Rogeiro Febrio </a></h6>
-            </div>
-            <div class="tns-countdown">
-              <ul class="tns-tags">
-              <li>Sat</li>
-              <li>AUG 20, 2016</li>
-              <li>7:00 PM</li>
-              <li>HARDER StaDIUM</li>
-              </ul>
-              <ul class="countdown count_2">
-              <li>
-                <div class="countdown-dec countdown">
-                <h4 class="days">365</h4>
-                <p class="days_ref">Days</p>
-                </div>
-              </li>
-              <li>
-                <div class="countdown-dec countdown">
-                <h4 class="hours">97</h4>
-                <p class="hours_ref">hours</p>
-                </div>
-              </li>
-              <li>
-                <div class="countdown-dec countdown">
-                <h4 class="minutes">56</h4>
-                <p class="minutes_ref">minutes</p>
-                </div>
-              </li>
-              <li>
-                <div class="countdown-dec countdown">
-                <h4 class="seconds">20</h4>
-                <p class="seconds_ref">seconds</p>
-                </div>
-              </li>
-              </ul>
-            </div>
-            <div class="thumb-right">
-              <figure>
-              <img src="extra-images/tens-plyer2.jpg" alt="">
-              </figure>
-              <h6><a href="#">Rogeiro Febrio </a></h6>
-            </div>
-            </div>
-            <a class="tns-btn2" href="#">Buy Ticket</a>
-          </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="tns-fixure-tabs">
-          <!-- Nav tabs -->
-          <ul class="tns-tabnav" role="tablist">
-            <li role="presentation" class="active"><a href="#home"  role="tab" data-toggle="tab">Live</a></li>
-            <li role="presentation"><a href="#profile"  role="tab" data-toggle="tab">Result</a></li>
-            <li role="presentation"><a href="#messages"  role="tab" data-toggle="tab">Fixture</a></li>
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="tns-tab-content-wrap">
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <a class="tns-viewall" href="#">Veiw ALl</a>
-            </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
-            <div class="tns-tab-content-wrap">
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <a class="tns-viewall" href="#">Veiw ALl</a>
-            </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="messages">
-              <div class="tns-tab-content-wrap">
-              <div class="tns-tab-content">
-              <div class="tns-tabs-teams">
-                <div class="tns-team-1">
-                <a href="#"><img src="images/team1-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-                <span >vs</span>
-                <div class="tns-team-1 tns-team-2">
-                <a href="#"><img src="images/team2-logo.png" alt=""></a>
-                <h5><a href="#">FERNAND</a></h5>
-                </div>
-              </div>
-              <h6>22/06/2015 14:30 - 16:00</h6>
-              </div>
-              <a class="tns-viewall" href="#">Veiw ALl</a>
-            </div>
+          <div class="ticket-wrap">
+            <a class="book-now" href="tickets.html"><i class="fa fa-ticket"></i>Buy Tickets</a>
+            <div class="lung-link">
+            <a href="#">en</a>
+            <a href="#">fr</a>
             </div>
           </div>
           </div>
         </div>
-        </div>
-      </section>
-      <!--// TENNIS EVENT FIXTURE //-->
-      <!--// TENNIS GALLERY //-->
-      <section class="tns-gallery-bg">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 black">
-          <p>Watch All The Stunning Matches</p>
-          <h4>OUr  Latest Gallery</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <!--// TENNIS MASONRY GALLERY //-->
-        <div class="tns-gallery masonry masonryFlyIn">
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery1.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery2.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery4.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery6.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery5.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery3.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-          <div class="col-md-3 masonry-item">
-          <div class="tns-gallery-thumb">
-            <img src="extra-images/tns-gallery7.jpg" alt="">
-            <div class="tns-gallery-caption">
-            <span>Picture of Stunning US Open</span>
-            <span>Tournment Match</span>
-            <a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-expand"></i></a>
-            </div>
-          </div>
-          </div>
-        </div>
-        <!--// TENNIS MASONRY GALLERY //-->
-        <div class="tns-load">
-          <a href="#">Load More</a>
-        </div>
-      </section>
-      <!--// TENNIS GALLERY //-->
-
-      <!--// TENNIS MID BAR //-->
-      <section class="tns-midbar-bg">
-        <div class="container">
-        <div class="tns-midbar">
-          <h6>Get Your best Trainer Today</h6>
-          <p>Tennis is a perfect combination of violent action taking place in an atmosphere of tota</p>
-          <a class="hire" href="#">Hire Us</a>
-          <a class="hire" href="#">Discover More</a>
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS MID BAR //-->
-      <!--// TENNIS BLOG SECTION //-->
-      <section>
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 black">
-          <p>Watch All The Stunning Matches</p>
-          <h4>Latest Blog Post</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          <!--// TENNIS BLOG DEC //-->
-          <div class="col-md-4">
-          <div class="tns-blog-wrap">
-            <span class="tns-date">
-            <b>25</b>
-            <b>July</b>
-            </span>
-            <div class="thumb">
-            <img src="extra-images/tns-blog1.jpg" alt="">
-            </div>
-            <div class="tns-blog-caption">
-            <h4><a href="#">Racket Into Two Pieces By An Player</a></h4>
-            <ul>
-              <li><a href="#"><i class="fa fa-comment"></i>10 Comment</a></li>
-              <li><a href="#"><i class="fa fa-eye"></i>30 Views</a></li>
-            </ul>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere of total tranquility.Tennis is a perfect combination ...</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-           <!--// TENNIS BLOG DEC //-->
-           <!--// TENNIS BLOG DEC //-->
-          <div class="col-md-4">
-          <div class="tns-blog-wrap">
-            <span class="tns-date">
-            <b>25</b>
-            <b>July</b>
-            </span>
-            <div class="thumb">
-            <img src="extra-images/tns-blog1.jpg" alt="">
-            </div>
-            <div class="tns-blog-caption">
-            <h4><a href="#">Racket Into Two Pieces By An Player</a></h4>
-            <ul>
-              <li><a href="#"><i class="fa fa-comment"></i>10 Comment</a></li>
-              <li><a href="#"><i class="fa fa-eye"></i>30 Views</a></li>
-            </ul>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere of total tranquility.Tennis is a perfect combination ...</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-           <!--// TENNIS BLOG DEC //-->
-           <!--// TENNIS BLOG DEC //-->
-          <div class="col-md-4">
-          <div class="tns-blog-wrap">
-            <span class="tns-date">
-            <b>25</b>
-            <b>July</b>
-            </span>
-            <div class="thumb">
-            <img src="extra-images/tns-blog1.jpg" alt="">
-            </div>
-            <div class="tns-blog-caption">
-            <h4><a href="#">Racket Into Two Pieces By An Player</a></h4>
-            <ul>
-              <li><a href="#"><i class="fa fa-comment"></i>10 Comment</a></li>
-              <li><a href="#"><i class="fa fa-eye"></i>30 Views</a></li>
-            </ul>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere of total tranquility.Tennis is a perfect combination ...</p>
-            <a href="#">Read More</a>
-            </div>
-          </div>
-          </div>
-           <!--// TENNIS BLOG DEC //-->
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS BLOG SECTION //-->
-      <!--// TENNIS LATEST GALLERY SECTION //-->
-      <section class="tns-gallery2-bg">
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 white">
-          <p>Watch All The Stunning Matches</p>
-          <h4>OUr  Latest Gallery</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          <!--// LATEST GALLERY 2 //-->
-          <div class="col-md-3">
-          <div class="tns-gallery2">
-            <div class="thumb">
-            <img src="extra-images/tns-blog2.png" alt="">
-            <ul class="thumb-caption2">
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a data-rel="prettyPhoto[]" href="extra-images/tns-blog2.png"><i class="fa fa-search"></i></a></li>
-            </ul>
-            </div>
-            <div class="text">
-            <h4><a href="#">Tennis Hand Bag Kit</a></h4>
-            <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>
-            <p>375 . 00</p>
-            </div>
-          </div>
-          </div>
-          <!--// LATEST GALLERY 2 //-->
-          <!--// LATEST GALLERY 2 //-->
-          <div class="col-md-3">
-          <div class="tns-gallery2">
-            <div class="thumb">
-            <img src="extra-images/tns-blog3.png" alt="">
-            <ul class="thumb-caption2">
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a data-rel="prettyPhoto[]" href="extra-images/tns-blog3.png"><i class="fa fa-search"></i></a></li>
-            </ul>
-            </div>
-            <div class="text">
-            <h4><a href="#">Tennis Hand Bag Kit</a></h4>
-            <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>
-            <p>375 . 00</p>
-            </div>
-          </div>
-          </div>
-          <!--// LATEST GALLERY 2 //-->
-          <!--// LATEST GALLERY 2 //-->
-          <div class="col-md-3">
-          <div class="tns-gallery2">
-            <div class="thumb">
-            <img src="extra-images/tns-blog4.png" alt="">
-            <ul class="thumb-caption2">
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a data-rel="prettyPhoto[]" href="extra-images/tns-blog4.png"><i class="fa fa-search"></i></a></li>
-            </ul>
-            </div>
-            <div class="text">
-            <h4><a href="#">Tennis Hand Bag Kit</a></h4>
-            <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>
-            <p>375 . 00</p>
-            </div>
-          </div>
-          </div>
-          <!--// LATEST GALLERY 2 //-->
-          <!--// LATEST GALLERY 2 //-->
-          <div class="col-md-3">
-          <div class="tns-gallery2">
-            <div class="thumb">
-            <img src="extra-images/tns-blog5.png" alt="">
-            <ul class="thumb-caption2">
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a data-rel="prettyPhoto[]" href="extra-images/tns-blog5.png"><i class="fa fa-search"></i></a></li>
-            </ul>
-            </div>
-            <div class="text">
-            <h4><a href="#">Tennis Hand Bag Kit</a></h4>
-            <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>
-            <p>375 . 00</p>
-            </div>
-          </div>
-          </div>
-          <!--// LATEST GALLERY 2 //-->
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS LATEST GALLERY SECTION //-->
-      <div class="tns-counterup">
-        <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-          <div class="counterup-dec">
-            <span class="icon-ball"></span>
-            <h3><i class="fa fa-plus"></i><b class="word-count">300</b>Matches</h3>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="counterup-dec">
-            <span class="icon-three-star-hotel"></span>
-            <h3><i class="fa fa-plus"></i><b class="word-count">275</b>Winnings</h3>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="counterup-dec">
-            <span class="icon-cup-1"></span>
-            <h3><i class="fa fa-plus"></i><b class="word-count">275</b>Trophies</h3>
-          </div>
-          </div>
-          <div class="col-md-3">
-          <div class="counterup-dec">
-            <span class="icon-medal"></span>
-            <h3><i class="fa fa-plus"></i><b class="word-count">50</b>Award</h3>
-          </div>
-          </div>
-        </div>
-        </div>
-      </div>
-      <!--// TENNIS TEAM SECTION //-->
-      <section>
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 black">
-          <p>Watch All The Stunning Matches</p>
-          <h4>Our  Team & Coaches</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          <!--// TENNIS TEAM DEC //-->
-          <div class="col-md-3">
-          <div class="tns-team">
-            <img src="extra-images/tns-team1.png" alt="">
-            <div class="tns-team-caption">
-            <h5><a href="#">JOHN MONTGOMERY</a></h5>
-            </div>
-            <div class="tns-team-caption tns-team-caption-overlay">
-            <h5><a href="#">JOHN MONTGOMERY</a></h5>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere</p>
-            <ul class="tns-social2">
-              <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-            </ul>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS TEAM DEC //-->
-          <!--// TENNIS TEAM DEC //-->
-          <div class="col-md-3">
-          <div class="tns-team">
-            <img src="extra-images/tns-team2.png" alt="">
-            <div class="tns-team-caption">
-            <h5><a href="#">Maria Kirilenko</a></h5>
-            </div>
-            <div class="tns-team-caption tns-team-caption-overlay">
-            <h5><a href="#">Maria Kirilenko</a></h5>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere</p>
-            <ul class="tns-social2">
-              <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-            </ul>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS TEAM DEC //-->
-          <!--// TENNIS TEAM DEC //-->
-          <div class="col-md-3">
-          <div class="tns-team">
-            <img src="extra-images/tns-team3.png" alt="">
-            <div class="tns-team-caption">
-            <h5><a href="#">Anna Kournikova</a></h5>
-            </div>
-            <div class="tns-team-caption tns-team-caption-overlay">
-            <h5><a href="#">Anna Kournikova</a></h5>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere</p>
-            <ul class="tns-social2">
-              <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-            </ul>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS TEAM DEC //-->
-          <!--// TENNIS TEAM DEC //-->
-          <div class="col-md-3">
-          <div class="tns-team">
-            <img src="extra-images/tns-team4.png" alt="">
-            <div class="tns-team-caption">
-            <h5><a href="#">BENJAMIN MENDOZA</a></h5>
-            </div>
-            <div class="tns-team-caption tns-team-caption-overlay">
-            <h5><a href="#">BENJAMIN MENDOZA</a></h5>
-            <p>Tennis is a perfect combination of violent action itaking place in an atmosphere</p>
-            <ul class="tns-social2">
-              <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-            </ul>
-            </div>
-          </div>
-          </div>
-          <!--// TENNIS TEAM DEC //-->
-        </div>
-        </div>
-      </section>
-      <!--// TENNIS TEAM SECTION //-->
-      <!--// TENNIS TESTIMONIAL SECTION //-->
-      <section class="tns-testimonial-bg">
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 white">
-          <p>Watch All The Stunning Matches</p>
-          <h4>What People say about us</h4>
-          <span><i class="icon-sport"></i></span>
-        </div>
-        <!--// TENNIS HEADING //-->
-        <div class="tns-testimonial-silder">
-          <ul class="bxslider7">
+        </header>
+        <!--// Header //-->
+        <!--// Main Banner //-->
+        <div id="mainbanner">
+        <div class="flexslider">
+          <ul class="slides">
           <li>
-            <div class="tns-testimonial">
-            <figure>
-              <img src="extra-images/testimonial-4.jpg" alt="">
-            </figure>
-            <h6><a href="#">Julia George</a></h6>
-            <p>Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere..</p>
+            <!--// THUMB SLIDER START //-->
+            <div class="thumb-slider">
+            <img src="{{ asset('extra-images/slide4.jpg') }}" alt="" />
+            <div class="container">
+              <div class="kode-ft-caption text-left"> 
+              <div class="football-caption">      
+                <h6>Welcome</h6>
+                <h4>football</h4>
+                <h5>Football Club</h5>
+              </div>
+              <div class="clearfix"></div>        
+              <p><a class="btn-4" href="#">Veiw More<i class="fa fa-angle-right"></i></a></p>
+              <div class="clearfix"></div>
+              </div>
             </div>
+            </div>
+            <!--// THUMB SLIDER END //-->
           </li>
           <li>
-            <div class="tns-testimonial">
-            <figure>
-              <img src="extra-images/testimonial-4.jpg" alt="">
-            </figure>
-            <h6><a href="#">Julia George</a></h6>
-            <p>Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere..</p>
+            <!--// THUMB SLIDER START //-->
+            <div class="thumb-slider">
+            <img src="{{ asset('extra-images/slide5.jpg') }}" alt="" />
+            <div class="container">
+              <div class="kode-ft-caption text-center"> 
+              <div class="football-caption">      
+                <h6>Welcome</h6>
+                <h4>football</h4>
+                <h5>Football Club</h5>
+              </div>
+              <div class="clearfix"></div>        
+              <p><a class="btn-4" href="#">Veiw More<i class="fa fa-angle-right"></i></a></p>
+              <div class="clearfix"></div>
+              </div>
             </div>
+            </div>
+            <!--// THUMB SLIDER END //-->
           </li>
           <li>
-            <div class="tns-testimonial">
-            <figure>
-              <img src="extra-images/testimonial-4.jpg" alt="">
-            </figure>
-            <h6><a href="#">Julia George</a></h6>
-            <p>Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere..</p>
+            <!--// THUMB SLIDER START //-->
+            <div class="thumb-slider">
+            <img src="{{ asset('extra-images/slide7.jpg') }}" alt="" />
+            <div class="container">
+              <div class="kode-ft-caption text-right"> 
+              <div class="football-caption">      
+                <h6>Welcome</h6>
+                <h4>football</h4>
+                <h5>Football Club</h5>
+              </div>
+              <div class="clearfix"></div>        
+              <p><a class="btn-4" href="#">Veiw More<i class="fa fa-angle-left"></i></a></p>
+              <div class="clearfix"></div>
+              </div>
             </div>
-          </li>
-          <li>
-            <div class="tns-testimonial">
-            <figure>
-              <img src="extra-images/testimonial-4.jpg" alt="">
-            </figure>
-            <h6><a href="#">Julia George</a></h6>
-            <p>Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquility.Tennis is a perfect combination of violent action taking place in an atmosphere..</p>
             </div>
+            <!--// THUMB SLIDER END //-->
           </li>
           </ul>
         </div>
         </div>
-      </section>
-      <!--// TENNIS TESTIMONIAL SECTION //-->
-      <!--// TENNIS ACHIVEMENT SECTION //-->
-      <section>
-        <div class="container">
-        <!--// TENNIS HEADING //-->
-        <div class="tns-heading1 black">
-          <p>Watch All The Stunning Matches</p>
-          <h4>Our Achievement</h4>
-          <span><i class="icon-sport"></i></span>
+        <!--// Main Banner //-->
+        <!--// Main Content //-->
+        <div class="kode-content">
+        <div class="ft-match-slider">
+          <div class="owl-carousel-3 owl-theme" id="owl-demo6">
+          <!--// SLIDER ITEM //-->
+            <div class="ft-match-dec">
+              <span>23 June 2016</span>
+              <div class="ft-match-teams">
+              <div class="ft-team-1">
+                <h5><a href="#">Iceland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag.png') }}" alt=""></a>
+              </div>
+              <span>21 : 00</span>
+              <div class="ft-team-1 ft-team-2">
+                <h5><a href="#">Poland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag6.png') }}" alt=""></a>
+              </div>
+              </div>
+            </div>
+          <!--// SLIDER ITEM //-->
+          <!--// SLIDER ITEM //-->
+            <div class="ft-match-dec">
+              <span>23 June 2016</span>
+              <div class="ft-match-teams">
+              <div class="ft-team-1">
+                <h5><a href="#">England</a></h5>
+                <a href="#"><img src="{{ asset('images/flag2.png') }}" alt=""></a>
+              </div>
+              <span>21 : 00</span>
+              <div class="ft-team-1 ft-team-2">
+                <h5><a href="#">Germany</a></h5>
+                <a href="#"><img src="{{ asset('images/flag3.png') }}" alt=""></a>
+              </div>
+              </div>
+            </div>
+          <!--// SLIDER ITEM //-->
+          <!--// SLIDER ITEM //-->
+            <div class="ft-match-dec">
+              <span>23 June 2016</span>
+              <div class="ft-match-teams">
+              <div class="ft-team-1">
+                <h5><a href="#">Turkey</a></h5>
+                <a href="#"><img src="{{ asset('images/flag4.png') }}" alt=""></a>
+              </div>
+              <span>21 : 00</span>
+              <div class="ft-team-1 ft-team-2">
+                <h5><a href="#">Africa</a></h5>
+                <a href="#"><img src="{{ asset('images/flag5.png') }}" alt=""></a>
+              </div>
+              </div>
+            </div>
+          <!--// SLIDER ITEM //-->
+          <!--// SLIDER ITEM //-->
+            <div class="ft-match-dec">
+              <span>23 June 2016</span>
+              <div class="ft-match-teams">
+              <div class="ft-team-1">
+                <h5><a href="#">Iceland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag.png') }}" alt=""></a>
+              </div>
+              <span>21 : 00</span>
+              <div class="ft-team-1 ft-team-2">
+                <h5><a href="#">Poland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag6.png') }}" alt=""></a>
+              </div>
+              </div>
+            </div>
+          <!--// SLIDER ITEM //-->
+          <!--// SLIDER ITEM //-->
+            <div class="ft-match-dec">
+              <span>23 June 2016</span>
+              <div class="ft-match-teams">
+              <div class="ft-team-1">
+                <h5><a href="#">Iceland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag.png') }}" alt=""></a>
+              </div>
+              <span>21 : 00</span>
+              <div class="ft-team-1 ft-team-2">
+                <h5><a href="#">Poland</a></h5>
+                <a href="#"><img src="{{ asset('images/flag.png') }}" alt=""></a>
+              </div>
+              </div>
+            </div>
+          <!--// SLIDER ITEM //-->
+          </div>
         </div>
-        <!--// TENNIS HEADING //-->
-        <div class="row">
-          <div class="col-md-3">
-          <div class="tns-achiv">
-            <figure>
-            <img src="extra-images/tns-achivement1.png" alt="">
-            <figcaption><a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a></figcaption>
-            </figure>
+        <section class="ftb_goalpost">
+          <div class="container">
+            <div class="heading5 hdg_6">
+              <h4>About the <span>Goalpost</span></h4>
+            </div>
+            <div class="row">
+              <div class="ftb_goal_tab_des">
+                <div class="col-md-3">
+                  <div class="ftb_goal_fig">
+                    <img src="{{ asset('extra-images/goal.jpg') }}" alt="images">
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <div class="panel panel-default">
+                    <div class="ftb_goal_tabs">
+                      <ul class="ftb_goal_tab_detail">
+                        <li><a class="active" href="#tab1" data-toggle="tab">Club History</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Club Mission & vission</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Club Stats</a></li>
+                      </ul>
+                      <div class="panel-body">  
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="tab1">
+                            <div class="ftb_goal_tab_text">
+                              <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="ftb_goal_caption">
+                                    <span class="icon-football-2"></span>
+                                    <h5><a href="#">Dolor Sit Nam Sed</a></h5>
+                                    <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="ftb_goal_caption">
+                                    <span class="icon-symbol-1"></span>
+                                    <h5><a href="#">Dolor Sit Nam Sed</a></h5>
+                                    <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="ftb_goal_caption margin_0">
+                                    <span class="icon-signs"></span>
+                                    <h5><a href="#">Dolor Sit Nam Sed</a></h5>
+                                    <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="ftb_goal_caption margin_0">
+                                    <span class="icon-football-1"></span>
+                                    <h5><a href="#">Dolor Sit Nam Sed</a></h5>
+                                    <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="tab2">
+                            <div class="ftb_goal_club">
+                              <h3>Club Mission</h3>
+                              <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
+                            </div>
+                            <div class="ftb_goal_club">
+                              <h3>Club Vission</h3>
+                              <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
+                            </div>
+                          </div>
+                          <div class="tab-pane" id="tab3">
+                            <div class="ftb_club_stats">
+                              <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
+                              <ul>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1993 Duis in tortor scelerisque felis mattis</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1995 Duis in tortor scelerisque eget velit </a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>2000 Duis in  felis mattis imperdiet</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </section>
+        <!--// TENNIS EVENT BG //-->
+        <section class="ftb-resultbg">
+          <div class="container">
+          <div class="heading5">
+            <h4>Latest <span>Match result</span></h4>
+          </div>
+          <div class="ftb-result-wrap">
+            <div class="ftb-result1">
+            <div class="ftb-result-logo">
+              <a href="#"><img src="{{ asset('images/ftb-result.png') }}" alt=""></a>
+              <span><b>Win</b></span>
+            </div>
+            <div class="text">
+              <h6><a href="#">Eagle Sharks</a></h6>
+              <span>Daniel Sturridge - 1 goal</span>
+              <span>Edward Colier- 2 goal</span>
+            </div>
+            </div>
+
+            <div class="ftb-final-result">
+            <em>October 1, 2014 | 2:15 pm <i>Little Park</i></em>
+            <p><span class="grater">3</span> - <span>1</span></p>
+            <a class="btn-4"  href="#">SEE More</a>
+            </div>
+
+            <div class="ftb-result1 ftb-result2">
+            <div class="ftb-result-logo">
+              <a href="#"><img src="{{ asset('images/ftb-result2.png') }}" alt=""></a>
+              <span><b>Loss</b></span>
+            </div>
+            <div class="text">
+              <h6><a href="#">Eagle Sharks</a></h6>
+              <span>Daniel Sturridge - 1 goal</span>
+              <span>Edward Colier- 2 goal</span>
+            </div>
+            </div>
           </div>
           </div>
-          <div class="col-md-3">
-          <div class="tns-achiv">
-            <figure>
-            <img src="extra-images/tns-achivement2.png" alt="">
-            <figcaption><a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a></figcaption>
-            </figure>
+        </section>
+        <!--// TENNIS EVENT BG //-->
+        <!--// TENNIS EVENT FIXTURE //-->
+        <section>
+          <div class="container">
+          <div class="row">
+            <!--// BLOG SLIDER //-->
+            <div class="col-md-4">
+            <div class="heading6">
+              <h4>News <span>Post</span></h4>
+            </div>
+            <div class="ftb-bx-slider">
+              <ul class="bxslider">
+              <li>
+                <div class="ftb-post-thumb">
+                <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
+                <div class="text">
+                  <h6>Best Goal Save In History</h6>
+                  <a class="btn-4" href="#">Read More</a>
+                </div>
+                </div>
+              </li>
+              <li>
+                <div class="ftb-post-thumb">
+                <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
+                <div class="text">
+                  <h6>Best Goal Save In History</h6>
+                  <a class="btn-4" href="#">Read More</a>
+                </div>
+                </div>
+              </li>
+              <li>
+                <div class="ftb-post-thumb">
+                <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
+                <div class="text">
+                  <h6>Best Goal Save In History</h6>
+                  <a class="btn-4" href="#">Read More</a>
+                </div>
+                </div>
+              </li>
+              </ul>
+            </div>
+            </div>
+            <!--// BLOG SLIDER //-->
+            <!--// BLOG SLIDER //-->
+            <div class="col-md-4">
+            <!--// HEADING 6 //-->
+            <div class="heading6">
+              <h4>Recent<span>Videos</span></h4>
+            </div>
+            <!--// HEADING 6 //-->
+            <!--// POST //-->
+            <div class="ftb-post-thumb">
+              <a href="#"><img src="{{ asset('extra-images/ftb-post-slider2.jpg') }}" alt=""></a>
+              <a class="spb-play" href="#"><i class="fa fa-play-circle"></i></a>
+              <div class="text">
+              <h6>Highlights OF Euro Cup 2nd Mtach</h6>
+              </div>
+            </div>
+            <!--// POST //-->
+            <!--// POST //-->
+            <div class="ftb-post-thumb">
+              <a href="#"><img src="{{ asset('extra-images/ftb-post-slider3.jpg') }}" alt=""></a>
+              <a class="spb-play" href="#"><i class="fa fa-play-circle"></i></a>
+              <div class="text">
+              <h6>A Single Fan In Stadium</h6>
+              </div>
+            </div>
+            <!--// POST //-->
+            </div>
+            <!--// BLOG SLIDER //-->
+            <div class="col-md-4">
+            <!--// HEADING 6 //-->
+            <div class="heading6">
+              <h4>Club<span>Ranking</span></h4>
+            </div>
+            <!--// HEADING 6 //-->
+            <!--// RATING TABLE //-->
+            <ul class="ftb-rating-table">
+              <li>
+              <div class="ftb-position">
+                1 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo2.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                20
+              </div>
+              </li>
+              <li>
+              <div class="ftb-position">
+                2 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo3.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                25
+              </div>
+              </li>
+              <li>
+              <div class="ftb-position">
+                3 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo4.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                30
+              </div>
+              </li>
+              <li>
+              <div class="ftb-position">
+                4 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo1.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                45
+              </div>
+              </li>
+              <li>
+              <div class="ftb-position">
+                5 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo6.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                29
+              </div>
+              </li>
+              <li>
+              <div class="ftb-position">
+                6 . 
+              </div>
+              <div class="ftb-team-name">
+                <img src="{{ asset('images/short-logo7.png') }}" alt="">
+                <a href="#">Lore Ipsum Dolor</a>
+              </div>
+              <div class="ftb-team-points">
+                03
+              </div>
+              </li>
+            </ul>
+            <!--// RATING TABLE //-->
+            </div>
+            <!--// BLOG SLIDER //-->
           </div>
+          <!--// MAIN TABS TABLE //-->
+          
+          <div class="ftb-tabs-wrap">
+            <!--// MAIN TABS NAV //-->
+            <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a class="hire" href="#homeone" aria-controls="homeone" role="tab" data-toggle="tab">Next Match</a></li>
+            <li role="presentation"><a  class="hire" href="#profileone" aria-controls="profileone" role="tab" data-toggle="tab">Training Schedule</a></li>
+            <li role="presentation"><a  class="hire" href="#messagesone" aria-controls="messagesone" role="tab" data-toggle="tab">Leauge Table</a></li>
+            </ul>
+            <!--// MAIN TABS NAV //-->
+            <!-- Tab panes -->
+            <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="homeone">
+              <!--// MAIN TABS TABLE //-->
+              <ul class="ftb-main-table">
+              <li>
+                <div class="ftb-date">
+                15th May
+                </div>
+                <div class="ftb-compitatev">
+                <div class="compitatev-team1">
+                  <img src="{{ asset('images/short-logo8.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                <span>VS</span>
+                <div class="compitatev-team1 compitatev-team2">
+                  <img src="{{ asset('images/short-logo9.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                </div>
+                <div class="ftb-venue">Camp Nou</div>
+                <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="ftb-date">
+                15th May
+                </div>
+                <div class="ftb-compitatev">
+                <div class="compitatev-team1">
+                  <img src="{{ asset('images/short-logo10.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                <span>VS</span>
+                <div class="compitatev-team1 compitatev-team2">
+                  <img src="{{ asset('images/short-logo11.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                </div>
+                <div class="ftb-venue">Camp Nou</div>
+                <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="ftb-date">
+                15th May
+                </div>
+                <div class="ftb-compitatev">
+                <div class="compitatev-team1">
+                  <img src="{{ asset('images/short-logo12.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                <span>VS</span>
+                <div class="compitatev-team1 compitatev-team2">
+                  <img src="{{ asset('images/short-logo13.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                </div>
+                <div class="ftb-venue">Camp Nou</div>
+                <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="ftb-date">
+                15th May
+                </div>
+                <div class="ftb-compitatev">
+                <div class="compitatev-team1">
+                  <img src="{{ asset('images/short-logo14.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                <span>VS</span>
+                <div class="compitatev-team1 compitatev-team2">
+                  <img src="{{ asset('images/short-logo15.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                </div>
+                <div class="ftb-venue">Camp Nou</div>
+                <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
+              </li>
+              <li>
+                <div class="ftb-date">
+                15th May
+                </div>
+                <div class="ftb-compitatev">
+                <div class="compitatev-team1">
+                  <img src="{{ asset('images/short-logo8.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                <span>VS</span>
+                <div class="compitatev-team1 compitatev-team2">
+                  <img src="{{ asset('images/short-logo9.png') }}" alt="">
+                  <a href="#">Bristol Academy</a>
+                </div>
+                </div>
+                <div class="ftb-venue">Camp Nou</div>
+                <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
+              </li>
+              </ul>
+              <!--// MAIN TABS TABLE //-->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profileone">
+               <div class="kode_calendar">
+                <div id='calendar' style="display:block !important;"></div>
+               </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messagesone">
+              <ul class="kode_ticket_list list_2">
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+                <li>
+                  <span>04<i>SEp</i></span>
+                  <div class="kode_ticket_text">
+                    <h6>English Premier Leauge</h6>
+                    <div class="ticket_title">
+                      <h2>Great Titan</h2>
+                      <span>VS</span>
+                      <h2>Somalian Titans</h2>
+                    </div>
+                    <p>15:30 PM, Soccer Stadium, Dubai</p>
+                  </div>
+                  <div class="ticket_btn">
+                    <a href="#">Buy Ticket</a>
+                  </div>
+                </li>
+              </ul> 
+            </div>
+            </div>
           </div>
-          <div class="col-md-3">
-          <div class="tns-achiv">
-            <figure>
-            <img src="extra-images/tns-achivement3.png" alt="">
-            <figcaption><a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a></figcaption>
-            </figure>
+          <!--// MAIN TABS TABLE //-->
           </div>
+        </section>
+        <!--// TENNIS EVENT FIXTURE //-->
+        <!--// TENNIS GALLERY //-->
+        <section class="ftb-gallery-bg">
+          <div class="container">
+            <div class="heading5">
+            <h4>Our  <span>Gallery</span></h4>
+            </div>
+            <div class="ftb-gallery">
+            <ul>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery1.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery2.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery3.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery4.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery5.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+              <li>
+              <figure>
+                <img src="{{ asset('extra-images/ftbgallery6.jpg') }}" alt="">
+                <figcaption>
+                <h4>Great Game Ever In History</h4>
+                <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
+                </figcaption>
+              </figure>
+              </li>
+            </ul>
+            <div class="tns-load ftb-load">                
+              <a href="#">load more</a>
+            </div>
+            </div>
           </div>
-          <div class="col-md-3">
-          <div class="tns-achiv">
-            <figure>
-            <img src="extra-images/tns-achivement4.png" alt="">
-            <figcaption><a data-rel="prettyPhoto[]" href="images/about.jpg"><i class="fa fa-search"></i></a></figcaption>
-            </figure>
+        </section>
+        <!--// FOOTBALL COUNTER //-->
+        <div class="ftb-counterup">
+          <div class="container">
+          <!--// HEADING 5 //-->
+          <div class="heading5">
+            <h4>Important Statictics</h4>
+          </div>
+          <!--// HEADING 5 //-->
+          <div class="row">
+            <!--// COUNTER //-->
+            <div class="col-md-3 col-sm-3">
+            <div class="counterup-dec">
+              <span class="icon-football"></span>
+              <div class="text">
+              <h3 class="word-count">250</h3>
+              <p>Played Games</p>
+              </div>
+            </div>
+            </div>
+            <!--// COUNTER //-->
+            <!--// COUNTER //-->
+            <div class="col-md-3 col-sm-3">
+            <div class="counterup-dec">
+              <span class="icon-soccer"></span>
+              <div class="text">
+              <h3 class="word-count">200</h3>
+              <p>Record Goals</p>
+              </div>
+            </div>
+            </div>
+            <!--// COUNTER //-->
+            <div class="col-md-3 col-sm-3">
+            <div class="counterup-dec">
+              <span class="icon-symbol"></span>
+              <div class="text">
+              <h3 class="word-count">154</h3>
+              <p>Great Winnings</p>
+              </div>
+            </div>
+            </div>
+            <!--// COUNTER //-->
+            <!--// COUNTER //-->
+            <div class="col-md-3 col-sm-3">
+            <div class="counterup-dec">
+              <span class="icon-cup"></span>
+              <div class="text">
+              <h3 class="word-count">24</h3>
+              <p>Awards & Trophies</p>
+              </div>
+            </div>
+            </div>
+            <!--// COUNTER //-->
           </div>
           </div>
         </div>
+        <!--// FOOTBALL COUNTER //-->
+        <!--// FOOTBALL TEAM SECTION //-->
+        <section>
+          <div class="container">
+          <!--// HEADING 5 //-->
+          <div class="heading5 black">
+            <h4>Our  <span>Team</span></h4>
+          </div>
+          <!--// HEADING 5 //-->
+          <div class="row">
+            <!--// FOOTBALL TEAM //-->
+            <div class="col-md-3 col-sm-6">
+            <div class="ftb-team-thumb">
+              <figure><img src="{{ asset('extra-images/ftb-teamone.png') }}" alt=""></figure>
+              <div class="ftb-team-dec">
+              <span>07</span>
+              <div class="text">
+                <a href="#">Leo Adam</a>
+                <p>Defender</p>
+              </div>
+              <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL TEAM //-->
+            <!--// FOOTBALL TEAM //-->
+            <div class="col-md-3 col-sm-6">
+            <div class="ftb-team-thumb">
+              <figure><img src="{{ asset('extra-images/ftb-teamtwo.png') }}" alt=""></figure>
+              <div class="ftb-team-dec">
+              <span>07</span>
+              <div class="text">
+                <a href="#">Leo Adam</a>
+                <p>Defender</p>
+              </div>
+              <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL TEAM //-->
+            <!--// FOOTBALL TEAM //-->
+            <div class="col-md-3 col-sm-6">
+            <div class="ftb-team-thumb">
+              <figure><img src="{{ asset('extra-images/ftb-three.png') }}" alt=""></figure>
+              <div class="ftb-team-dec">
+              <span>07</span>
+              <div class="text">
+                <a href="#">Leo Adam</a>
+                <p>Defender</p>
+              </div>
+              <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL TEAM //-->
+            <!--// FOOTBALL TEAM //-->
+            <div class="col-md-3 col-sm-6">
+            <div class="ftb-team-thumb">
+              <figure><img src="{{ asset('extra-images/ftb-teamfour.png') }}" alt=""></figure>
+              <div class="ftb-team-dec">
+              <span>07</span>
+              <div class="text">
+                <a href="#">Leo Adam</a>
+                <p>Defender</p>
+              </div>
+              <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL TEAM //-->
+          </div>
+          </div>
+        </section>
+        <!--// FOOTBALL TEAM SECTION //-->
+        <!--// FOOTBALL LATEST NEWS SECTION //-->
+        <div class="ftb-latestnew-wrap">
+          <div class="container">
+          <div class="row">
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="col-md-7">
+            <!--// HEADING 5 //-->
+            <div class="heading5 text-left">
+              <h4>Featured <span>News</span></h4>
+            </div>
+            <!--// HEADING 5 //-->
+            <div class="ftb-latestnew">
+              <figure><img src="{{ asset('extra-images/ftb-new1.jpg') }}" alt=""></figure>
+              <div class="ftb-new-dec">
+              <span>
+                <b>April</b>
+                12
+              </span>
+              <div class="text">
+                <h4><a href="#">Great Win Over Chelsea</a></h4>
+                <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.Aenean sollicitudin, lorem quis bibe ...</p>
+                <a href="#">Read More</a>
+                <ul>
+                <li><a href="#">3<i class="fa fa-heart"></i></a></li>
+                <li><a href="#">3<i class="fa fa-comment"></i></a></li>
+                </ul>
+              </div>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="col-md-5 ftb-latestnew2-wrap">
+            <!--// HEADING 5 //-->
+            <div class="heading5 text-left">
+              <h4>Latest  <span>Post</span></h4>
+            </div>
+            <!--// HEADING 5 //-->
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="ftb-latestnew2">
+              <div class="ftb-new-dec">
+              <figure><img src="{{ asset('extra-images/ftb-new2.jpg') }}" alt=""></figure>
+              <div class="text">
+                <h4><a href="#">Lore Ipsum Dolor</a></h4>
+                <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
+                <a href="#">Read More</a>
+              </div>
+              </div>
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="ftb-latestnew2">
+              <div class="ftb-new-dec">
+              <figure><img src="{{ asset('extra-images/ftb-new3.jpg') }}" alt=""></figure>
+              <div class="text">
+                <h4><a href="#">Lore Ipsum Dolor</a></h4>
+                <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
+                <a href="#">Read More</a>
+              </div>
+              </div>
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="ftb-latestnew2">
+              <div class="ftb-new-dec">
+              <figure><img src="{{ asset('extra-images/ftb-new4.jpg') }}" alt=""></figure>
+              <div class="text">
+                <h4><a href="#">Lore Ipsum Dolor</a></h4>
+                <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
+                <a href="#">Read More</a>
+              </div>
+              </div>
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+            <!--// FOOTBALL LATEST NEWS //-->
+            <div class="ftb-latestnew2">
+              <div class="ftb-new-dec">
+              <figure><img src="{{ asset('extra-images/ftb-new5.jpg') }}" alt=""></figure>
+              <div class="text">
+                <h4><a href="#">Lore Ipsum Dolor</a></h4>
+                <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
+                <a href="#">Read More</a>
+              </div>
+              </div>
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+            </div>
+            <!--// FOOTBALL LATEST NEWS //-->
+          </div>
+          </div>
         </div>
-      </section>
-      <!--// TENNIS ACHIVEMENT SECTION //-->
+        <!--// FOOTBALL LATEST NEWS SECTION //-->
+        <!--// FOOTBALL PRODUCT SECTION //-->
+        <div class="ftb-item_padding">
+          <div class="container">
+          <!--// HEADING 5 //-->
+          <div class="heading5 black">
+            <h4>SPORTS  <span>WEAR</span></h4>
+            <p>Etiam sodales ante id nunc. Proin ornare dignissim lacus. Nunc porttitor nunc a sem.</p>
+          </div>
+          <!--// HEADING 5 //-->
+          <div class="row">
+            <!--// FOOTBALL ITEM //-->
+            <div class="col-md-3 col-sm-6">
+              <div class="ftb-item">
+              <figure><img src="{{ asset('images/ftb-item1.png') }}" alt=""></figure>
+              <div class="text">
+                  <h4>
+                    <a href="#">Sports Shoes</a>
+                  </h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+                <div class="text text-hover">
+                  <div class="ftb_item_detail">
+                    <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
+                    <a class="buy-btn" href="#">Buy Now</a>
+                    <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                  <h4><a href="#">Sports Shoes</a></h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+              </div>
+            </div>
+            <!--// FOOTBALL ITEM //-->
+            <!--// FOOTBALL ITEM //-->
+            <div class="col-md-3 col-sm-6">
+              <div class="ftb-item">
+              <figure><img src="{{ asset('images/ftb-item2.png') }}" alt=""></figure>
+              <div class="text">
+                  <h4>
+                    <a href="#">Sports Shoes</a>
+                  </h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+                <div class="text text-hover">
+                  <div class="ftb_item_detail">
+                    <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
+                    <a class="buy-btn" href="#">Buy Now</a>
+                    <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                  <h4><a href="#">Sports Shoes</a></h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+              </div>
+            </div>
+            <!--// FOOTBALL ITEM //-->
+            <!--// FOOTBALL ITEM //-->
+            <div class="col-md-3 col-sm-6">
+              <div class="ftb-item">
+              <figure><img src="{{ asset('images/ftb-item3.png') }}" alt=""></figure>
+              <div class="text">
+                  <h4>
+                    <a href="#">Sports Shoes</a>
+                  </h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+                <div class="text text-hover">
+                  <div class="ftb_item_detail">
+                    <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
+                    <a class="buy-btn" href="#">Buy Now</a>
+                    <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                  <h4><a href="#">Sports Shoes</a></h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+              </div>
+            </div>
+            <!--// FOOTBALL ITEM //-->
+            <!--// FOOTBALL ITEM //-->
+            <div class="col-md-3 col-sm-6">
+              <div class="ftb-item">
+                <figure><img src="{{ asset('images/ftb-item4.png') }}" alt=""></figure>
+                <div class="text">
+                  <h4>
+                    <a href="#">Sports Shoes</a>
+                  </h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+                <div class="text text-hover">
+                  <div class="ftb_item_detail">
+                    <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
+                    <a class="buy-btn" href="#">Buy Now</a>
+                    <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
+                  </div>
+                  <h4><a href="#">Sports Shoes</a></h4>
+                  <span><del>$45 </del>$25</span>
+                  <div class="clear"></div>
+                  <div class="rating rating_3">
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </div>   
+                </div>
+              </div>
+            </div>
+            </div>
+            <!--// FOOTBALL ITEM //-->
+          </div>
+          </div>
+        </div>
+        <!--// FOOTBALL PRODUCT SECTION //-->
       </div>
       <!--// Main Content //-->
-    </div>
-
-      <footer class="tennis-footer">
+      
+      <!--// Contact Footer //-->
+      <footer class="football-footer">
       <div class="container">
-        <div class="col-md-3">
-        <div class="widget tns-text-widget">
-          <div class="tns-ftlogo">
-          <a href="#"><img src="images/tennis-logo.png" alt=""></a>
+        <div class="row">
+        <!--// TEXT WIDGET //-->
+        <div class="col-md-4">
+          <div class="widget spb-widget spb-text-widget">
+          <div class="ft-logo">
+            <a href="#"><img src="{{ asset('images/logo2.png') }}" alt=""></a>
           </div>
-          <p>Lorem ipsum dolor sit , consect etur adipisicing elit, sed do usmotempor incidt dolore magna aliqua</p>
-          <ul class="tns-social2">
-          <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+          <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante at nunc pretium mattis. Nunc ac semp a libero et, iaculis gravida orci.</p>
+          <p>Suspendisse imperdiet dolor in tristique dignissim. Fusce lacus dolor, accumsan . .</p>
+          <ul class="spb-social2">
+            <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"> <i class="fa fa-rss"></i></a></li>
+            <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
           </ul>
-        </div>
-        </div>
-
-        <div class="col-md-3">
-        <div class="widget tsn-widget tsn-contact">
-          <h4>Contact Us</h4>
-          <div class="tsn-contact-dec">
-          <h6><i class="fa fa-home" ></i>Address</h6>
-          <span>building 3550  Lorem ispum, China city  </span>
-          </div>
-          <div class="tsn-contact-dec">
-          <h6><i class="fa fa-phone" ></i>call</h6>
-          <span>(123)456-78-90</span>
-          </div>
-          <div class="tsn-contact-dec">
-          <h6><i class="fa fa-envelope" ></i>Email Us</h6>
-          <span>Sales@kodetennis.com</span>
           </div>
         </div>
+        <!--// TEXT WIDGET //-->
+        <!--// POPULAR WIDGET //-->
+        <div class="col-md-4">
+          <div class="widget spb-widget spb-popular">
+          <h4>Most  Popular</h4>
+          <div class="spb-popular-dec">
+            <figure>
+            <img src="{{ asset('extra-images/popular-ft1.jpg') }}" alt="">
+            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft1.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+            </figure>
+            <div class="text">
+            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
+            <ul class="spb-meta2">
+              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
+              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
+            </ul>
+            </div>
+          </div>
+          <div class="spb-popular-dec">
+            <figure>
+            <img src="{{ asset('extra-images/popular-ft2.jpg') }}" alt="">
+            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft2.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+            </figure>
+            <div class="text">
+            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
+            <ul class="spb-meta2">
+              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
+              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
+            </ul>
+            </div>
+          </div>
+          <div class="spb-popular-dec">
+            <figure>
+            <img src="{{ asset('extra-images/popular-ft3.jpg') }}" alt="">
+            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft3.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+            </figure>
+            <div class="text">
+            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
+            <ul class="spb-meta2">
+              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
+              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
+            </ul>
+            </div>
+          </div>
+          </div>
         </div>
-
-        <div class="col-md-3">
-        <div class="widget tsn-widget tsn-news">
-          <h4>Latest News</h4>
+        <!--// POPULAR WIDGET //-->
+        <!--// FLICKER WIDGET //-->
+        <div class="col-md-4">
+          <div class="widget spb-widget spb-flicker">
+          <h4>Flicker Widgets</h4>
           <ul>
-          <li><a href="#"><span>01</span>Improve Your Strok Using The Wall</a></li>
-          <li><a href="#"><span>01</span>Improve Your Strok Using The Wall</a></li>
-          <li><a href="#"><span>01</span>Improve Your Strok Using The Wall</a></li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft1.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft1.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft2.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft2.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft3.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft3.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft4.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft4.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft5.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft5.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft6.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft6.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft7.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft7.jpg') }}" alt="">
+            </li>
+            <li>
+              <a data-rel="prettyPhoto[]" href="extra-images/flicker-ft8.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              <img src="{{ asset('extra-images/flicker-ft8.jpg') }}" alt="">
+            </li>
           </ul>
+          <a class="spb-btn3" href="#">Load More</a>
+          </div>
         </div>
+        <!--// FLICKER WIDGET //-->
         </div>
-        <div class="col-md-3">
-        <div class="widget tsn-widget tsn-search">
-          <h4>Newsletter</h4>
-          <p>Lorem ipsum dolor sit amet, coned do usmotempor dolorna aliqua </p>
-          <form>
-          <input type="text" placeholder="Enter Your Email">
-          <button>Subscribe</button>
-          </form>
+        <!--// COPY RIGHT //-->
+        <div class="spb-copyright">
+        <ul class="sbp-ftnav">
+          <li><a href="#">home</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Topics</a></li>
+          <li><a href="#">Stats</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">post</a></li>
+        </ul>
+        <p>All Rights Reserved</p>
+        <a id="kode-topbtn" href="#"><i class="fa fa-angle-double-up"></i></a>
         </div>
-        </div>
+        <!--// COPY RIGHT //-->
       </div>
       </footer>
-      <div class="tns-copyright">
-      <div class="container">
-        <span>© 2016-17 kickoff.com All right reserved</span>
-        <p>Website by <a href="#">Kodeforest</a> </p>
-      </div>
-      </div>
       <!--// Contact Footer //-->
       <!--// Wrapper //-->
       <!-- Modal -->
@@ -1155,40 +1544,35 @@
         </div>
         </div>
       </div>
-
-    <!-- jQuery (necessary for JavaScript plugins) -->
-    <!--JavaScript-->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <!--BOOTSTRAP JavaScript-->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <!--BOOTSTRAP PROGRESS BAR JavaScript-->
-    <script src="{{ asset('js/bootstrap-progressbar.js') }}"></script>
-    <!--FLEX SLIDER JavaScript-->
-    <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
-    <!--OWL SLIDER JavaScript-->
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <!--BX SLIDER JavaScript-->
-    <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
-    <!--SLICK SLIDER JavaScript-->
-    <script src="{{ asset('slick/slick.min.js') }}"></script>
-    <!--SLICK SLIDER JavaScript-->
-    <script src="{{ asset('js/masonry.min.js') }}"></script>
-    <!--ACCORDIAN JavaScript--> 
-    <script src="{{ asset('js/jquery.accordion.js') }}"></script>
-    <!--PRETTY PHOTO JavaScript-->
-    <script src="{{ asset('js/jquery.prettyphoto.js') }}"></script>
-    <script src="{{ asset('js/kode_pp.js') }}"></script>
-    <!--MASONRY JavaScript-->
-    <script src="{{ asset('js/masonry.min.js') }}"></script>
-    <!--Number Count (Waypoints) JavaScript-->
-    <script src="{{ asset('js/jquery.countdown.js') }}"></script> 
-    <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+      <!-- jQuery (necessary for JavaScript plugins) -->
+      <!--JavaScript-->
+      <script src="{{ asset('js/jquery.js') }}"></script>
+      <!--BOOTSTRAP JavaScript-->
+      <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+      <!--BOOTSTRAP PROGRESS BAR JavaScript-->
+      <script src="{{ asset('js/bootstrap-progressbar.js') }}"></script>
+      <!--FLEX SLIDER JavaScript-->
+      <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+      <!--OWL SLIDER JavaScript-->
+      <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+      <!--BX SLIDER JavaScript-->
+      <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
+      <!--SLICK SLIDER JavaScript-->
+      <script src="{{ asset('slick/slick.min.js') }}"></script>
+      <script src="{{ asset('js/moment.min.js') }}"></script>
+      <!--ACCORDIAN JavaScript--> 
+      <script src="{{ asset('js/jquery.accordion.js') }}"></script>
+      <!--PRETTY PHOTO JavaScript-->
+      <script src="{{ asset('js/jquery.prettyphoto.js') }}"></script>
+      <script src="{{ asset('js/kode_pp.js') }}"></script>
+      <!--Number Count (Waypoints) JavaScript-->
+      <script src="{{ asset('js/jquery.countdown.js') }}"></script>
+      <script src="{{ asset('js/jquery.downCount.js') }}"></script>
+      <script src="{{ asset('js/modernizr.custom.js') }}"></script>
       <script src="{{ asset('js/jquery.dlmenu.js') }}"></script>
-    <script src="{{ asset('js/jquery.downCount.js') }}"></script>
-    <script src="{{ asset('js/waypoints-min.js') }}"></script>
-    <script src="{{ asset('js/moment.min.js') }}"></script>
-    <!--CUSTOM JavaScript-->
-    <script src="{{ asset('js/functions.js') }}"></script>
-    @yield('js')
-  </body>
-</html>
+      <script src="{{ asset('js/waypoints-min.js') }}"></script>
+      <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+      <!--CUSTOM JavaScript-->
+      <script src="{{ asset('js/functions.js') }}"></script>
+    </body>
+  </html>
