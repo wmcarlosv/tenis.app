@@ -29,7 +29,7 @@
                 <a data-rel="prettyPhoto[]" href="extra-images/popular-ft1.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
               </figure>
               <div class="text">
-                <a href="#">{{ str_limit(strip_tags($nh->content),70) }}</a>
+                <a href="{{ route('home.notice',['slug' => $nh->slug]) }}">{{ str_limit(strip_tags($nh->content),70) }}</a>
                 <ul class="spb-meta2">
                   <li><a href="#"><i class="fa fa-calendar"></i>{{ date('d-m H:m',strtotime($nh->publisher_date)) }}</a></li>
                   <li><a href="#"><i class="fa fa-user"></i>{{ $nh->user->name }}</a></li>
