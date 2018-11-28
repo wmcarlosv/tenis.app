@@ -23,13 +23,13 @@ class SitesController extends Controller
             $notices = [];
         }
 
-        $notices_header = Notice::orderBy('publisher_date','desc')->limit(3)->get();
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
 
         if(!$notices_header){
             $notices_header = [];
         }
 
-        $championships = Championship::where('title','<>',NULL)->orderby('datefrom','ASC')->limit(4)->get();
+        $championships = Championship::orderby('datefrom','ASC')->limit(4)->get();
 
         if(!$championships){
             $championships = [];
