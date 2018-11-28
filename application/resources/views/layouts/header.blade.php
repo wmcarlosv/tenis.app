@@ -127,7 +127,7 @@
           <div class="container">
           <ul class="kode_nave">
             <li><a href="{{ url('/') }}">home</a></li>
-            <li><a href="about-us.html">Noticias</a></li>
+            <li><a href="{{ url('/notices') }}">Noticias</a></li>
             <li><a href="fixtures.html">Torneos</a> </li>
             <li><a href="#">Equipos</a></li>
             <li><a href="shop.html">Galeria</a></li>
@@ -137,7 +137,7 @@
           <button class="dl-trigger">Open Menu</button>
             <ul class="dl-menu">
               <li class="active"><a class="active" href="{{ url('/') }}">Home</a></li>
-              <li class="menu-item kode-parent-menu"><a href="about-us.html">Noticias</a></li>
+              <li class="menu-item kode-parent-menu"><a href="{{ url('/notices') }}">Noticias</a></li>
               <li class="menu-item kode-parent-menu"><a href="fixtures.html">Torneos</a></li>
               <li class="menu-item kode-parent-menu"><a href="#">Equipos</a></li>
               <li class="menu-item kode-parent-menu"><a href="shop.html">Galeria</a></li>
