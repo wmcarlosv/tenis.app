@@ -31,8 +31,12 @@
 	}
 
   img.club-image{
-    width: 390px;
-    height: 350px;
+    width: 380px;
+    height: 340px;
+  }
+
+  div.ftb-gallery ul li{
+    padding:5px;
   }
 </style>
 @stop
