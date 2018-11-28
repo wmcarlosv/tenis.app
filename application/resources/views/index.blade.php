@@ -182,8 +182,8 @@
 			    <p>{{ str_limit(strip_tags($ntc->content),200) }}</p>
 			    <a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">Leer Mas..</a>
 			    <ul>
-			    <li><a href="#">3<i class="fa fa-heart"></i></a></li>
-			    <li><a href="#">3<i class="fa fa-comment"></i></a></li>
+			    <li><a href="#">{{ date('d/m/Y H:m:s',strtotime($ntc->publisher_date)) }}<i class="fa fa-calendar"></i></a></li>
+			    <li><a href="#">{{ $ntc->user->name }}<i class="fa fa-user"></i></a></li>
 			    </ul>
 			  </div>
 			  </div>
