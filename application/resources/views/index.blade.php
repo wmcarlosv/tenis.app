@@ -15,6 +15,10 @@
 		width: 107px;
 		height: 145px;	
 	}
+
+	div.text h4{
+		line-height:20px;
+	}
 </style>
 @stop
 @section('content')
