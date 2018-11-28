@@ -54,7 +54,7 @@
 						<div class="kode_blog_des">
 							<div class="kode_blog_caption">
 								<h5>{{ $ntc->title }}</h5>
-								<p>{{ str_limit(strip_tags($ntc->content),200) }}</p>
+								<p>{{ str_limit(strip_tags($ntc->content),100) }}</p>
 							</div>
 						</div>	
 						<div class="kode_blog_comment">
