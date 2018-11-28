@@ -175,7 +175,7 @@
 			  <div class="ftb-new-dec">
 			  <div class="text">
 			    <h4><a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">{{ $ntc->title }}</a></h4>
-			    <p>{{ strip_tags($ntc->content) }}</p>
+			    <p>{{ str_limit(strip_tags($ntc->content),200) }}</p>
 			    <a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">Leer Mas..</a>
 			    <ul>
 			    <li><a href="#">3<i class="fa fa-heart"></i></a></li>
@@ -198,7 +198,7 @@
 	  <figure><img src="{{ asset('application/storage/app/public/notices/avatars/'.$ntc->avatar) }}" class="notice-more-image" alt=""></figure>
 	  <div class="text">
 	    <h4><a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">{{ $ntc->title }}</a></h4>
-	    <p>{{ strip_tags($ntc->content) }}</p>
+	    <p>{{ str_limit(strip_tags($ntc->content),200) }}...</p>
 	    <a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">Leer Mas..</a>
 	  </div>
 	  </div>
