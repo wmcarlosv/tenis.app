@@ -7,6 +7,7 @@ use App\Site;
 use App\Notice;
 use App\NoticeCategory;
 use App\Club;
+use App\Championship;
 
 class HomeController extends Controller
 {
@@ -84,6 +85,23 @@ class HomeController extends Controller
 
     public function championships(){
 
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $championships = Championship::orderby('created_at','DESC')->get();
+        if(!$championships){
+            $championships = [];
+        }
+
+        return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships]);
     }
 
     public function clubes(){
