@@ -19,6 +19,11 @@
 	div.text h4{
 		line-height:23px;
 	}
+
+	div.football-caption{
+		font-size:14px;
+		line-height: 23px;
+	}
 </style>
 @stop
 @section('content')
@@ -34,7 +39,7 @@
 	  <div class="kode-ft-caption text-left"> 
 	  <div class="football-caption">      
 	    <h6>{{ $site->slider_1_title }}</h6>
-	    <h4>{{ $site->slider_1_subtitle }}</h4>
+	    <h4>{{ str_limit($site->slider_1_subtitle, 20) }}</h4>
 	  </div>
 	  <div class="clearfix"></div>        
 	  <p><a class="btn-4" href="{{ $site->slider_1_link }}">Leer Mas..<i class="fa fa-angle-right"></i></a></p>
