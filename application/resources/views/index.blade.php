@@ -17,7 +17,7 @@
 	}
 
 	div.text h4{
-		line-height:20px;
+		line-height:23px;
 	}
 </style>
 @stop
