@@ -279,7 +279,7 @@
   @endforeach
 </ul>
 <div class="tns-load ftb-load">                
-  <a href="#">Ver Todos</a>
+  <a href="{{ url('/clubes') }}">Ver Todos</a>
 </div>
 </div>
 </div>

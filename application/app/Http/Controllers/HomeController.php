@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Site;
 use App\Notice;
 use App\NoticeCategory;
+use App\Club;
 
 class HomeController extends Controller
 {
@@ -86,6 +87,23 @@ class HomeController extends Controller
     }
 
     public function clubes(){
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
 
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $clubes = Club::where('id','<>',1)->orderBy('created_at','desc')->get();
+
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes]);
     }
 }

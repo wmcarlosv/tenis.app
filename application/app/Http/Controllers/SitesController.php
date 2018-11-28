@@ -36,7 +36,7 @@ class SitesController extends Controller
             $championships = [];
         }
 
-        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->limit(6)->get();
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
         if(!$clubes){
             $clubes = [];
         }
