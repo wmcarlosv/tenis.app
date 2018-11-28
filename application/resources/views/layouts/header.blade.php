@@ -128,7 +128,7 @@
           <ul class="kode_nave">
             <li><a href="{{ url('/') }}">home</a></li>
             <li><a href="{{ url('/notices') }}">Noticias</a></li>
-            <li><a href="{{ url('/championships') }}">Torneos</a> </li>
+            <li><a href="{{ url('/championships') }}">Campeonatos</a> </li>
             <li><a href="{{ url('/clubes') }}">Equipos</a></li>
             <li><a href="shop.html">Galeria</a></li>
             <li><a href="blog.html">Ranking</a></li>
@@ -138,7 +138,7 @@
             <ul class="dl-menu">
               <li class="active"><a class="active" href="{{ url('/') }}">Home</a></li>
               <li class="menu-item kode-parent-menu"><a href="{{ url('/notices') }}">Noticias</a></li>
-              <li class="menu-item kode-parent-menu"><a href="fixtures.html">Torneos</a></li>
+              <li class="menu-item kode-parent-menu"><a href="fixtures.html">Campeonatos</a></li>
               <li class="menu-item kode-parent-menu"><a href="#">Equipos</a></li>
               <li class="menu-item kode-parent-menu"><a href="shop.html">Galeria</a></li>
               <li class="menu-item kode-parent-menu"><a href="#">Ranking</a></li>

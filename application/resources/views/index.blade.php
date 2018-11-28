@@ -237,7 +237,7 @@
 	<div class="container">
 	<!--// HEADING 5 //-->
 	<div class="heading5 black">
-	<h4>Ultimos  <span>Torneos Registrados</span></h4>
+	<h4>Ultimos  <span>Campeonatos Registrados</span></h4>
 	</div>
 		<!--// HEADING 5 //-->
 		<div class="row">
