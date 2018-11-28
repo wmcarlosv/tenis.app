@@ -21,7 +21,14 @@ class SitesController extends Controller
         if(!$notices){
             $notices = [];
         }
-    	return view('index', ['site' => $site, 'notices' => $notices]);
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header]);
     }
 
     public function edit(){
