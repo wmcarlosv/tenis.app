@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Site;
+use App\Notice;
+use App\NoticeCategory;
 
 class HomeController extends Controller
 {
@@ -13,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,5 +27,34 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function notice($slug = NULL){
+
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $notice = Notice::where('slug','=',$slug)->first();
+        if(!$notice){
+            $notice = [];
+        }
+
+        $notice_categories = NoticeCategory::all();
+
+        $related_notices = Notice::where('notice_category_id','=',$notice->notice_category_id)->get();
+
+        if(!$related_notices){
+            $related_notices = [];
+        }
+
+        return view('notice',['notice' => $notice, 'site' => $site, 'notices_header' => $notices_header, 'notice_categories' => $notice_categories,'related_notices' => $related_notices]);
     }
 }

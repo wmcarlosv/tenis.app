@@ -115,7 +115,7 @@
               @foreach($notices_header as $nh)
             <li>
               <div class="ticker-dec">
-              <a href="#">{!! $nh->title !!}</a>
+              <a href="{{ route('home.notice',['slug' => $nh->slug]) }}">{!! $nh->title !!}</a>
               </div>
             </li>
             @endforeach
@@ -147,5 +147,5 @@
           </div>
           </div>
         </div>
-        </header>
-        <!--// Header //-->
+    </header>
+    <!--// Header //-->

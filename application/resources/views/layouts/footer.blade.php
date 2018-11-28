@@ -1,5 +1,4 @@
-
-      <footer class="football-footer">
+    <footer class="football-footer">
       <div class="container">
         <div class="row">
         <div class="col-md-4">
@@ -118,6 +117,7 @@
         </div>
       </div>
       </footer>
+    </div>
       <script src="{{ asset('js/jquery.js') }}"></script>
       <script src="{{ asset('js/bootstrap.min.js') }}"></script>
       <script src="{{ asset('js/bootstrap-progressbar.js') }}"></script>

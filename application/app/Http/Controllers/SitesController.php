@@ -16,7 +16,7 @@ class SitesController extends Controller
             $site = [];
         }
 
-        $notices = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(8)->get();
+        $notices = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(5)->get();
 
         if(!$notices){
             $notices = [];

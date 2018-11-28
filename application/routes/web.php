@@ -14,6 +14,7 @@
 Route::get('/','SitesController@index')->name('sites.home');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/notice/{slug}','HomeController@notice')->name('home.notice');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('regions','RegionsController');
 	Route::resource('cities','CitiesController');

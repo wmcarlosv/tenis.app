@@ -5,6 +5,16 @@
 	img.slider_image{
 		height: 670px !important;
 	}
+
+	img.notice-one-image{
+		width: 671px;
+		height: 524px;
+	}
+
+	img.notice-more-image{
+		width: 107px;
+		height: 145px;	
+	}
 </style>
 @stop
 @section('content')
@@ -75,7 +85,6 @@
 <div class="kode-content">
 <div class="ft-match-slider">
 <div class="owl-carousel-3 owl-theme" id="owl-demo6">
-
 <div class="ft-match-dec">
   <span>23 June 2016</span>
   <div class="ft-match-teams">
@@ -154,181 +163,52 @@
 <!--// FOOTBALL LATEST NEWS //-->
 <div class="col-md-7">
 <!--// HEADING 5 //-->
+
 <div class="heading5 text-left">
-  <h4>Featured <span>News</span></h4>
+  <h4>Ultimas <span>Noticias</span></h4>
 </div>
-<!--// HEADING 5 //-->
-<div class="ftb-latestnew">
-  <figure><img src="{{ asset('extra-images/ftb-new1.jpg') }}" alt=""></figure>
-  <div class="ftb-new-dec">
-  <span>
-    <b>April</b>
-    12
-  </span>
-  <div class="text">
-    <h4><a href="#">Great Win Over Chelsea</a></h4>
-    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.Aenean sollicitudin, lorem quis bibe ...</p>
-    <a href="#">Read More</a>
-    <ul>
-    <li><a href="#">3<i class="fa fa-heart"></i></a></li>
-    <li><a href="#">3<i class="fa fa-comment"></i></a></li>
-    </ul>
-  </div>
-  </div>
+	@foreach($notices as $index => $ntc)
+	<!--// HEADING 5 //-->
+		@if($index == 0)
+			<div class="ftb-latestnew">
+			  <figure><img src="{{ asset('application/storage/app/public/notices/avatars/'.$ntc->avatar) }}" class="notice-one-image" alt=""></figure>
+			  <div class="ftb-new-dec">
+			  <div class="text">
+			    <h4><a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">{{ $ntc->title }}</a></h4>
+			    <p>{{ strip_tags($ntc->content) }}</p>
+			    <a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">Leer Mas..</a>
+			    <ul>
+			    <li><a href="#">3<i class="fa fa-heart"></i></a></li>
+			    <li><a href="#">3<i class="fa fa-comment"></i></a></li>
+			    </ul>
+			  </div>
+			  </div>
+			</div>
+		@endif	
+	@endforeach
 </div>
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
-<!--// FOOTBALL LATEST NEWS //-->
 <div class="col-md-5 ftb-latestnew2-wrap">
-<!--// HEADING 5 //-->
 <div class="heading5 text-left">
-  <h4>Latest  <span>Post</span></h4>
+  <h4>&nbsp;</h4>
 </div>
-<!--// HEADING 5 //-->
-<!--// FOOTBALL LATEST NEWS //-->
-<div class="ftb-latestnew2">
-  <div class="ftb-new-dec">
-  <figure><img src="{{ asset('extra-images/ftb-new2.jpg') }}" alt=""></figure>
-  <div class="text">
-    <h4><a href="#">Lore Ipsum Dolor</a></h4>
-    <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
-    <a href="#">Read More</a>
-  </div>
-  </div>
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
-<!--// FOOTBALL LATEST NEWS //-->
-<div class="ftb-latestnew2">
-  <div class="ftb-new-dec">
-  <figure><img src="{{ asset('extra-images/ftb-new3.jpg') }}" alt=""></figure>
-  <div class="text">
-    <h4><a href="#">Lore Ipsum Dolor</a></h4>
-    <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
-    <a href="#">Read More</a>
-  </div>
-  </div>
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
-<!--// FOOTBALL LATEST NEWS //-->
-<div class="ftb-latestnew2">
-  <div class="ftb-new-dec">
-  <figure><img src="{{ asset('extra-images/ftb-new4.jpg') }}" alt=""></figure>
-  <div class="text">
-    <h4><a href="#">Lore Ipsum Dolor</a></h4>
-    <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
-    <a href="#">Read More</a>
-  </div>
-  </div>
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
-<!--// FOOTBALL LATEST NEWS //-->
-<div class="ftb-latestnew2">
-  <div class="ftb-new-dec">
-  <figure><img src="{{ asset('extra-images/ftb-new5.jpg') }}" alt=""></figure>
-  <div class="text">
-    <h4><a href="#">Lore Ipsum Dolor</a></h4>
-    <p>This is Photoshop's version is theveltiocv sollicitudin, lorem quis bibe .This is Photoshop's version is ti ...</p>
-    <a href="#">Read More</a>
-  </div>
-  </div>
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
-</div>
-<!--// FOOTBALL LATEST NEWS //-->
+@foreach($notices as $index => $ntc)
+	@if($index != 0)
+	<div class="ftb-latestnew2">
+	  <div class="ftb-new-dec">
+	  <figure><img src="{{ asset('application/storage/app/public/notices/avatars/'.$ntc->avatar) }}" class="notice-more-image" alt=""></figure>
+	  <div class="text">
+	    <h4><a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">{{ $ntc->title }}</a></h4>
+	    <p>{{ strip_tags($ntc->content) }}</p>
+	    <a href="{{ route('home.notice',['slug' => $ntc->slug]) }}">Leer Mas..</a>
+	  </div>
+	  </div>
+	</div>
+	@endif
+@endforeach
 </div>
 </div>
 </div>
-<section class="ftb_goalpost">
-<div class="container">
-<div class="heading5 hdg_6">
-  <h4>About the <span>Goalpost</span></h4>
 </div>
-<div class="row">
-  <div class="ftb_goal_tab_des">
-    <div class="col-md-3">
-      <div class="ftb_goal_fig">
-        <img src="{{ asset('extra-images/goal.jpg') }}" alt="images">
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="panel panel-default">
-        <div class="ftb_goal_tabs">
-          <ul class="ftb_goal_tab_detail">
-            <li><a class="active" href="#tab1" data-toggle="tab">Club History</a></li>
-            <li><a href="#tab2" data-toggle="tab">Club Mission & vission</a></li>
-            <li><a href="#tab3" data-toggle="tab">Club Stats</a></li>
-          </ul>
-          <div class="panel-body">  
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab1">
-                <div class="ftb_goal_tab_text">
-                  <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="ftb_goal_caption">
-                        <span class="icon-football-2"></span>
-                        <h5><a href="#">Dolor Sit Nam Sed</a></h5>
-                        <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ftb_goal_caption">
-                        <span class="icon-symbol-1"></span>
-                        <h5><a href="#">Dolor Sit Nam Sed</a></h5>
-                        <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ftb_goal_caption margin_0">
-                        <span class="icon-signs"></span>
-                        <h5><a href="#">Dolor Sit Nam Sed</a></h5>
-                        <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="ftb_goal_caption margin_0">
-                        <span class="icon-football-1"></span>
-                        <h5><a href="#">Dolor Sit Nam Sed</a></h5>
-                        <p>The first mate and his Skipper too will do their very best to make the others comfort</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane" id="tab2">
-                <div class="ftb_goal_club">
-                  <h3>Club Mission</h3>
-                  <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
-                </div>
-                <div class="ftb_goal_club">
-                  <h3>Club Vission</h3>
-                  <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. </p>
-                </div>
-              </div>
-              <div class="tab-pane" id="tab3">
-                <div class="ftb_club_stats">
-                  <p>Lorem ipsum dolor sit amet, Lorem ipsum dolor sit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
-                  <ul>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1993 Duis in tortor scelerisque felis mattis</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1995 Duis in tortor scelerisque eget velit </a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>2000 Duis in  felis mattis imperdiet</a></li>
-                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>1990 Duis in tortor scelerisque felis</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
-</div>
-</div>
-</section>
 <section class="ftb-resultbg">
 <div class="container">
 <div class="heading5">
@@ -908,184 +788,18 @@
 <!--// FOOTBALL TEAM //-->
 <!--// FOOTBALL TEAM //-->
 <div class="col-md-3 col-sm-6">
-<div class="ftb-team-thumb">
-  <figure><img src="{{ asset('extra-images/ftb-teamfour.png') }}" alt=""></figure>
-  <div class="ftb-team-dec">
-  <span>07</span>
-  <div class="text">
-    <a href="#">Leo Adam</a>
-    <p>Defender</p>
-  </div>
-  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-  </div>
+	<div class="ftb-team-thumb">
+	  <figure><img src="{{ asset('extra-images/ftb-teamfour.png') }}" alt=""></figure>
+	  <div class="ftb-team-dec">
+	  <span>07</span>
+	  <div class="text">
+	    <a href="#">Leo Adam</a>
+	    <p>Defender</p>
+	  </div>
+	  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+	  </div>
+	</div>
 </div>
-</div>
-<!--// FOOTBALL TEAM //-->
-</div>
-</div>
-</section>
-<div class="ftb-item_padding">
-<div class="container">
-<!--// HEADING 5 //-->
-<div class="heading5 black">
-<h4>SPORTS  <span>WEAR</span></h4>
-<p>Etiam sodales ante id nunc. Proin ornare dignissim lacus. Nunc porttitor nunc a sem.</p>
-</div>
-<!--// HEADING 5 //-->
-<div class="row">
-<!--// FOOTBALL ITEM //-->
-<div class="col-md-3 col-sm-6">
-  <div class="ftb-item">
-  <figure><img src="{{ asset('images/ftb-item1.png') }}" alt=""></figure>
-  <div class="text">
-      <h4>
-        <a href="#">Sports Shoes</a>
-      </h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-    <div class="text text-hover">
-      <div class="ftb_item_detail">
-        <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
-        <a class="buy-btn" href="#">Buy Now</a>
-        <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
-      </div>
-      <h4><a href="#">Sports Shoes</a></h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-  </div>
-</div>
-<!--// FOOTBALL ITEM //-->
-<!--// FOOTBALL ITEM //-->
-<div class="col-md-3 col-sm-6">
-  <div class="ftb-item">
-  <figure><img src="{{ asset('images/ftb-item2.png') }}" alt=""></figure>
-  <div class="text">
-      <h4>
-        <a href="#">Sports Shoes</a>
-      </h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-    <div class="text text-hover">
-      <div class="ftb_item_detail">
-        <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
-        <a class="buy-btn" href="#">Buy Now</a>
-        <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
-      </div>
-      <h4><a href="#">Sports Shoes</a></h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-  </div>
-</div>
-<!--// FOOTBALL ITEM //-->
-<!--// FOOTBALL ITEM //-->
-<div class="col-md-3 col-sm-6">
-  <div class="ftb-item">
-  <figure><img src="{{ asset('images/ftb-item3.png') }}" alt=""></figure>
-  <div class="text">
-      <h4>
-        <a href="#">Sports Shoes</a>
-      </h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-    <div class="text text-hover">
-      <div class="ftb_item_detail">
-        <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
-        <a class="buy-btn" href="#">Buy Now</a>
-        <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
-      </div>
-      <h4><a href="#">Sports Shoes</a></h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-  </div>
-</div>
-<!--// FOOTBALL ITEM //-->
-<!--// FOOTBALL ITEM //-->
-<div class="col-md-3 col-sm-6">
-  <div class="ftb-item">
-    <figure><img src="{{ asset('images/ftb-item4.png') }}" alt=""></figure>
-    <div class="text">
-      <h4>
-        <a href="#">Sports Shoes</a>
-      </h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-    <div class="text text-hover">
-      <div class="ftb_item_detail">
-        <a data-rel="prettyPhoto[]" class="like-icon" href="images/ftb-item1.png') }}"><i class="fa fa-eye"></i></a>
-        <a class="buy-btn" href="#">Buy Now</a>
-        <a class="like-icon right" href="#"><i class="fa fa-heart"></i></a>
-      </div>
-      <h4><a href="#">Sports Shoes</a></h4>
-      <span><del>$45 </del>$25</span>
-      <div class="clear"></div>
-      <div class="rating rating_3">
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-        <span><i class="fa fa-star"></i></span>
-      </div>   
-    </div>
-  </div>
-</div>
-</div>
-<!--// FOOTBALL ITEM //-->
 </div>
 </div>
 </div>
