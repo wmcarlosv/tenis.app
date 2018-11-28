@@ -57,7 +57,7 @@
 					<div class="kode_blog_text">
 						<div class="kode_blog_des">
 							<div class="kode_blog_caption">
-								<h5>{{ str_limit($ntc->title,50) }}..</h5>
+								<h5>{{ str_limit($ntc->title,34) }}..</h5>
 								<p>{{ str_limit(strip_tags($ntc->content),100) }}</p>
 							</div>
 						</div>	
