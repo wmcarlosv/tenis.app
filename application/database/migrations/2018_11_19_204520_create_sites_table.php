@@ -15,7 +15,7 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->string('title',60)->nullable(false);
-            $table->string('description',150)->nullable();
+            $table->text('description')->nullable();
             $table->string('tags',255)->nullable();
             $table->string('logo',100)->nullable();
 

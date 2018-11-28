@@ -43,6 +43,11 @@
     width: 99px;
     height: 83px;
   }
+
+  div.ft-logo img, div.logo img{
+    width: 290px;
+    height: 60px;
+  }
 </style>
 @stop
 @section('content')
