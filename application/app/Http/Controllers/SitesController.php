@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Site;
 use App\Notice;
 use App\Championship;
+use App\Club;
 
 class SitesController extends Controller
 {
@@ -35,7 +36,12 @@ class SitesController extends Controller
             $championships = [];
         }
 
-    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships]);
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->limit(6)->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes]);
     }
 
     public function edit(){

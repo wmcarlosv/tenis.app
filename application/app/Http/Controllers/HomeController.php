@@ -80,4 +80,12 @@ class HomeController extends Controller
 
         return view('notices',['site' => $site, 'notices_header' => $notices_header, 'notices' => $notices]);
     }
+
+    public function championships(){
+
+    }
+
+    public function clubes(){
+
+    }
 }

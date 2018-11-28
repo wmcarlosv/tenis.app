@@ -128,8 +128,8 @@
           <ul class="kode_nave">
             <li><a href="{{ url('/') }}">home</a></li>
             <li><a href="{{ url('/notices') }}">Noticias</a></li>
-            <li><a href="fixtures.html">Torneos</a> </li>
-            <li><a href="#">Equipos</a></li>
+            <li><a href="{{ url('/championships') }}">Torneos</a> </li>
+            <li><a href="{{ url('/clubes') }}">Equipos</a></li>
             <li><a href="shop.html">Galeria</a></li>
             <li><a href="blog.html">Ranking</a></li>
           </ul>

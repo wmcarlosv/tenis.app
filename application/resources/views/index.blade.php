@@ -29,6 +29,11 @@
 		width: 268px;
 		height: 276px;
 	}
+
+  img.club-image{
+    width: 390px;
+    height: 350px;
+  }
 </style>
 @stop
 @section('content')
@@ -250,182 +255,34 @@
 	</div>
 </section>
 
-<section class="ftb-resultbg">
+<section class="ftb-gallery-bg">
 <div class="container">
 <div class="heading5">
-<h4>Latest <span>Match result</span></h4>
+<h4>Ultimos  <span>Clubes Registrados</span></h4>
 </div>
-<div class="ftb-result-wrap">
-<div class="ftb-result1">
-<div class="ftb-result-logo">
-  <a href="#"><img src="{{ asset('images/ftb-result.png') }}" alt=""></a>
-  <span><b>Win</b></span>
-</div>
-<div class="text">
-  <h6><a href="#">Eagle Sharks</a></h6>
-  <span>Daniel Sturridge - 1 goal</span>
-  <span>Edward Colier- 2 goal</span>
-</div>
-</div>
-
-<div class="ftb-final-result">
-<em>October 1, 2014 | 2:15 pm <i>Little Park</i></em>
-<p><span class="grater">3</span> - <span>1</span></p>
-<a class="btn-4"  href="#">SEE More</a>
-</div>
-
-<div class="ftb-result1 ftb-result2">
-<div class="ftb-result-logo">
-  <a href="#"><img src="{{ asset('images/ftb-result2.png') }}" alt=""></a>
-  <span><b>Loss</b></span>
-</div>
-<div class="text">
-  <h6><a href="#">Eagle Sharks</a></h6>
-  <span>Daniel Sturridge - 1 goal</span>
-  <span>Edward Colier- 2 goal</span>
-</div>
+<div class="ftb-gallery">
+<ul>
+  @foreach($clubes as $club)
+  <li>
+  <figure>
+    <img src="{{ asset('application/storage/app/public/clubes/logos/'.$club->logo) }}" class="club-image" alt="">
+    <figcaption>
+    <h4>{{ $club->name }}</h4>
+    <a href="#"><i class="fa fa-eye"></i></a>
+    </figcaption>
+  </figure>
+  </li>
+  @endforeach
+</ul>
+<div class="tns-load ftb-load">                
+  <a href="#">Ver Todos</a>
 </div>
 </div>
 </div>
 </section>
+
 <section>
 <div class="container">
-<div class="row">
-<div class="col-md-4">
-<div class="heading6">
-  <h4>News <span>Post</span></h4>
-</div>
-<div class="ftb-bx-slider">
-  <ul class="bxslider">
-  <li>
-    <div class="ftb-post-thumb">
-    <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
-    <div class="text">
-      <h6>Best Goal Save In History</h6>
-      <a class="btn-4" href="#">Read More</a>
-    </div>
-    </div>
-  </li>
-  <li>
-    <div class="ftb-post-thumb">
-    <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
-    <div class="text">
-      <h6>Best Goal Save In History</h6>
-      <a class="btn-4" href="#">Read More</a>
-    </div>
-    </div>
-  </li>
-  <li>
-    <div class="ftb-post-thumb">
-    <a href="#"><img src="{{ asset('extra-images/ftb-post-slider.jpg') }}" alt=""></a>
-    <div class="text">
-      <h6>Best Goal Save In History</h6>
-      <a class="btn-4" href="#">Read More</a>
-    </div>
-    </div>
-  </li>
-  </ul>
-</div>
-</div>
-<div class="col-md-4">
-<div class="heading6">
-  <h4>Recent<span>Videos</span></h4>
-</div>
-<div class="ftb-post-thumb">
-  <a href="#"><img src="{{ asset('extra-images/ftb-post-slider2.jpg') }}" alt=""></a>
-  <a class="spb-play" href="#"><i class="fa fa-play-circle"></i></a>
-  <div class="text">
-  <h6>Highlights OF Euro Cup 2nd Mtach</h6>
-  </div>
-</div>
-<div class="ftb-post-thumb">
-  <a href="#"><img src="{{ asset('extra-images/ftb-post-slider3.jpg') }}" alt=""></a>
-  <a class="spb-play" href="#"><i class="fa fa-play-circle"></i></a>
-  <div class="text">
-  <h6>A Single Fan In Stadium</h6>
-  </div>
-</div>
-</div>
-<div class="col-md-4">
-<div class="heading6">
-  <h4>Club<span>Ranking</span></h4>
-</div>
-<ul class="ftb-rating-table">
-  <li>
-  <div class="ftb-position">
-    1 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo2.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    20
-  </div>
-  </li>
-  <li>
-  <div class="ftb-position">
-    2 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo3.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    25
-  </div>
-  </li>
-  <li>
-  <div class="ftb-position">
-    3 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo4.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    30
-  </div>
-  </li>
-  <li>
-  <div class="ftb-position">
-    4 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo1.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    45
-  </div>
-  </li>
-  <li>
-  <div class="ftb-position">
-    5 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo6.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    29
-  </div>
-  </li>
-  <li>
-  <div class="ftb-position">
-    6 . 
-  </div>
-  <div class="ftb-team-name">
-    <img src="{{ asset('images/short-logo7.png') }}" alt="">
-    <a href="#">Lore Ipsum Dolor</a>
-  </div>
-  <div class="ftb-team-points">
-    03
-  </div>
-  </li>
-</ul>
-</div>
-</div>
 <div class="ftb-tabs-wrap">
 <ul class="nav nav-tabs" role="tablist">
 <li role="presentation" class="active"><a class="hire" href="#homeone" aria-controls="homeone" role="tab" data-toggle="tab">Next Match</a></li>
@@ -644,80 +501,8 @@
 </div>
 </div>
 </div>
-<!--// MAIN TABS TABLE //-->
 </div>
 </section>
-<!--// TENNIS EVENT FIXTURE //-->
-<!--// TENNIS GALLERY //-->
-<section class="ftb-gallery-bg">
-<div class="container">
-<div class="heading5">
-<h4>Our  <span>Gallery</span></h4>
-</div>
-<div class="ftb-gallery">
-<ul>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery1.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery2.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery3.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery4.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery5.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-  <li>
-  <figure>
-    <img src="{{ asset('extra-images/ftbgallery6.jpg') }}" alt="">
-    <figcaption>
-    <h4>Great Game Ever In History</h4>
-    <a data-rel="prettyPhoto[]" href="images/about.jpg') }}"><i class="fa fa-eye"></i></a>
-    </figcaption>
-  </figure>
-  </li>
-</ul>
-<div class="tns-load ftb-load">                
-  <a href="#">load more</a>
-</div>
-</div>
-</div>
-</section>
-<!--// FOOTBALL COUNTER //-->
 <div class="ftb-counterup">
 <div class="container">
 <!--// HEADING 5 //-->
