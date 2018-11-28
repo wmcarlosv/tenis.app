@@ -90,10 +90,10 @@
               </ul>
               <div id="show-class"><form><input type="text" placeholder="your key word"></form></div>
               <ul class="social-style3">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="{{ $site->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="{{ $site->twitter }}"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="{{ $site->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="{{ $site->googleplus }}"><i class="fa fa-google-plus"></i></a></li>
               </ul>
             </div>
           </div>
@@ -113,12 +113,12 @@
             <span>Ultimas Noticias:</span>
             <ul class="top_slider_bxslider">
               @foreach($notices_header as $nh)
-            <li>
-              <div class="ticker-dec">
-              <a href="{{ route('home.notice',['slug' => $nh->slug]) }}">{!! $nh->title !!}</a>
-              </div>
-            </li>
-            @endforeach
+              <li>
+                <div class="ticker-dec">
+                <a href="{{ route('home.notice',['slug' => $nh->slug]) }}">{!! $nh->title !!}</a>
+                </div>
+              </li>
+              @endforeach
             </ul>
           </div>
           </div>

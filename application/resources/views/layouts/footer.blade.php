@@ -4,62 +4,39 @@
         <div class="col-md-4">
           <div class="widget spb-widget spb-text-widget">
           <div class="ft-logo">
-            <a href="#"><img src="{{ asset('images/logo2.png') }}" alt=""></a>
+            <a href="{{ url('/') }}">
+              @if($site->logo)
+                <img src="{{ asset('application/storage/app/'.$site->logo) }}" alt="">
+              @endif
+            </a>
           </div>
-          <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet ante at nunc pretium mattis. Nunc ac semp a libero et, iaculis gravida orci.</p>
-          <p>Suspendisse imperdiet dolor in tristique dignissim. Fusce lacus dolor, accumsan . .</p>
+          <p>{{ $site->description }}</p>
           <ul class="spb-social2">
-            <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"> <i class="fa fa-rss"></i></a></li>
-            <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+            <li><a href="{{ $site->facebook }}"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{ $site->twitter }}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="{{ $site->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="{{ $site->googleplus }}"><i class="fa fa-google-plus"></i></a></li>
           </ul>
           </div>
         </div>
         <div class="col-md-4">
           <div class="widget spb-widget spb-popular">
-          <h4>Most  Popular</h4>
-          <div class="spb-popular-dec">
-            <figure>
-            <img src="{{ asset('extra-images/popular-ft1.jpg') }}" alt="">
-            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft1.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
-            </figure>
-            <div class="text">
-            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
-            <ul class="spb-meta2">
-              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
-              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
-            </ul>
+          <h4>Ultimas Noticias</h4>
+          @foreach($notices_header as $nh)
+            <div class="spb-popular-dec">
+              <figure>
+                <img src="{{ asset('application/storage/app/public/notices/avatars/'.$nh->avatar) }}" class="footer-notice-image" alt="">
+                <a data-rel="prettyPhoto[]" href="extra-images/popular-ft1.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
+              </figure>
+              <div class="text">
+                <a href="#">{{ str_limit(strip_tags($nh->content),70) }}</a>
+                <ul class="spb-meta2">
+                  <li><a href="#"><i class="fa fa-calendar"></i>{{ date('d-m H:m',strtotime($nh->publisher_date)) }}</a></li>
+                  <li><a href="#"><i class="fa fa-user"></i>{{ $nh->user->name }}</a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="spb-popular-dec">
-            <figure>
-            <img src="{{ asset('extra-images/popular-ft2.jpg') }}" alt="">
-            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft2.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
-            </figure>
-            <div class="text">
-            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
-            <ul class="spb-meta2">
-              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
-              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
-            </ul>
-            </div>
-          </div>
-          <div class="spb-popular-dec">
-            <figure>
-            <img src="{{ asset('extra-images/popular-ft3.jpg') }}" alt="">
-            <a data-rel="prettyPhoto[]" href="extra-images/popular-ft3.jpg') }}" class="spb-play"><i class="fa fa-plus"></i></a>
-            </figure>
-            <div class="text">
-            <a href="#">Lorem ipsum dolor amet, conse-ctetur adipiscing elit. Donec st.</a>
-            <ul class="spb-meta2">
-              <li><a href="#"><i class="fa fa-heart"></i>13 like</a></li>
-              <li><a href="#"><i class="fa fa-comment"></i>14 comment</a></li>
-            </ul>
-            </div>
-          </div>
+          @endforeach
           </div>
         </div>
         <div class="col-md-4">
@@ -105,12 +82,12 @@
         </div>
         <div class="spb-copyright">
         <ul class="sbp-ftnav">
-          <li><a href="#">home</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Topics</a></li>
-          <li><a href="#">Stats</a></li>
-          <li><a href="#">Videos</a></li>
-          <li><a href="#">post</a></li>
+          <li><a href="{{ url('/') }}">home</a></li>
+          <li><a href="{{ url('/notices') }}">Noticias</a></li>
+          <li><a href="{{ url('/champoinships') }}">Campeonatos</a></li>
+          <li><a href="{{ url('/clubes') }}">Clubes</a></li>
+          <li><a href="#">Galeria</a></li>
+          <li><a href="#">Rankings</a></li>
         </ul>
         <p>All Rights Reserved</p>
         <a id="kode-topbtn" href="#"><i class="fa fa-angle-double-up"></i></a>

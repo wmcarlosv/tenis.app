@@ -38,6 +38,11 @@
   div.ftb-gallery ul li{
     padding:5px;
   }
+
+  img.footer-notice-image{
+    width: 99px;
+    height: 83px;
+  }
 </style>
 @stop
 @section('content')
