@@ -11,6 +11,10 @@
 		padding-left: 0px;
 	}
 
+	div.kode_blog_caption h5{
+		font-size:15px;
+	}
+
 	div.kode_blog_comment ul li a{
 		font-size:12px;
 	}
