@@ -31,6 +31,10 @@ class SitesController extends Controller
 
         $championships = Championship::where('title','<>',NULL)->orderby('datefrom','ASC')->limit(4)->get();
 
+        if(!$championships){
+            $championships = [];
+        }
+
     	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships]);
     }
 
