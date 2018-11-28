@@ -94,7 +94,7 @@
 									<div class="kode_blog_des">
 										<div class="kode_blog_caption">
 											<h5>{{ $rn->title }}</h5>
-											<p>{!! $rn->content !!}</p>
+											<p>{{  str_limit(strip_tags($rn->content),200) }}</p>
 										</div>
 									</div>	
 									<div class="kode_blog_comment">
