@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Site;
 use App\Notice;
+use App\Championship;
 
 class SitesController extends Controller
 {
@@ -22,13 +23,15 @@ class SitesController extends Controller
             $notices = [];
         }
 
-        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+        $notices_header = Notice::orderBy('publisher_date','desc')->limit(3)->get();
 
         if(!$notices_header){
             $notices_header = [];
         }
 
-    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header]);
+        $championships = Championship::where('title','<>',NULL)->orderby('datefrom','ASC')->limit(4)->get();
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships]);
     }
 
     public function edit(){

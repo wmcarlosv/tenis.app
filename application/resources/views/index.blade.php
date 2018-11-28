@@ -24,6 +24,11 @@
 		font-size:16px;
 		line-height: 23px;
 	}
+
+	img.championships-img{
+		width: 268px;
+		height: 276px;
+	}
 </style>
 @stop
 @section('content')
@@ -218,6 +223,33 @@
 </div>
 </div>
 </div>
+
+<section>
+	<div class="container">
+	<!--// HEADING 5 //-->
+	<div class="heading5 black">
+	<h4>Ultimos  <span>Torneos Registrados</span></h4>
+	</div>
+		<!--// HEADING 5 //-->
+		<div class="row">
+			@foreach($championships as $ch)
+			<div class="col-md-3 col-sm-6">
+				<div class="ftb-team-thumb">
+				  <figure><img src="{{ asset('application/storage/app/'.$ch->cover) }}" class="championships-img" alt=""></figure>
+				  <div class="ftb-team-dec">
+				  <div class="text">
+				    <a href="#">{{ $ch->title }}</a>
+				    <p>{{ $ch->description }}</p>
+				  </div>
+				  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+				  </div>
+				</div>
+			</div>
+			@endforeach
+		</div>
+	</div>
+</section>
+
 <section class="ftb-resultbg">
 <div class="container">
 <div class="heading5">
@@ -740,79 +772,6 @@
 </div>
 </div>
 </div>
-<!--// FOOTBALL COUNTER //-->
-<!--// FOOTBALL TEAM SECTION //-->
-<section>
-<div class="container">
-<!--// HEADING 5 //-->
-<div class="heading5 black">
-<h4>Our  <span>Team</span></h4>
-</div>
-<!--// HEADING 5 //-->
-<div class="row">
-<!--// FOOTBALL TEAM //-->
-<div class="col-md-3 col-sm-6">
-<div class="ftb-team-thumb">
-  <figure><img src="{{ asset('extra-images/ftb-teamone.png') }}" alt=""></figure>
-  <div class="ftb-team-dec">
-  <span>07</span>
-  <div class="text">
-    <a href="#">Leo Adam</a>
-    <p>Defender</p>
-  </div>
-  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-  </div>
-</div>
-</div>
-<!--// FOOTBALL TEAM //-->
-<!--// FOOTBALL TEAM //-->
-<div class="col-md-3 col-sm-6">
-<div class="ftb-team-thumb">
-  <figure><img src="{{ asset('extra-images/ftb-teamtwo.png') }}" alt=""></figure>
-  <div class="ftb-team-dec">
-  <span>07</span>
-  <div class="text">
-    <a href="#">Leo Adam</a>
-    <p>Defender</p>
-  </div>
-  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-  </div>
-</div>
-</div>
-<!--// FOOTBALL TEAM //-->
-<!--// FOOTBALL TEAM //-->
-<div class="col-md-3 col-sm-6">
-<div class="ftb-team-thumb">
-  <figure><img src="{{ asset('extra-images/ftb-three.png') }}" alt=""></figure>
-  <div class="ftb-team-dec">
-  <span>07</span>
-  <div class="text">
-    <a href="#">Leo Adam</a>
-    <p>Defender</p>
-  </div>
-  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-  </div>
-</div>
-</div>
-<!--// FOOTBALL TEAM //-->
-<!--// FOOTBALL TEAM //-->
-<div class="col-md-3 col-sm-6">
-	<div class="ftb-team-thumb">
-	  <figure><img src="{{ asset('extra-images/ftb-teamfour.png') }}" alt=""></figure>
-	  <div class="ftb-team-dec">
-	  <span>07</span>
-	  <div class="text">
-	    <a href="#">Leo Adam</a>
-	    <p>Defender</p>
-	  </div>
-	  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-	  </div>
-	</div>
-</div>
-</div>
-</div>
-</div>
-<!--// FOOTBALL PRODUCT SECTION //-->
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
