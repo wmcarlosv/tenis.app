@@ -21,7 +21,7 @@
 	}
 
 	div.football-caption h4{
-		font-size:14px;
+		font-size:16px;
 		line-height: 23px;
 	}
 </style>
