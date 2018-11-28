@@ -15,6 +15,11 @@
 		font-size:15px;
 	}
 
+	div.kode_blog_caption p{
+		height: 100px;
+		overflow: hidden;
+	}
+
 	div.kode_blog_comment ul li a{
 		font-size:12px;
 	}
