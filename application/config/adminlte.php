@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MENU DE NAVEGACION',
+        /*'MENU DE NAVEGACION',
         [
             'text'        => 'Dashboard',
             'url'         => 'home',
@@ -204,7 +204,7 @@ return [
             'url'  => 'admin/sites/edit',
             'icon' => 'home',
         ]
-        /*[
+        [
             'text'    => 'Multilevel',
             'icon'    => 'share',
             'submenu' => [

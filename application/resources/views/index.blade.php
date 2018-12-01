@@ -257,10 +257,10 @@
 				  <figure><img src="{{ asset('application/storage/app/'.$ch->cover) }}" class="championships-img" alt=""></figure>
 				  <div class="ftb-team-dec">
 				  <div class="text">
-				    <a href="#">{{ $ch->title }}</a>
+				    <a href="{{ route('home.championship',['id' => $ch->id]) }}">{{ $ch->title }}</a>
 				    <p>{{ $ch->description }}</p>
 				  </div>
-				  <a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+				  <a class="arrow-iconbtn" href="{{ route('home.championship',['id' => $ch->id]) }}"><i class="fa fa-arrow-right "></i></a>
 				  </div>
 				</div>
 			</div>
@@ -611,4 +611,26 @@
 </div>
 </div>
 </div>
+@stop
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#region_id").change(function(){
+            $("#city_id").empty();
+            var id = $(this).val();
+            var url = '{{ asset("/admin/cities/getCities") }}/'+id;
+            $("#city_id").append('<option value="">--Ciudad--</option>');
+
+            $.get(url, function( response ){
+                if(response){
+                    $.each(JSON.parse(response), function(index, obj){
+                        $("#city_id").append('<option value="'+obj.value+'">'+obj.text+'</option>');
+                    });   
+                }
+                
+            });
+        });
+    });
+</script>
 @stop

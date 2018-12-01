@@ -75,7 +75,7 @@
 							</div>
 						</div>	
 						<div class="kode_blog_comment">
-							<a href="#">Ver Campeonato</a>
+							<a href="{{ route('home.championship',['id' => $chp->id]) }}">Ver Campeonato</a>
 						</div>
 					</div>
 				</div>

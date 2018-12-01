@@ -8,6 +8,9 @@ use App\Notice;
 use App\NoticeCategory;
 use App\Club;
 use App\Championship;
+use Auth;
+use App\User;
+use App\Region;
 
 class HomeController extends Controller
 {
@@ -57,7 +60,14 @@ class HomeController extends Controller
             $related_notices = [];
         }
 
-        return view('notice',['notice' => $notice, 'site' => $site, 'notices_header' => $notices_header, 'notice_categories' => $notice_categories,'related_notices' => $related_notices]);
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::where('id','<>',1)->get();
+
+        return view('notice',['notice' => $notice, 'site' => $site, 'notices_header' => $notices_header, 'notice_categories' => $notice_categories,'related_notices' => $related_notices, 'regions' => $regions, 'clubes' => $clubes]);
     }
 
     public function notices(){
@@ -79,8 +89,14 @@ class HomeController extends Controller
             $notices = [];
         }
 
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
 
-        return view('notices',['site' => $site, 'notices_header' => $notices_header, 'notices' => $notices]);
+        $regions = Region::where('id','<>',1)->get();
+
+        return view('notices',['site' => $site, 'notices_header' => $notices_header, 'notices' => $notices,'regions' => $regions, 'clubes' => $clubes]);
     }
 
     public function championships(){
@@ -101,7 +117,38 @@ class HomeController extends Controller
             $championships = [];
         }
 
-        return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships]);
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::where('id','<>',1)->get();
+
+        return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships,'regions' => $regions, 'clubes' => $clubes]);
+    }
+
+    public function championship($id = NULL){
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $championship = Championship::findOrFail($id);
+
+        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::where('id','<>',1)->get();
+
+        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes]);
     }
 
     public function clubes(){
@@ -122,6 +169,44 @@ class HomeController extends Controller
             $clubes = [];
         }
 
-        return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes]);
+        $regions = Region::where('id','<>',1)->get();
+
+        return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes, 'regions' => $regions]);
+    }
+
+    public function custom_register(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'city_id' => 'required',
+            'club_id' => 'required'
+        ]);
+
+        //$user = User::create($request->all());
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->city_id = $request->input('city_id');
+        $user->club_id = $request->input('club_id');
+        $user->role = "player";
+        $user->save();
+
+        Auth::login($user);
+
+        return redirect("/");
+    }
+
+    public function custom_login(Request $request){
+
+        if (auth()->attempt(request(['email', 'password'])) == false) {
+            return back()->withErrors([
+                'message' => 'The email or password is incorrect, please try again'
+            ]);
+        }
+        
+        return redirect("/");        
     }
 }
