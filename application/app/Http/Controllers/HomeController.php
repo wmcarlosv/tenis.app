@@ -197,7 +197,8 @@ class HomeController extends Controller
             'email' => 'required',
             'password' => 'required',
             'city_id' => 'required',
-            'club_id' => 'required'
+            'club_id' => 'required',
+            'player_category_id' => 'required' 
         ]);
 
         $user = new User();
@@ -206,6 +207,7 @@ class HomeController extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->city_id = $request->input('city_id');
         $user->club_id = $request->input('club_id');
+        $user->player_category_id = $request->input('player_category_id');
         $user->role = "player";
         $user->save();
 
