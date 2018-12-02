@@ -96,18 +96,32 @@
 					<p>{{ $championship->description }}</p>
 					@if(Auth::check())
 
-						@if($cham_player)
-							@if($cham_player->payment->status == 1)
-						        <p class="info-payment">Tu pago esta en verificaci&oacute;n por el administrador, puedes ver la lista de tus pagos y sus estatus <a href="{{ route('payments.my_payments',['id' => Auth::user()->id]) }}">aqu&iacute;</a></p>
-							@elseif($cham_player->payment->status == 2)
-								<p class="info-payment info-payment-aproved">
-									Te has Inscritos satisfactoriamente al campeonato, te damos la bienvenida a esta aventura y suerte!!!
-								</p>
-							@else
-								<p class="info-payment">Tu pago fue rechazado. es posible que los datos que enviastes esten erroneos, te invitamos a verificar y realizar otra solicitud, puedes hacerlo dando Click <a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}">Aqu&iacute;</a></p>
+						@if(isset($payment_subscription->id) and !empty($payment_subscription->id))
+
+							@if($payment_subscription->status == 2)
+
+								@if(date('d/m/Y',strtotime($payment_subscription->payment_date . " + 1 year")) < strtotime(date('Y-m-d')))
+
+									@if($cham_player)
+										@if($cham_player->payment->status == 1)
+										        <p class="info-payment">Tu pago esta en verificaci&oacute;n por el administrador, puedes ver la lista de tus pagos y sus estatus <a href="{{ route('payments.my_payments',['id' => Auth::user()->id]) }}">aqu&iacute;</a></p>
+										@elseif($cham_player->payment->status == 2)
+												<p class="info-payment info-payment-aproved">
+													Te has Inscritos satisfactoriamente al campeonato, te damos la bienvenida a esta aventura y suerte!!!
+												</p>
+										@else
+												<p class="info-payment">Tu pago fue rechazado. es posible que los datos que enviastes esten erroneos, te invitamos a verificar y realizar otra solicitud, puedes hacerlo dando Click <a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}">Aqu&iacute;</a></p>
+										@endif
+									@else
+											<a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}" class="btn btn-success"><i class="fa fa-trophy"></i> Quiero Participar en este Campeonato</a>
+									@endif
+
+								@endif
+
 							@endif
+							
 						@else
-							<a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}" class="btn btn-success"><i class="fa fa-trophy"></i> Quiero Participar en este Campeonato</a>
+				            <p class="info-payment">Para poder utilizar todas las funcionalidades del sitio es necesario que pages la subscripci&oacute;n al sitio. <a href="{{ route('payments.subscribe_to_site',['id' => Auth::user()->id]) }}">Click aqui para Ello!</a></p>
 						@endif
 					@else
 						<a href="{{ url('/championships') }}" class="btn btn-success"><i class="fa fa-trophy"></i> Volver a Campeonats</a>

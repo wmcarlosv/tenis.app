@@ -17,6 +17,8 @@ use App\ChampionshipPlayer;
 
 class HomeController extends Controller
 {
+
+    private $user_id = NULL;
     /**
      * Create a new controller instance.
      *
@@ -25,6 +27,15 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
+
+           
+
+    }
+
+    public function init(){
+        if(isset(Auth::user()->id) and !empty(Auth::user()->id)){
+            $this->user_id = Auth::user()->id;
+        }
     }
 
     /**
@@ -34,8 +45,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->init();
         $payment_subscription = Payment::where([
-            ['user_id','=',Auth::user()->id],
+            ['user_id','=',$this->user_id],
             ['product_id','=',1]
         ])->orderby('payment_date','DESC')->limit(1)->first();
 
@@ -54,7 +66,7 @@ class HomeController extends Controller
     }
 
     public function notice($slug = NULL){
-
+        $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -92,7 +104,7 @@ class HomeController extends Controller
     }
 
     public function notices(){
-
+        $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -123,7 +135,7 @@ class HomeController extends Controller
     }
 
     public function championships(){
-
+        $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -155,6 +167,7 @@ class HomeController extends Controller
 
 
     public function championship($id = NULL){
+        $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -176,10 +189,10 @@ class HomeController extends Controller
         $regions = Region::where('id','<>',1)->get();
 
         $cham_player = ChampionshipPlayer::where([
-            ['user_id','=',Auth::user()->id],
+            ['user_id','=',$this->user_id],
             ['championship_id','=',$id]
-        ])->orderby('created_at','DESC')->limit(1)->first();
-
+        ])->orderby('created_at','DESC')->limit(1)->first();  
+        
         $players = ChampionshipPlayer::where([
             ['championship_id','=',$id]
         ])->orderby('created_at','DESC')->get();
@@ -190,13 +203,19 @@ class HomeController extends Controller
 
         $player_categories = PlayerCategory::all();
 
-        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories, 'cham_player' => $cham_player, 'players' => $players]);
+        $payment_subscription = Payment::where([
+            ['user_id','=',$this->user_id],
+            ['product_id','=',1]
+        ])->orderby('payment_date','DESC')->limit(1)->first();
+
+        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories, 'cham_player' => $cham_player, 'players' => $players, 'payment_subscription' => $payment_subscription]);
     }
 
 
 
 
     public function clubes(){
+        $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -222,7 +241,7 @@ class HomeController extends Controller
     }
 
     public function custom_register(Request $request){
-
+        $this->init();
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -248,7 +267,7 @@ class HomeController extends Controller
     }
 
     public function custom_login(Request $request){
-
+        $this->init();
         if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([
                 'message' => 'El email o contraseña son Invalidos!!'
