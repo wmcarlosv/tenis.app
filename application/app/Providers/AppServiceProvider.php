@@ -24,17 +24,18 @@ class AppServiceProvider extends ServiceProvider
                 $event->menu->add('MENU DE NAVEGACION');
                 switch (Auth::user()->role) {
                     case 'player':
-                        $event->menu->add([
+                        $event->menu->add(
+                        [
+                            'text' => 'Sitio',
+                            'url' => '/site',
+                            'icon' => 'home'
+                        ],[
                             'text' => 'dashboard',
                             'url' => 'home',
                             'icon' => 'dashboard'
                         ],[
-                            'text' => 'Sitio',
-                            'url' => '/',
-                            'icon' => 'home'
-                        ],[
                             'text' => 'Pagos',
-                            'url'  => 'admin/payments/my_payments',
+                            'url'  => 'admin/payments/my_payments/'.Auth::user()->id,
                             'icon' => 'money',
                         ],[
                             'text' => 'Perfil',
@@ -46,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
                         $event->menu->add(
                         [
                             'text' => 'Sitio',
-                            'url' => '/',
+                            'url' => '/site',
                             'icon' => 'home'
                         ],
                         [

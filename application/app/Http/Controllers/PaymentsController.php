@@ -17,7 +17,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Payment::ALL();
         return view('admin.payments.home', ['payments' => $payments]);
     }
 
@@ -119,31 +119,28 @@ class PaymentsController extends Controller
     public function aproved_payment($id = NULL)
     {
         $payment = Payment::findorFail($id);
-
         $payment->status = 2;
-
+        $payment->payment_date = date('Y-m-d H:m:s');
         $payment->update();
-
         flash()->overlay('Pago Aprovado con Exito', 'Alerta!!');
-
         return redirect()->route('payments.index');
     }
 
     public function deaproved_payment($id = NULL)
     {
         $payment = Payment::findorFail($id);
-
         $payment->status = 3;
-
         $payment->update();
-
         flash()->overlay('Pago Desaprovado con Exito', 'Alerta!!');
-
         return redirect()->route('payments.index');
     }
 
     public function my_payments($id = NULL){
-        
+        $payments = Payment::where('user_id','=',$id)->orderby('payment_date','DESC')->get();
+        if(!$payments){
+            $payments = [];
+        }
+        return view('admin.payments.my_payments',['payments' => $payments]);
     }
 
     public function subscribe_to_site($id = NULL){

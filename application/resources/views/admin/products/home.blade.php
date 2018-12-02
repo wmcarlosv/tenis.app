@@ -37,7 +37,7 @@
                                     </td>
                                     <td>
                                         @if($product->recurrent_type == 'year')
-                                            Anual;
+                                            Anual
                                         @elseif($product->recurrent_type == 'month')
                                             Mensual
                                         @elseif($product->recurrent_type == 'week')

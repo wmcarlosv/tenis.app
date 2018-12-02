@@ -33,11 +33,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $payments = Payment::where('user_id','=',Auth::user()->id)->get();
-        if(!$payments){
-            $payments = [];
+        $payment_subscription = Payment::where([
+            ['user_id','=',Auth::user()->id],
+            ['product_id','=',1]
+        ])->orderby('payment_date','DESC')->limit(1)->first();
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(5)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
         }
-        return view('home',['user_payments' => $payments]);
+
+        $championships = Championship::orderby('created_at','DESC')->limit(5)->get();
+        if(!$championships){
+            $championships = [];
+        }
+
+        return view('home',['payment_subscription' => $payment_subscription, 'notices' => $notices_header, 'championships' => $championships]);
     }
 
     public function notice($slug = NULL){
