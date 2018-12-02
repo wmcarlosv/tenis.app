@@ -44,7 +44,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::put('/sites/update','SitesController@update')->name('sites.update');
 	Route::get('/sites/drop_image/{image}','SitesController@drop_image')->name('sites.drop_image');
 	Route::resource('users','UsersController');
-	Route::get('/users/profile','UsersController@profile')->name('users.profile');
+	Route::get('/users/user_profile/{id}','UsersController@user_profile')->name('users.user_profile');
+	Route::put('/users/change_password/{id}','UsersController@change_password')->name('users.change_password');
+
+	Route::get('/users/delete_profile_image/{id}','UsersController@delete_profile_image')->name('users.delete_profile_image');
 
 	Route::resource('payments','PaymentsController');
 	Route::get('/payments/my_payments/{id}','PaymentsController@my_payments')->name('payments.my_payments');

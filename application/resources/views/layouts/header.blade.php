@@ -124,7 +124,7 @@
                 </li>
                 @else
                 <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> Panel</a></li>
-                <li><a href="{{ route('users.profile') }}"><i class="fa fa-user"></i> Perfil</a></li>
+                <li><a href="{{ route('users.user_profile',['id' => Auth::user()->id]) }}"><i class="fa fa-user"></i> Perfil</a></li>
                 @endif
                 <!--<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                 <li><a id="ftb_btn_link" ><i class="fa fa-search"></i></a></li>-->

@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
                             'icon' => 'money',
                         ],[
                             'text' => 'Perfil',
-                            'url'  => 'admin/users/profile',
+                            'url'  => 'admin/users/user_profile/'.Auth::user()->id,
                             'icon' => 'user',
                         ]);
                     break;
