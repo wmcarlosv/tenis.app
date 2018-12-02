@@ -69,7 +69,7 @@
 			<div class="col-md-6">
 				<div class="kode_club_fig">
 					<figure>
-						<img src="{{ asset('application/storage/app/'.$championship->cover) }}">
+						<img src="{{ asset('application/storage/app/'.$championship->cover) }}" id="cover-cham">
 					</figure>
 				</div>
 			</div>

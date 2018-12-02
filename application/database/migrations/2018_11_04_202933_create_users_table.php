@@ -26,11 +26,13 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(false);
+            $table->integer('player_category_id')->nullable(false);
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('restrict')->onDelete('restrict');
             $table->foreign('club_id')->references('id')->on('clubes')->onUpdate('restrict')->onDelete('restrict');
+            $table->foreign('player_category_id')->references('id')->on('player_categories')->onUpdate('restrict')->onDelete('restrict');
         });
     }
 

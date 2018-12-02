@@ -22,6 +22,11 @@
       <link href="{{ asset('css/component.css') }}" rel="stylesheet">
       <link rel="stylesheet" href="{{ asset('css/color.css') }}">
       <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+      <style type="text/css">
+        div.kode_blog_fig figure{
+          z-index: 0 !important;
+        }
+      </style>
       @yield('css')
     </head>
     <body class="kode-football">
@@ -93,6 +98,14 @@
                               <option>--Club--</option>
                               @foreach($clubes as $club)
                                 <option value="{{ $club->id }}">{{ $club->name }}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="kode_modal_field">
+                            <select name="player_category_id" id="player_category_id" required>
+                              <option>--Categoria--</option>
+                              @foreach($player_categories as $player_category)
+                                <option value="{{ $player_category->id }}">{{ $player_category->name }}</option>
                               @endforeach
                             </select>
                           </div>

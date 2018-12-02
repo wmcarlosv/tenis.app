@@ -27,6 +27,7 @@
 	img.image-one-notice{
 		width: 369px;
 		height: 269px;
+		z-index: 0 !important;
 	}
 
 	div.kode_blog_comment{

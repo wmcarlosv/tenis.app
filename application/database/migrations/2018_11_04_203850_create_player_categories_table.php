@@ -16,7 +16,7 @@ class CreatePlayerCategoriesTable extends Migration
         Schema::create('player_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 60)->nullable(false);
-            $table->string('slug',120)->nullable(false);
+            $table->string('slug', 255)->nullable(false);
             $table->timestamps();
         });
     }

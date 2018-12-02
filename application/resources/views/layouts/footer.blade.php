@@ -95,6 +95,7 @@
       </div>
       </footer>
     </div>
+
       <script src="{{ asset('js/jquery.js') }}"></script>
       <script src="{{ asset('js/bootstrap.min.js') }}"></script>
       <script src="{{ asset('js/bootstrap-progressbar.js') }}"></script>
@@ -114,5 +115,25 @@
       <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
       <script src="{{ asset('js/functions.js') }}"></script>
       @yield('js')
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#region_id").change(function(){
+                $("#city_id").empty();
+                var id = $(this).val();
+                var url = '{{ asset("/admin/cities/getCities") }}/'+id;
+                $("#city_id").append('<option value="">--Ciudad--</option>');
+
+                $.get(url, function( response ){
+                    if(response){
+                        $.each(JSON.parse(response), function(index, obj){
+                            $("#city_id").append('<option value="'+obj.value+'">'+obj.text+'</option>');
+                        });   
+                    }
+                    
+                });
+            });
+        });
+    </script>
     </body>
   </html>

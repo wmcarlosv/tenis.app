@@ -10,6 +10,7 @@ use App\Notice;
 use App\Championship;
 use App\Club;
 use App\Region;
+use App\PlayerCategory;
 
 class SitesController extends Controller
 {
@@ -44,7 +45,9 @@ class SitesController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions]);
+        $player_categories = PlayerCategory::all();
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories]);
     }
 
     public function edit(){

@@ -612,25 +612,3 @@
 </div>
 </div>
 @stop
-@section('js')
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $("#region_id").change(function(){
-            $("#city_id").empty();
-            var id = $(this).val();
-            var url = '{{ asset("/admin/cities/getCities") }}/'+id;
-            $("#city_id").append('<option value="">--Ciudad--</option>');
-
-            $.get(url, function( response ){
-                if(response){
-                    $.each(JSON.parse(response), function(index, obj){
-                        $("#city_id").append('<option value="'+obj.value+'">'+obj.text+'</option>');
-                    });   
-                }
-                
-            });
-        });
-    });
-</script>
-@stop

@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('users','UsersController');
 	Route::get('/users/profile','UsersController@profile')->name('users.profile');
 	Route::resource('payments','PaymentsController');
-	Route::get('/payments/my_subscriptions','PaymentsController@my_subscriptions')->name('payments.my_subscriptions');
+	Route::get('/payments/my_payments','PaymentsController@my_payments')->name('payments.my_payments');
+	Route::get('/payments/subscribe_to_site/{id}','PaymentsController@subscribe_to_site')->name('payments.subscribe_to_site');
+	Route::get('/payments/aproved_payment/{id}','PaymentsController@aproved_payment')->name('payments.aproved_payment');
+	Route::get('/payments/deaproved_payment/{id}','PaymentsController@deaproved_payment')->name('payments.deaproved_payment');
 });
 Route::get('admin/cities/getCities/{id}','CitiesController@getCities');

@@ -25,16 +25,16 @@ class AppServiceProvider extends ServiceProvider
                 switch (Auth::user()->role) {
                     case 'player':
                         $event->menu->add([
-                            'text' => 'Sitio',
-                            'url' => '/',
-                            'icon' => 'home'
-                        ],[
                             'text' => 'dashboard',
                             'url' => 'home',
                             'icon' => 'dashboard'
                         ],[
+                            'text' => 'Sitio',
+                            'url' => '/',
+                            'icon' => 'home'
+                        ],[
                             'text' => 'Pagos',
-                            'url'  => 'admin/payments/my_subscriptions',
+                            'url'  => 'admin/payments/my_payments',
                             'icon' => 'money',
                         ],[
                             'text' => 'Perfil',

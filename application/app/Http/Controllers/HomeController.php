@@ -11,6 +11,8 @@ use App\Championship;
 use Auth;
 use App\User;
 use App\Region;
+use App\PlayerCategory;
+use App\Payment;
 
 class HomeController extends Controller
 {
@@ -31,7 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $payments = Payment::where('user_id','=',Auth::user()->id)->get();
+        if(!$payments){
+            $payments = [];
+        }
+        return view('home',['user_payments' => $payments]);
     }
 
     public function notice($slug = NULL){
@@ -67,7 +73,9 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-        return view('notice',['notice' => $notice, 'site' => $site, 'notices_header' => $notices_header, 'notice_categories' => $notice_categories,'related_notices' => $related_notices, 'regions' => $regions, 'clubes' => $clubes]);
+        $player_categories = PlayerCategory::all();
+
+        return view('notice',['notice' => $notice, 'site' => $site, 'notices_header' => $notices_header, 'notice_categories' => $notice_categories,'related_notices' => $related_notices, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
     public function notices(){
@@ -96,7 +104,9 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-        return view('notices',['site' => $site, 'notices_header' => $notices_header, 'notices' => $notices,'regions' => $regions, 'clubes' => $clubes]);
+        $player_categories = PlayerCategory::all();
+
+        return view('notices',['site' => $site, 'notices_header' => $notices_header, 'notices' => $notices,'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
     public function championships(){
@@ -124,7 +134,9 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-        return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships,'regions' => $regions, 'clubes' => $clubes]);
+        $player_categories = PlayerCategory::all();
+
+        return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships,'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
     public function championship($id = NULL){
@@ -148,7 +160,9 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes]);
+        $player_categories = PlayerCategory::all();
+
+        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
     public function clubes(){
@@ -171,7 +185,9 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
-        return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes, 'regions' => $regions]);
+        $player_categories = PlayerCategory::all();
+
+        return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories]);
     }
 
     public function custom_register(Request $request){
@@ -184,7 +200,6 @@ class HomeController extends Controller
             'club_id' => 'required'
         ]);
 
-        //$user = User::create($request->all());
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -196,17 +211,17 @@ class HomeController extends Controller
 
         Auth::login($user);
 
-        return redirect("/");
+        return redirect("/home");
     }
 
     public function custom_login(Request $request){
 
         if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([
-                'message' => 'The email or password is incorrect, please try again'
+                'message' => 'El email o contraseña son Invalidos!!'
             ]);
         }
         
-        return redirect("/");        
+        return redirect("/home");        
     }
 }
