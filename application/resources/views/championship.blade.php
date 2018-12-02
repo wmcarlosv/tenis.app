@@ -41,6 +41,23 @@
 	div.kode_blog_comment a{
 		float:none;
 	}
+
+	p.info-payment{
+		border:2px solid #ccc;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	p.info-payment a{
+		color: red;
+		font-weight: bold;
+	}
+
+	p.info-payment-aproved{
+		border:2px solid green;
+		padding: 10px;
+		border-radius: 10px;
+	}
 </style>
 @stop
 @section('content')
@@ -78,7 +95,20 @@
 					<h5>Sobre el Campeonato</h5>
 					<p>{{ $championship->description }}</p>
 					@if(Auth::check())
-						<a href="#" class="btn btn-success"><i class="fa fa-trophy"></i> Quiero Participar en este Campeonato</a>
+
+						@if($cham_player)
+							@if($cham_player->payment->status == 1)
+						        <p class="info-payment">Tu pago esta en verificaci&oacute;n por el administrador, puedes ver la lista de tus pagos y sus estatus <a href="{{ route('payments.my_payments',['id' => Auth::user()->id]) }}">aqu&iacute;</a></p>
+							@elseif($cham_player->payment->status == 2)
+								<p class="info-payment info-payment-aproved">
+									Te has Inscritos satisfactoriamente al campeonato, te damos la bienvenida a esta aventura y suerte!!!
+								</p>
+							@else
+								<p class="info-payment">Tu pago fue rechazado. es posible que los datos que enviastes esten erroneos, te invitamos a verificar y realizar otra solicitud, puedes hacerlo dando Click <a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}">Aqu&iacute;</a></p>
+							@endif
+						@else
+							<a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}" class="btn btn-success"><i class="fa fa-trophy"></i> Quiero Participar en este Campeonato</a>
+						@endif
 					@else
 						<a href="{{ url('/championships') }}" class="btn btn-success"><i class="fa fa-trophy"></i> Volver a Campeonats</a>
 					@endif
@@ -91,68 +121,29 @@
 			<div class="heading5 black margin">
 			  <h4>Ultimos Jugadores <span>Inscritos</span></h4>
 			</div>
-			<!--// HEADING 5 //-->
 			<div class="row">
-			  <!--// FOOTBALL TEAM //-->
-			  <div class="col-md-3 col-sm-6">
-				<div class="ftb-team-thumb">
-				  <figure><img src="{{ asset('extra-images/ftb-teamone.png') }}" alt=""></figure>
-				  <div class="ftb-team-dec">
-					<span>07</span>
-					<div class="text">
-					  <a href="#">Leo Adam</a>
-					  <p>Defender</p>
+			@foreach($players as $player)
+				@if($player->payment->status == 2)
+				  	<div class="col-md-3 col-sm-6">
+						<div class="ftb-team-thumb">
+						  <figure>
+						  	@if($player->user->avatar)
+						  		<img src="{{ asset('application/storage/app/'.$player->user->avatar) }}" alt="">
+						  	@else
+						  		<img src="{{ asset('extra-images/ftb-teamone.png') }}" alt="">
+						  	@endif
+						  </figure>
+						  <div class="ftb-team-dec">
+							<div class="text">
+							  <a href="#">{{ $player->user->name }}</a>
+							  <p></p>
+							</div>
+							<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+						  </div>
+						</div>
 					</div>
-					<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-				  </div>
-				</div>
-			  </div>
-			  <!--// FOOTBALL TEAM //-->
-			  <!--// FOOTBALL TEAM //-->
-			  <div class="col-md-3 col-sm-6">
-				<div class="ftb-team-thumb">
-				  <figure><img src="{{ asset('extra-images/ftb-teamtwo.png') }}" alt=""></figure>
-				  <div class="ftb-team-dec">
-					<span>07</span>
-					<div class="text">
-					  <a href="#">Leo Adam</a>
-					  <p>Defender</p>
-					</div>
-					<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-				  </div>
-				</div>
-			  </div>
-			  <!--// FOOTBALL TEAM //-->
-			  <!--// FOOTBALL TEAM //-->
-			  <div class="col-md-3 col-sm-6">
-				<div class="ftb-team-thumb">
-				  <figure><img src="{{ asset('extra-images/ftb-three.png') }}" alt=""></figure>
-				  <div class="ftb-team-dec">
-					<span>07</span>
-					<div class="text">
-					  <a href="#">Leo Adam</a>
-					  <p>Defender</p>
-					</div>
-					<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-				  </div>
-				</div>
-			  </div>
-			  <!--// FOOTBALL TEAM //-->
-			  <!--// FOOTBALL TEAM //-->
-			  <div class="col-md-3 col-sm-6">
-				<div class="ftb-team-thumb">
-				  <figure><img src="{{ asset('extra-images/ftb-teamfour.png') }}" alt=""></figure>
-				  <div class="ftb-team-dec">
-					<span>07</span>
-					<div class="text">
-					  <a href="#">Leo Adam</a>
-					  <p>Defender</p>
-					</div>
-					<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
-				  </div>
-				</div>
-			  </div>
-			  <!--// FOOTBALL TEAM //-->
+				@endif  
+			@endforeach
 			</div>
 		  </div>
 		</section>

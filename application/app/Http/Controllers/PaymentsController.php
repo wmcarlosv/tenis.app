@@ -7,6 +7,9 @@ use App\Payment;
 use App\User;
 use App\PaymentMethod;
 use App\Product;
+use App\Championship;
+use App\ChampionshipPlayer;
+use Auth;
 
 class PaymentsController extends Controller
 {
@@ -63,10 +66,19 @@ class PaymentsController extends Controller
 
         $page_from = $request->input('page_from');
 
-        if($page_from == "subscribe_to_site"){
-            return redirect()->route('home');
+        if($page_from == "subscribe_to_championship"){
+            $cp = new ChampionshipPlayer();
+            $cp->championship_id = $request->input('championship_id');
+            $cp->user_id = Auth::user()->id;
+            $cp->payment_id = $payment->id;
+            $cp->player_category_id = Auth::user()->player_category_id;
+            $cp->save();
+        }
+
+        if(empty($page_from)){
+            return redirect()->route('payments.index');
         }else{
-            return redirect()->route('payments.home');
+            return redirect()->route('home');
         }
     }
 
@@ -154,5 +166,20 @@ class PaymentsController extends Controller
         }
 
         return view('admin.payments.subscribe_to_site',['user' => $user, 'product' => $product, 'payment_methods' => $array]);
+    }
+
+    public function subscribe_to_championship($user_id = NULL, $championship_id = NULL){
+
+        $user = User::findorFail($user_id);
+        $product = Product::where('id','=',2)->first();
+        $payment_methods = PaymentMethod::all();
+        $array = [];
+        foreach($payment_methods as $pm){
+            $array[$pm->id] = $pm->name;
+        }
+
+        $championship = Championship::findorFail($championship_id);
+
+        return view('admin.payments.subscribe_to_championship',['user' => $user, 'product' => $product, 'payment_methods' => $array, 'championship' => $championship]);
     }
 }

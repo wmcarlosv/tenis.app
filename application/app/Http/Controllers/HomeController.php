@@ -13,6 +13,7 @@ use App\User;
 use App\Region;
 use App\PlayerCategory;
 use App\Payment;
+use App\ChampionshipPlayer;
 
 class HomeController extends Controller
 {
@@ -151,6 +152,8 @@ class HomeController extends Controller
         return view('championships',['site' => $site, 'notices_header' => $notices_header, 'championships' => $championships,'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
+
+
     public function championship($id = NULL){
         $site = Site::where('title','<>',null)->first();
         if(!$site){
@@ -172,10 +175,26 @@ class HomeController extends Controller
 
         $regions = Region::where('id','<>',1)->get();
 
+        $cham_player = ChampionshipPlayer::where([
+            ['user_id','=',Auth::user()->id],
+            ['championship_id','=',$id]
+        ])->orderby('created_at','DESC')->limit(1)->first();
+
+        $players = ChampionshipPlayer::where([
+            ['championship_id','=',$id]
+        ])->orderby('created_at','DESC')->get();
+
+        if(!$players){
+            $players = [];
+        }
+
         $player_categories = PlayerCategory::all();
 
-        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
+        return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories, 'cham_player' => $cham_player, 'players' => $players]);
     }
+
+
+
 
     public function clubes(){
         $site = Site::where('title','<>',null)->first();
