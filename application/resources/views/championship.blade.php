@@ -116,10 +116,18 @@
 											<a href="{{ route('payments.subscribe_to_championship',['id' => Auth::user()->id, 'championship_id' => $championship->id]) }}" class="btn btn-success"><i class="fa fa-trophy"></i> Quiero Participar en este Campeonato</a>
 									@endif
 
+								@else
+
+								<p class="info-payment">Debes tener una subscripcion ya aprobada par poder acceder a los campeonatos, puedes tus pagos realizados desde <a href="{{ route('payments.my_payments',['id' => Auth::user()->id]) }}">Aqui</a></p>
+
 								@endif
 
+							@else
+						
+							<p class="info-payment">Debes tener una subscripcion ya aprobada par poder acceder a los campeonatos, puedes tus pagos realizados desde <a href="{{ route('payments.my_payments',['id' => Auth::user()->id]) }}">Aqui</a></p>	
+
 							@endif
-							
+
 						@else
 				            <p class="info-payment">Para poder utilizar todas las funcionalidades del sitio es necesario que pages la subscripci&oacute;n al sitio. <a href="{{ route('payments.subscribe_to_site',['id' => Auth::user()->id]) }}">Click aqui para Ello!</a></p>
 						@endif
