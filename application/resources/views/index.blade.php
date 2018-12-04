@@ -118,7 +118,7 @@
 <div class="kode-content">
 <div class="ft-match-slider">
 <div class="owl-carousel-3 owl-theme" id="owl-demo6">
-<div class="ft-match-dec">
+<!--<div class="ft-match-dec">
   <span>23 June 2016</span>
   <div class="ft-match-teams">
   <div class="ft-team-1">
@@ -188,7 +188,7 @@
   </div>
   </div>
 </div>
-</div>
+</div>-->
 </div>
 <div class="ftb-latestnew-wrap">
 <div class="container">
@@ -243,32 +243,6 @@
 </div>
 </div>
 
-<section>
-	<div class="container">
-	<!--// HEADING 5 //-->
-	<div class="heading5 black">
-	<h4>Ultimos  <span>Campeonatos Registrados</span></h4>
-	</div>
-		<!--// HEADING 5 //-->
-		<div class="row">
-			@foreach($championships as $ch)
-			<div class="col-md-3 col-sm-6">
-				<div class="ftb-team-thumb">
-				  <figure><img src="{{ asset('application/storage/app/'.$ch->cover) }}" class="championships-img" alt=""></figure>
-				  <div class="ftb-team-dec">
-				  <div class="text">
-				    <a href="{{ route('home.championship',['id' => $ch->id]) }}">{{ $ch->title }}</a>
-				    <p>{{ $ch->description }}</p>
-				  </div>
-				  <a class="arrow-iconbtn" href="{{ route('home.championship',['id' => $ch->id]) }}"><i class="fa fa-arrow-right "></i></a>
-				  </div>
-				</div>
-			</div>
-			@endforeach
-		</div>
-	</div>
-</section>
-
 <section class="ftb-gallery-bg">
 <div class="container">
 <div class="heading5">
@@ -296,281 +270,58 @@
 </section>
 
 <section>
-<div class="container">
-<div class="ftb-tabs-wrap">
-<ul class="nav nav-tabs" role="tablist">
-<li role="presentation" class="active"><a class="hire" href="#homeone" aria-controls="homeone" role="tab" data-toggle="tab">Next Match</a></li>
-<li role="presentation"><a  class="hire" href="#profileone" aria-controls="profileone" role="tab" data-toggle="tab">Training Schedule</a></li>
-<li role="presentation"><a  class="hire" href="#messagesone" aria-controls="messagesone" role="tab" data-toggle="tab">Leauge Table</a></li>
-</ul>
-<div class="tab-content">
-<div role="tabpanel" class="tab-pane active" id="homeone">
-  <ul class="ftb-main-table">
-  <li>
-    <div class="ftb-date">
-    15th May
-    </div>
-    <div class="ftb-compitatev">
-    <div class="compitatev-team1">
-      <img src="{{ asset('images/short-logo8.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    <span>VS</span>
-    <div class="compitatev-team1 compitatev-team2">
-      <img src="{{ asset('images/short-logo9.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    </div>
-    <div class="ftb-venue">Camp Nou</div>
-    <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
-  </li>
-  <li>
-    <div class="ftb-date">
-    15th May
-    </div>
-    <div class="ftb-compitatev">
-    <div class="compitatev-team1">
-      <img src="{{ asset('images/short-logo10.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    <span>VS</span>
-    <div class="compitatev-team1 compitatev-team2">
-      <img src="{{ asset('images/short-logo11.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    </div>
-    <div class="ftb-venue">Camp Nou</div>
-    <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
-  </li>
-  <li>
-    <div class="ftb-date">
-    15th May
-    </div>
-    <div class="ftb-compitatev">
-    <div class="compitatev-team1">
-      <img src="{{ asset('images/short-logo12.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    <span>VS</span>
-    <div class="compitatev-team1 compitatev-team2">
-      <img src="{{ asset('images/short-logo13.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    </div>
-    <div class="ftb-venue">Camp Nou</div>
-    <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
-  </li>
-  <li>
-    <div class="ftb-date">
-    15th May
-    </div>
-    <div class="ftb-compitatev">
-    <div class="compitatev-team1">
-      <img src="{{ asset('images/short-logo14.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    <span>VS</span>
-    <div class="compitatev-team1 compitatev-team2">
-      <img src="{{ asset('images/short-logo15.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    </div>
-    <div class="ftb-venue">Camp Nou</div>
-    <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
-  </li>
-  <li>
-    <div class="ftb-date">
-    15th May
-    </div>
-    <div class="ftb-compitatev">
-    <div class="compitatev-team1">
-      <img src="{{ asset('images/short-logo8.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    <span>VS</span>
-    <div class="compitatev-team1 compitatev-team2">
-      <img src="{{ asset('images/short-logo9.png') }}" alt="">
-      <a href="#">Bristol Academy</a>
-    </div>
-    </div>
-    <div class="ftb-venue">Camp Nou</div>
-    <div class="ftb-ticket"><a class="hire" href="#">Buy Ticket</a></div>
-  </li>
-  </ul>
-</div>
-<div role="tabpanel" class="tab-pane" id="profileone">
-   <div class="kode_calendar">
-    <div id='calendar' style="display:block !important;"></div>
-   </div>
-</div>
-<div role="tabpanel" class="tab-pane" id="messagesone">
-  <ul class="kode_ticket_list list_2">
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-    <li>
-      <span>04<i>SEp</i></span>
-      <div class="kode_ticket_text">
-        <h6>English Premier Leauge</h6>
-        <div class="ticket_title">
-          <h2>Great Titan</h2>
-          <span>VS</span>
-          <h2>Somalian Titans</h2>
-        </div>
-        <p>15:30 PM, Soccer Stadium, Dubai</p>
-      </div>
-      <div class="ticket_btn">
-        <a href="#">Buy Ticket</a>
-      </div>
-    </li>
-  </ul> 
-</div>
-</div>
-</div>
-</div>
+	<div class="container">
+	<!--// HEADING 5 //-->
+	<div class="heading5 black">
+	<h4>Ultimos  <span>Campeonatos Registrados</span></h4>
+	</div>
+		<!--// HEADING 5 //-->
+		<div class="row">
+			@foreach($championships as $ch)
+			<div class="col-md-3 col-sm-6">
+				<div class="ftb-team-thumb">
+				  <figure><img src="{{ asset('application/storage/app/'.$ch->cover) }}" class="championships-img" alt=""></figure>
+				  <div class="ftb-team-dec">
+				  <div class="text">
+				    <a href="{{ route('home.championship',['id' => $ch->id]) }}">{{ $ch->title }}</a>
+				    <p>{{ $ch->description }}</p>
+				  </div>
+				  <a class="arrow-iconbtn" href="{{ route('home.championship',['id' => $ch->id]) }}"><i class="fa fa-arrow-right "></i></a>
+				  </div>
+				</div>
+			</div>
+			@endforeach
+		</div>
+	</div>
 </section>
-<div class="ftb-counterup">
-<div class="container">
-<!--// HEADING 5 //-->
-<div class="heading5">
-<h4>Important Statictics</h4>
-</div>
-<!--// HEADING 5 //-->
-<div class="row">
-<!--// COUNTER //-->
-<div class="col-md-3 col-sm-3">
-<div class="counterup-dec">
-  <span class="icon-football"></span>
-  <div class="text">
-  <h3 class="word-count">250</h3>
-  <p>Played Games</p>
+
+
+<section class="ftb-gallery-bg">
+  <div class="container">
+    <div class="heading5">
+    <h4><span>Galeria</span></h4>
+    </div>
+    <div class="ftb-gallery">
+    <ul>
+      @foreach($photos as $photo)
+      <li>
+      <figure>
+        <img src="{{ asset('application/storage/app/'.$photo->photo) }}" alt="">
+        <figcaption>
+        <h4>{{ $photo->title }}</h4>
+        <a data-rel="prettyPhoto[]" href="{{ asset('application/storage/app/'.$photo->photo) }}"><i class="fa fa-eye"></i></a>
+        </figcaption>
+      </figure>
+      </li>
+      @endforeach
+    </ul>
+    <!--<div class="tns-load ftb-load">                
+      <a href="#">load more</a>
+    </div>-->
+    </div>
   </div>
-</div>
-</div>
-<!--// COUNTER //-->
-<!--// COUNTER //-->
-<div class="col-md-3 col-sm-3">
-<div class="counterup-dec">
-  <span class="icon-soccer"></span>
-  <div class="text">
-  <h3 class="word-count">200</h3>
-  <p>Record Goals</p>
-  </div>
-</div>
-</div>
-<!--// COUNTER //-->
-<div class="col-md-3 col-sm-3">
-<div class="counterup-dec">
-  <span class="icon-symbol"></span>
-  <div class="text">
-  <h3 class="word-count">154</h3>
-  <p>Great Winnings</p>
-  </div>
-</div>
-</div>
-<!--// COUNTER //-->
-<!--// COUNTER //-->
-<div class="col-md-3 col-sm-3">
-<div class="counterup-dec">
-  <span class="icon-cup"></span>
-  <div class="text">
-  <h3 class="word-count">24</h3>
-  <p>Awards & Trophies</p>
-  </div>
-</div>
-</div>
-<!--// COUNTER //-->
-</div>
-</div>
-</div>
+</section>
+
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">

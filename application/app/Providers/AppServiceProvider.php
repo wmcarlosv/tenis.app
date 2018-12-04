@@ -123,6 +123,11 @@ class AppServiceProvider extends ServiceProvider
                             'url'  => 'admin/games',
                             'icon' => 'play-circle',
                         ],
+                        [
+                            'text' => 'Galeria',
+                            'url'  => 'admin/galleries',
+                            'icon' => 'photo',
+                        ],
                         'LISTADOS',
                         [
                             'text' => 'Pagos',

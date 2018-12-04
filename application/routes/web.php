@@ -59,6 +59,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('/payments/aproved_payment/{id}','PaymentsController@aproved_payment')->name('payments.aproved_payment');
 
 	Route::get('/payments/deaproved_payment/{id}','PaymentsController@deaproved_payment')->name('payments.deaproved_payment');
-
+	Route::resource('galleries','GalleriesController');
 });
 Route::get('admin/cities/getCities/{id}','CitiesController@getCities');

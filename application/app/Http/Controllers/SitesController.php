@@ -11,10 +11,12 @@ use App\Championship;
 use App\Club;
 use App\Region;
 use App\PlayerCategory;
+use App\Gallery;
 
 class SitesController extends Controller
 {
     public function index(){
+
         $site = Site::where('title','<>',null)->first();
         if(!$site){
             $site = [];
@@ -47,7 +49,12 @@ class SitesController extends Controller
 
         $player_categories = PlayerCategory::all();
 
-    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories]);
+        $photos = Gallery::orderBy("created_at","DESC")->get();
+        if(!$photos){
+            $photos = [];
+        }
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories, 'photos' => $photos]);
     }
 
     public function edit(){
