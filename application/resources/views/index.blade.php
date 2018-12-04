@@ -306,7 +306,7 @@
       @foreach($photos as $photo)
       <li>
       <figure>
-        <img src="{{ asset('application/storage/app/'.$photo->photo) }}" alt="">
+        <img src="{{ asset('application/storage/app/'.$photo->photo) }}" class="championships-img" alt="">
         <figcaption>
         <h4>{{ $photo->title }}</h4>
         <a data-rel="prettyPhoto[]" href="{{ asset('application/storage/app/'.$photo->photo) }}"><i class="fa fa-eye"></i></a>
