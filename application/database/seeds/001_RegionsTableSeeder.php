@@ -14,7 +14,7 @@ class RegionsTableSeeder extends Seeder
     {
         DB::table('regions')->insert([
         	'id' => 1,
-        	'name' => 'Sin Nombre'
+        	'name' => 'Portuguesa'
         ]);
     }
 }

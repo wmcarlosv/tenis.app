@@ -131,10 +131,35 @@
               </ul>
               <div id="show-class"><form><input type="text" placeholder="your key word"></form></div>
               <ul class="social-style3">
-                <li><a href="{{ $site->facebook }}"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="{{ $site->twitter }}"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="{{ $site->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="{{ $site->googleplus }}"><i class="fa fa-google-plus"></i></a></li>
+                <li>
+                  @if(isset($site->facebook) and !empty($site->facebook))
+                    <a href="{{ $site->facebook }}"><i class="fa fa-facebook"></i></a>
+                  @else
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                  @endif
+                </li>
+                <li>
+                  @if(isset($site->twitter) and !empty($site->twitter))
+                    <a href="{{ $site->twitter }}"><i class="fa fa-twitter"></i></a>
+                  @else
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                  @endif                
+                </li>
+                <li>
+                  @if(isset($site->twitter) and !empty($site->twitter))
+                    <a href="{{ $site->linkedin }}"><i class="fa fa-linkedin"></i></a>
+                  @else
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                  @endif
+                </li>
+                <li>
+                  @if(isset($site->twitter) and !empty($site->twitter))
+                    <a href="{{ $site->googleplus }}"><i class="fa fa-google-plus"></i></a>
+                  @else
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                  @endif
+                  
+                </li>
               </ul>
             </div>
           </div>
@@ -144,7 +169,7 @@
           <div class="container">
           <div class="logo logo-3">
             <a href="{{ url('/') }}">
-              @if($site->logo)
+              @if(isset($site->logo) and !empty($site->logo))
                 <img src="{{ asset('application/storage/app/'.$site->logo) }}" alt="">
               @else
                 <img src="#" alt="">

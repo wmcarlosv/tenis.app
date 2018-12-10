@@ -2,8 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
-class CitiesTableSeeder extends Seeder
+class PlayerCategoriesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,10 +11,10 @@ class CitiesTableSeeder extends Seeder
      */
     public function run()
     {
-     	DB::table('cities')->insert([
-     		'id' => 1,
-     		'region_id' => 1,
-     		'name' => 'Araure'
-     	]);   
+        DB::table('player_categories')->insert([
+        	'id' => 1,
+        	'name' => 'Honor',
+        	'slug' => 'honor'
+        ]);
     }
 }

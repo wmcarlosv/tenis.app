@@ -23,6 +23,7 @@ class CreateNoticesTable extends Migration
             $table->timestamp('publisher_date')->nullable(false);
             $table->enum('status',['draf','publisher'])->default('draf');
             $table->integer('notice_category_id')->unsigned();
+            $table->integer('club_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('restrict')->onDelete('restrict');

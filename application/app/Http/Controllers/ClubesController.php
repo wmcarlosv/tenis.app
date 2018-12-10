@@ -17,7 +17,7 @@ class ClubesController extends Controller
      */
     public function index()
     {
-        $clubes = Club::where('id','<>', 1)->get();
+        $clubes = Club::all();
         return view('admin.clubes.home', ['clubes' => $clubes]);
     }
 
@@ -28,7 +28,7 @@ class ClubesController extends Controller
      */
     public function create()
     {
-        $regions = Region::where('id','<>', 1)->get();
+        $regions = Region::all();
         $region_array = [];
         $region_array[''] = '-';
 
@@ -100,7 +100,7 @@ class ClubesController extends Controller
     public function edit($id)
     {
         $club = Club::findOrFail($id);
-        $regions = Region::where('id','<>', 1)->get();
+        $regions = Region::all();
         $region_array = [];
         $region_array[''] = '-';
 

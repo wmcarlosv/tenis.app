@@ -19,7 +19,8 @@ class UsersTableSeeder extends Seeder
         	'password' => bcrypt('administrador'),
         	'city_id' => 1,
         	'club_id' => 1,
-        	'role' => 'administrador'
+        	'role' => 'administrator',
+            'player_category_id' => 1,
         ]);
     }
 }

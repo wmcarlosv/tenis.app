@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
                             'icon' => 'user',
                         ]);
                     break;
-                    case 'administrador':
+                    case 'administrator':
                         $event->menu->add(
                         [
                             'text' => 'Sitio',

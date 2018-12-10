@@ -14,9 +14,9 @@ class ClubesTableSeeder extends Seeder
     {
         DB::table('clubes')->insert([
         	'id' => 1,
-        	'name' => 'Sin Nombre',
+        	'name' => 'Pastora de los Llanos',
         	'city_id' => 1,
-        	'slug' => 'sin-nombre'
+        	'slug' => 'pastora-de-los-llanos'
         ]);
     }
 }

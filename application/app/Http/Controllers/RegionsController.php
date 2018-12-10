@@ -14,7 +14,7 @@ class RegionsController extends Controller
      */
     public function index()
     {
-        $regions = Region::where('id','<>', 1)->get();
+        $regions = Region::all();
         return view('admin.regions.home', ['regions' => $regions]);
     }
 

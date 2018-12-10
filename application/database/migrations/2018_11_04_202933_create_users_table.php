@@ -20,18 +20,20 @@ class CreateUsersTable extends Migration
             $table->string('phone',30)->nullable();
             $table->integer('city_id')->unsigned();
             $table->string('address',255)->nullable();
-            $table->enum('role',['administrador','operador','player','club_manager'])->nullable(false);
+            $table->enum('role',['administrator','operator','player','club_manager'])->nullable(false);
             $table->integer('club_id')->unsigned();
             $table->string('avatar',100)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(false);
-            $table->integer('player_category_id')->nullable(false);
+            $table->integer('player_category_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('restrict')->onDelete('restrict');
+
             $table->foreign('club_id')->references('id')->on('clubes')->onUpdate('restrict')->onDelete('restrict');
+
             $table->foreign('player_category_id')->references('id')->on('player_categories')->onUpdate('restrict')->onDelete('restrict');
         });
     }

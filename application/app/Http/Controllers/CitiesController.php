@@ -15,7 +15,7 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $cities = City::where('id','<>', 1)->get();
+        $cities = City::all();
         return view('admin.cities.home', ['cities' => $cities]);
     }
 
@@ -26,7 +26,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        $regions = Region::where('id','<>', 1)->get();
+        $regions = Region::all();
         $region_array = [];
         $region_array[''] = '-';
 

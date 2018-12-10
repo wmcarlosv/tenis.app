@@ -1,5 +1,11 @@
 @extends('layouts.app')
-@section('title',$site->title)
+
+@if( isset($site->title) and !empty($site->title) )
+  @section('title',$site->title)
+@else
+  @section('title',"")
+@endif
+
 @section('css')
 <style type="text/css">
 	img.slider_image{
@@ -54,7 +60,7 @@
 <div id="mainbanner">
 <div class="flexslider">
 <ul class="slides">
-@if($site->slider_1)
+@if(isset($site->slider_1) and !empty($site->slider_1))
 	<li>
 	<div class="thumb-slider">
 	<img src="{{ asset('application/storage/app/'.$site->slider_1) }}" class="slider_image" alt="" />
@@ -74,7 +80,7 @@
 	</li>
 @endif
 
-@if($site->slider_2)
+@if(isset($site->slider_2) and !empty($site->slider_2))
 <li>
 <div class="thumb-slider">
 <img src="{{ asset('application/storage/app/'.$site->slider_2) }}" class="slider_image" alt="" />
@@ -93,7 +99,7 @@
 </li>
 @endif
 
-@if($site->slider_2)
+@if(isset($site->slider_3) and !empty($site->slider_3))
 <li>
 <div class="thumb-slider">
 <img src="{{ asset('application/storage/app/'.$site->slider_3) }}" class="slider_image" alt="" />
