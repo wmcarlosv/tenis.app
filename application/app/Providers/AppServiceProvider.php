@@ -56,8 +56,8 @@ class AppServiceProvider extends ServiceProvider
                             'icon'        => 'dashboard',
                         ],
                         [
-                            'text' => 'Ubicación',
-                            'icon' => 'map',
+                            'text' => 'Configuración',
+                            'icon' => 'cog',
                             'submenu' => [
                                 [
                                     'text' => 'Regiones',
@@ -69,12 +69,6 @@ class AppServiceProvider extends ServiceProvider
                                     'url'  => 'admin/cities',
                                     'icon' => 'map-marker',
                                 ],
-                            ]
-                        ],
-                        [
-                            'text' => 'Configuración',
-                            'icon' => 'cog',
-                            'submenu' => [
                                 [
                                     'text' => 'Tags',
                                     'url'  => 'admin/tags',
