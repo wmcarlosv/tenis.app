@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','city_id','role','club_id',
+        'name', 'email', 'password','city_id','role','club_id','player_category'
     ];
 
     /**
@@ -34,5 +34,9 @@ class User extends Authenticatable
 
     public function player_category(){
         return $this->belongsTo('App\PlayerCategory');
+    }
+
+    public function club(){
+        return $this->belongsTo('App\Club');
     }
 }

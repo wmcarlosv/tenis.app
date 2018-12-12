@@ -20,7 +20,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.users.home',['users' => $users]);
     }
 
     /**
@@ -30,7 +31,12 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+
+        $regions = Region::all();
+        $clubes = Club::all();
+        $player_categories = PlayerCategory::all();
+
+        return view('admin.users.add',['regions' => $regions, 'clubes' => $clubes,'player_categories' => $player_categories]);
     }
 
     /**
@@ -41,7 +47,32 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role' => 'required',
+            'region_id' => 'required',
+            'city_id' => 'required',
+            'club_id' => 'required',
+            'player_category_id' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = new User();
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->role = $request->input('role');
+        $user->city_id = $request->input('city_id');
+        $user->club_id = $request->input('club_id');
+        $user->player_category_id = $request->input('player_category_id');
+        $user->password = bcrypt($request->input('password'));
+
+        $user->save();
+
+        flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -130,7 +161,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findorfail($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 
     public function user_profile($id = NULL){
