@@ -310,7 +310,17 @@ class HomeController extends Controller
             $notices = [];
         }
 
+        $clubes = Club::orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::all();
+
+        $player_categories = PlayerCategory::all();
+
+
         return view('club',['club' => $club, 
-            'site' => $site, 'notices_header' => $notices_header, 'staffs' => $staffs, 'galleries' => $galleries, 'notices' => $notices]);
+            'site' => $site, 'notices_header' => $notices_header, 'staffs' => $staffs, 'galleries' => $galleries, 'notices' => $notices, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 }
