@@ -80,13 +80,13 @@
 									<div class="row">
 										<div class="kode-ply-slid">
 											<div>
-												<div class="col-md-6 col-sm-6 col-xs-6">
-													@foreach($club->services as $service)
+												@foreach($club->services as $service)
+													<div class="col-md-6 col-sm-6 col-xs-6">
 														<div class="kode_ply_list">
 															<a href="#">{{ $service->name }}:<span>SI</span></a>
 														</div>
-													@endforeach
-												</div>
+													</div>
+												@endforeach
 											</div>
 										</div>	
 										<div class="col-md-12">
