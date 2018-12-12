@@ -115,7 +115,7 @@
           <li><a href="{{ url('/notices') }}">Noticias</a></li>
           <li><a href="{{ url('/champoinships') }}">Campeonatos</a></li>
           <li><a href="{{ url('/clubes') }}">Clubes</a></li>
-          <li><a href="#">Galeria</a></li>
+          <li><a href="{{ url('/galleries') }}">Galeria</a></li>
           <li><a href="#">Rankings</a></li>
         </ul>
         <p>All Rights Reserved</p>
