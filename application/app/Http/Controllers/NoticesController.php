@@ -77,6 +77,7 @@ class NoticesController extends Controller
         $notice->status = $request->input('status');
         $notice->user_id = Auth::user()->id;
         $notice->content = $request->input('content');
+        $notice->club_id = $request->input('club_id');
         $notice->save();
 
         $notice_tags = [];
