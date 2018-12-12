@@ -196,7 +196,7 @@
             <li><a href="{{ url('/notices') }}">Noticias</a></li>
             <li><a href="{{ url('/championships') }}">Campeonatos</a> </li>
             <li><a href="{{ url('/clubes') }}">Clubes</a></li>
-            <li><a href="shop.html">Galeria</a></li>
+            <li><a href="{{ url('/galleries') }}">Galeria</a></li>
             <li><a href="blog.html">Ranking</a></li>
           </ul>
           <div id="kode-responsive-navigation" class="dl-menuwrapper">
@@ -205,8 +205,8 @@
               <li class="active"><a class="active" href="{{ url('/') }}">Home</a></li>
               <li class="menu-item kode-parent-menu"><a href="{{ url('/notices') }}">Noticias</a></li>
               <li class="menu-item kode-parent-menu"><a href="fixtures.html">Campeonatos</a></li>
-              <li class="menu-item kode-parent-menu"><a href="#">Clubes</a></li>
-              <li class="menu-item kode-parent-menu"><a href="shop.html">Galeria</a></li>
+              <li class="menu-item kode-parent-menu"><a href="{{ url('/clubes') }}">Clubes</a></li>
+              <li class="menu-item kode-parent-menu"><a href="{{ url('/galleries') }}">Galeria</a></li>
               <li class="menu-item kode-parent-menu"><a href="#">Ranking</a></li>
             </ul>
           </div>

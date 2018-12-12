@@ -19,6 +19,7 @@ class GalleriesController extends Controller
         if(Auth::user()->role == 'club_manager'){
 
             $galleries = Gallery::where('club_id','=',Auth::user()->club_id)->get();
+
             if(!$galleries){
                 $galleries = [];
             }
@@ -61,6 +62,7 @@ class GalleriesController extends Controller
         }else{
             $gallery->photo = NULL;
         }
+        $gallery->club_id = $request->input('club_id');
         $gallery->save();
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');

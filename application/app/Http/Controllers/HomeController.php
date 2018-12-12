@@ -243,6 +243,34 @@ class HomeController extends Controller
         return view('clubes',['site' => $site, 'notices_header' => $notices_header, 'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories]);
     }
 
+    public function galleries(){
+
+        $this->init();
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $galleries = Gallery::orderBy('created_at','desc')->get();
+
+        if(!$galleries){
+            $galleries = [];
+        }
+
+        $regions = Region::all();
+
+        $player_categories = PlayerCategory::all();
+
+        return view('galleries',['site' => $site, 'notices_header' => $notices_header, 'galleries' => $galleries, 'regions' => $regions, 'player_categories' => $player_categories]);
+   
+    }
+
     public function custom_register(Request $request){
         $this->init();
         $request->validate([
