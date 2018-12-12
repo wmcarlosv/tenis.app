@@ -158,7 +158,7 @@ class PaymentsController extends Controller
     public function subscribe_to_site($id = NULL){
 
         $user = User::findorFail($id);
-        $product = Product::where('id','=',1)->first();
+        $product = Product::where('code','=','SAS')->first();
         $payment_methods = PaymentMethod::all();
         $array = [];
         foreach($payment_methods as $pm){
@@ -171,7 +171,7 @@ class PaymentsController extends Controller
     public function subscribe_to_championship($user_id = NULL, $championship_id = NULL){
 
         $user = User::findorFail($user_id);
-        $product = Product::where('id','=',2)->first();
+        $product = Product::where('code','=','SAC')->first();
         $payment_methods = PaymentMethod::all();
         $array = [];
         foreach($payment_methods as $pm){

@@ -7,6 +7,8 @@ use App\Club;
 use App\Region;
 use App\City;
 use Illuminate\Support\Facades\Storage;
+use Auth;
+use App\Service;
 
 class ClubesController extends Controller
 {
@@ -36,7 +38,9 @@ class ClubesController extends Controller
             $region_array[$region->id] = $region->name;
         }
 
-        return view('admin.clubes.add', ['regions' => $region_array]);
+        $services = Service::all();
+
+        return view('admin.clubes.add', ['regions' => $region_array, 'services' => $services]);
     }
 
     /**
@@ -50,13 +54,20 @@ class ClubesController extends Controller
         $request->validate([
             'name' => 'required',
             'region_id' => 'required',
-            'city_id' => 'required',
-            'address' => 'required'
+            'city_id' => 'required'
         ]);
 
         $club = new Club();
 
         $club->name = $request->input('name');
+        $club->description = $request->input('description');
+        $club->email = $request->input('email');
+        $club->phone = $request->input('phone');
+        $club->facebook = $request->input('facebook');
+        $club->twitter = $request->input('twitter');
+        $club->googleplus = $request->input('googleplus');
+        $club->instagram = $request->input('instagram');
+        $club->youtube = $request->input('youtube');
         $club->city_id = $request->input('city_id');
         $club->address = $request->input('address');
 
@@ -70,10 +81,22 @@ class ClubesController extends Controller
         }else{
             $club->cover = NULL;
         }
-        
 
         $club->slug = strtolower(str_replace(" ","-",$request->input('name')));
         $club->save();
+
+        $services = $request->input('services');
+        $service_array = [];
+        
+        if(isset($services) and !empty($services)){
+
+           for($i = 0; $i < count($services); $i++){
+               $service_array['service_id'] = $services[$i];
+               $club->services()->attach($service_array);
+           } 
+
+        }
+        
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
 
@@ -119,7 +142,9 @@ class ClubesController extends Controller
 
         }
 
-        return view('admin.clubes.edit', ['club' => $club, 'regions' => $region_array, 'cities' => $city_array]);
+        $services = Service::all();
+
+        return view('admin.clubes.edit', ['club' => $club, 'regions' => $region_array, 'cities' => $city_array, 'services' => $services]);
     }
 
     /**
@@ -134,12 +159,19 @@ class ClubesController extends Controller
         $request->validate([
             'name' => 'required',
             'region_id' => 'required',
-            'city_id' => 'required',
-            'address' => 'required'
+            'city_id' => 'required'
         ]);
 
         $club = Club::findOrFail($id);
         $club->name = $request->input('name');
+        $club->description = $request->input('description');
+        $club->email = $request->input('email');
+        $club->phone = $request->input('phone');
+        $club->facebook = $request->input('facebook');
+        $club->twitter = $request->input('twitter');
+        $club->googleplus = $request->input('googleplus');
+        $club->instagram = $request->input('instagram');
+        $club->youtube = $request->input('youtube');
         $club->city_id = $request->input('city_id');
         $club->address = $request->input('address');
 
@@ -151,9 +183,27 @@ class ClubesController extends Controller
             $club->cover = explode('/',$request->cover->store('public/clubes/covers'))[3];
         }
 
-        $club->save();
+        $club->update();
+
+        $club->services()->detach();
+
+        $services = $request->input('services');
+        $service_array = [];
+        
+        if(isset($services) and !empty($services)){
+
+           for($i = 0; $i < count($services); $i++){
+               $service_array['service_id'] = $services[$i];
+               $club->services()->attach($service_array);
+           } 
+
+        }
 
         flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
+
+        if(Auth::user()->role == 'club_manager'){
+          return redirect()->route('clubes.edit',['id' => $id]);  
+        }
 
         return redirect()->route('clubes.index');
     }

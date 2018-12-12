@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Gallery;
+use Auth;
 
 class GalleriesController extends Controller
 {
@@ -15,7 +16,17 @@ class GalleriesController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::all();
+        if(Auth::user()->role == 'club_manager'){
+
+            $galleries = Gallery::where('club_id','=',Auth::user()->club_id)->get();
+            if(!$galleries){
+                $galleries = [];
+            }
+            
+        }else{
+            $galleries = Gallery::all();
+        }
+        
         return view('admin.galleries.home', ['galleries' => $galleries]);
     }
 

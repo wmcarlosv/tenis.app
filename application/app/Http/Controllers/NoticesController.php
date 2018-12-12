@@ -18,7 +18,15 @@ class NoticesController extends Controller
      */
     public function index()
     {
-        $notices = Notice::all();
+        if(Auth::user()->role == 'club_manager'){
+            $notices = Notice::where('club_id','=',Auth::user()->club_id)->get();
+            if(!$notices){
+                $notices = [];
+            }
+        }else{
+            $notices = Notice::all();
+        }
+        
         return view('admin.notices.home', ['notices' => $notices]);
     }
 

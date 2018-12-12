@@ -40,12 +40,12 @@ class SitesController extends Controller
             $championships = [];
         }
 
-        $clubes = Club::where('id','<>',1)->orderby('created_at','DESC')->get();
+        $clubes = Club::orderby('created_at','DESC')->get();
         if(!$clubes){
             $clubes = [];
         }
 
-        $regions = Region::where('id','<>',1)->get();
+        $regions = Region::all();
 
         $player_categories = PlayerCategory::all();
 

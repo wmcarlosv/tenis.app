@@ -22,14 +22,17 @@ Route::get('/notices','HomeController@notices')->name('home.notices');
 Route::get('/championships','HomeController@championships')->name('home.championships');
 Route::get('/championship/{id}','HomeController@championship')->name('home.championship');
 Route::get('/clubes','HomeController@clubes')->name('home.clubes');
+Route::get('/club/{slug}','HomeController@club')->name('home.club');
 Route::post('/custom_register','HomeController@custom_register')->name('home.custom_register');
 Route::post('/custom_login','HomeController@custom_login')->name('home.custom_login');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('regions','RegionsController');
 	Route::resource('cities','CitiesController');
+	Route::resource('services','ServicesController');
 	Route::resource('tags','TagsController');
 	Route::resource('clubes','ClubesController');
+	Route::resource('staffs','StaffsController');
 	Route::get('/clubes/delete_logo/{id}','ClubesController@delete_logo');
 	Route::get('/clubes/delete_cover/{id}','ClubesController@delete_cover');
 	Route::resource('payment_methods','PaymentMethodsController');

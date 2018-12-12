@@ -28,6 +28,10 @@
                             {!! Form::text('name',null,['class' => 'form-control', 'id' => 'name']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('code', 'Codigo: ') !!}
+                            {!! Form::text('code',null,['class' => 'form-control', 'id' => 'code']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('price', 'Precio: ') !!}
                             {!! Form::text('price',null,['class' => 'form-control', 'id' => 'price']) !!}
                         </div>

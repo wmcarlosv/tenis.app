@@ -14,6 +14,8 @@ use App\Region;
 use App\PlayerCategory;
 use App\Payment;
 use App\ChampionshipPlayer;
+use App\Staff;
+use App\Gallery;
 
 class HomeController extends Controller
 {
@@ -46,9 +48,10 @@ class HomeController extends Controller
     public function index()
     {
         $this->init();
+
         $payment_subscription = Payment::where([
             ['user_id','=',$this->user_id],
-            ['product_id','=',1]
+            ['id','=', 1]
         ])->orderby('payment_date','DESC')->limit(1)->first();
 
         $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(5)->get();
@@ -205,7 +208,7 @@ class HomeController extends Controller
 
         $payment_subscription = Payment::where([
             ['user_id','=',$this->user_id],
-            ['product_id','=',1]
+            ['id','=',1]
         ])->orderby('payment_date','DESC')->limit(1)->first();
 
         return view('championship',['site' => $site, 'notices_header' => $notices_header, 'championship' => $championship, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories, 'cham_player' => $cham_player, 'players' => $players, 'payment_subscription' => $payment_subscription]);
@@ -227,13 +230,13 @@ class HomeController extends Controller
             $notices_header = [];
         }
 
-        $clubes = Club::where('id','<>',1)->orderBy('created_at','desc')->get();
+        $clubes = Club::orderBy('created_at','desc')->get();
 
         if(!$clubes){
             $clubes = [];
         }
 
-        $regions = Region::where('id','<>',1)->get();
+        $regions = Region::all();
 
         $player_categories = PlayerCategory::all();
 
@@ -275,5 +278,39 @@ class HomeController extends Controller
         }
         
         return redirect("/home");        
+    }
+
+    public function club($slug = NULL){
+
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $club = Club::where('slug','=',$slug)->first();
+
+        $staffs = Staff::where('club_id','=',$club->id)->orderby("show_order","ASC")->get();
+        if(!$staffs){
+            $staffs = [];
+        }
+
+        $galleries = Gallery::where('club_id','=',$club->id)->orderby("created_at","DESC")->limit(6)->get();
+        if(!$galleries){
+            $galleries = [];
+        }
+
+        $notices = Notice::where('club_id','=',$club->id)->orderby('publisher_date','DESC')->limit(5)->get();
+        if(!$notices){
+            $notices = [];
+        }
+
+        return view('club',['club' => $club, 
+            'site' => $site, 'notices_header' => $notices_header, 'staffs' => $staffs, 'galleries' => $galleries, 'notices' => $notices]);
     }
 }

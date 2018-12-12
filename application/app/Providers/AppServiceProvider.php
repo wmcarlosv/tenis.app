@@ -22,8 +22,12 @@ class AppServiceProvider extends ServiceProvider
         $events->Listen(BuildingMenu::class, function(BuildingMenu $event){
                 
                 $event->menu->add('MENU DE NAVEGACION');
+
                 switch (Auth::user()->role) {
+
+                    
                     case 'player':
+
                         $event->menu->add(
                         [
                             'text' => 'Sitio',
@@ -42,8 +46,12 @@ class AppServiceProvider extends ServiceProvider
                             'url'  => 'admin/users/user_profile/'.Auth::user()->id,
                             'icon' => 'user',
                         ]);
+
                     break;
+
+
                     case 'administrator':
+
                         $event->menu->add(
                         [
                             'text' => 'Sitio',
@@ -88,6 +96,16 @@ class AppServiceProvider extends ServiceProvider
                                     'text' => 'Categoria de Noticias',
                                     'url'  => 'admin/notice_categories',
                                     'icon' => 'list-ul',
+                                ],
+                                [
+                                    'text' => 'Servicios de Club',
+                                    'url'  => 'admin/services',
+                                    'icon' => 'list-ul',
+                                ],
+                                [
+                                    'text' => 'Personal del Club',
+                                    'url'  => 'admin/staffs',
+                                    'icon' => 'users',
                                 ],
                             ]
                         ],
@@ -144,7 +162,51 @@ class AppServiceProvider extends ServiceProvider
                             'url'  => 'admin/sites/edit',
                             'icon' => 'home',
                         ]);
+
                     break;
+
+
+                    case 'club_manager':
+
+                        $event->menu->add(
+                        [
+                            'text' => 'Sitio',
+                            'url' => '/site',
+                            'icon' => 'home'
+                        ],
+                        [
+                            'text' => 'dashboard',
+                            'url' => 'home',
+                            'icon' => 'dashboard'
+                        ],
+                        [
+                            'text' => 'Club',
+                            'url'  => 'admin/clubes/'.Auth::user()->club_id."/edit",
+                            'icon' => 'users',
+                        ],
+                        [
+                            'text' => 'Personal del Club',
+                            'url'  => 'admin/staffs',
+                            'icon' => 'users',
+                        ],
+                        [
+                            'text' => 'Noticias',
+                            'url'  => 'admin/notices',
+                            'icon' => 'newspaper-o',
+                        ],
+                        [
+                            'text' => 'Galeria',
+                            'url'  => 'admin/galleries',
+                            'icon' => 'photo',
+                        ],[
+                            'text' => 'Perfil',
+                            'url'  => 'admin/users/user_profile/'.Auth::user()->id,
+                            'icon' => 'user',
+                        ]);
+                        
+                    break;
+
+
                 }
 
             });

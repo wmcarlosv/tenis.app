@@ -38,6 +38,7 @@
                             @endif
                             {!! Form::file('photo',['class' => 'form-control', 'id' => 'photo']) !!}
                         </div>
+                        <input type="hidden" name="club_id" value="{{ $gallery->club_id }}">
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
                         <a href="{{ route('galleries.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                     {!! Form::close() !!}

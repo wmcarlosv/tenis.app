@@ -35,6 +35,11 @@
                             {!! Form::label('photo', 'Foto: ') !!}
                             {!! Form::file('photo',['class' => 'form-control', 'id' => 'photo']) !!}
                         </div>
+
+                        @if(Auth::user()->role == 'club_manager')
+                            <input type="hidden" name="club_id" value="{{ Auth::user()->club_id }}">
+                        @endif
+                        
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
                         <a href="{{ route('galleries.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                     {!! Form::close() !!}

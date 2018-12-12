@@ -17,6 +17,7 @@
                         <thead>
                             <th>ID</th>
                             <th>Nombre</th>
+                            <td>Codigo</td>
                             <th>Precio</th>
                             <th>Recurrente</th>
                             <th>Tipo de Recurrencia</th>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
+                                    <td>{{ $product->code }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>
                                         @if($product->is_recurrent == 0)

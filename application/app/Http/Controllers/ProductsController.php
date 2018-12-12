@@ -38,6 +38,7 @@ class ProductsController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'code' => 'required',
             'price' => 'required'
         ]);
 
@@ -82,11 +83,13 @@ class ProductsController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'code' => 'required',
             'price' => 'required'
         ]);
 
         $product = Product::findOrFail($id);
         $product->name = $request->input('name');
+        $product->code = $request->input('code');
         $product->price = $request->input('price');
         $product->is_recurrent = $request->input('is_recurrent');
         $product->recurrent_type = $request->input('recurrent_type');

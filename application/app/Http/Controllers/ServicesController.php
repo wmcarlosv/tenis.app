@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Game;
-use App\Championship;
-use App\PlayerCategory;
+use App\Service;
 
-class GamesController extends Controller
+class ServicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class GamesController extends Controller
      */
     public function index()
     {
-        $games = Game::all();
-        return view('admin.games.home', ['games' => $games]);
+        $services = Service::all();
+        return view('admin.services.home', ['services' => $services]);
     }
 
     /**
@@ -27,23 +25,7 @@ class GamesController extends Controller
      */
     public function create()
     {
-        $championships = Championship::all();
-        $chp = [];
-        $chp[''] = "-";
-
-        foreach($championships as $ch){
-            $chp[$ch->id] = $ch->title;
-        }
-
-        $player_categories = PlayerCategory::all();
-        $pyc = [];
-        $pyc[''] = "-";
-
-        foreach($player_categories as $pc){
-            $pyc[$pc->id] = $pc->name;
-        }
-
-        return view('admin.games.add',['championships' => $chp, 'player_categories' => $pyc]);
+        return view('admin.services.add');
     }
 
     /**
@@ -58,11 +40,11 @@ class GamesController extends Controller
             'name' => 'required'
         ]);
 
-        $game = Game::create($request->all());
+        $service = Service::create($request->all());
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
 
-        return redirect()->route('games.index');
+        return redirect()->route('services.index');
     }
 
     /**
@@ -84,8 +66,8 @@ class GamesController extends Controller
      */
     public function edit($id)
     {
-        $game = Game::findOrFail($id);
-        return view('admin.games.edit', ['game' => $game]);
+        $service = Service::findOrFail($id);
+        return view('admin.services.edit', ['service' => $service]);
     }
 
     /**
@@ -101,13 +83,13 @@ class GamesController extends Controller
             'name' => 'required'
         ]);
 
-        $game = Game::findOrFail($id);
-        $game->name = $request->input('name');
-        $game->save();
+        $service = Service::findOrFail($id);
+        $service->name = $request->input('name');
+        $service->save();
 
         flash()->overlay('Registro Actualizado con Exito!!', 'Alerta!!');
 
-        return redirect()->route('games.index');
+        return redirect()->route('services.index');
     }
 
     /**
@@ -118,9 +100,9 @@ class GamesController extends Controller
      */
     public function destroy($id)
     {
-        $game = Game::findOrFail($id);
-        $game->delete();
+        $service = Service::findOrFail($id);
+        $service->delete();
         flash()->overlay('Registro Eliminado con Exito!!','Alerta!!');
-        return redirect()->route('games.index');
+        return redirect()->route('services.index');
     }
 }

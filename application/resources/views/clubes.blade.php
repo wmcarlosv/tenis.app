@@ -64,7 +64,7 @@
 					<figure>
 						<img src="{{ asset('application/storage/app/public/clubes/logos/'.$cb->logo) }}" class="image-one-notice" alt="">
 						<figcaption>
-							<a href="#"><i class="fa fa-expand"></i></a>
+							<a href="{{ route('home.club',['slug' => $cb->slug]) }}"><i class="fa fa-eye"></i></a>
 						</figcaption>
 					</figure>
 					<div class="kode_blog_text">
@@ -74,7 +74,7 @@
 							</div>
 						</div>	
 						<div class="kode_blog_comment">
-							<a href="#">Ver Equipo</a>
+							<a href="{{ route('home.club',['slug' => $cb->slug]) }}">Ver Club</a>
 						</div>
 					</div>
 				</div>

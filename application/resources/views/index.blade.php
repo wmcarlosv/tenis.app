@@ -262,7 +262,7 @@
     <img src="{{ asset('application/storage/app/public/clubes/logos/'.$club->logo) }}" class="club-image" alt="">
     <figcaption>
     <h4>{{ $club->name }}</h4>
-    <a href="#"><i class="fa fa-eye"></i></a>
+    <a href="{{ route('home.club',['slug' => $club->slug]) }}"><i class="fa fa-eye"></i></a>
     </figcaption>
   </figure>
   </li>

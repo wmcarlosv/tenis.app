@@ -62,6 +62,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" name="club_id" value="{{ $notice->club_id }}">
     {!! Form::close() !!}
 </div>
 @endsection

@@ -18,6 +18,21 @@ class CreateUsersTable extends Migration
             $table->string('name',40);
             $table->string('email',100)->unique();
             $table->string('phone',30)->nullable();
+
+            $table->date('birthdate')->nullable();
+            $table->text('about')->nullable();
+            $table->float('weight')->nullable();
+            $table->float('height')->nullable();
+            $table->enum('skillful_hand',['left','right'])->nullable();
+
+            //Redes sociales
+            $table->string('facebook',255)->nullable();
+            $table->string('twitter',255)->nullable();
+            $table->string('googleplus',255)->nullable();
+            $table->string('instagram',255)->nullable();
+            $table->string('youtube',255)->nullable();
+            //Fin Redes sociales
+
             $table->integer('city_id')->unsigned();
             $table->string('address',255)->nullable();
             $table->enum('role',['administrator','operator','player','club_manager'])->nullable(false);
@@ -31,9 +46,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('restrict')->onDelete('restrict');
-
             $table->foreign('club_id')->references('id')->on('clubes')->onUpdate('restrict')->onDelete('restrict');
-
             $table->foreign('player_category_id')->references('id')->on('player_categories')->onUpdate('restrict')->onDelete('restrict');
         });
     }
