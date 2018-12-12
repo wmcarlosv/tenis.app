@@ -150,7 +150,7 @@
 							<table class="kode_ply_table">
 								<tr class="kode_ply_first">
 									<th>Nombre</th>
-									<th>Edad</th>
+									<th>Nacimiento</th>
 									<th>Categoria</th>
 									<th>Mano Habil</th>
 									<th>Region</th>
@@ -160,9 +160,15 @@
 								@foreach($club->users as $player)
 								<tr class="kode_ply_two">
 									<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
-									<td></td>
+									<td>{{ date('d-m-Y',strtotime($player->birthdate)) }}</td>
 									<td>{{ $player->player_category->name }}</td>
-									<td></td>
+									<td>
+										@if($player->skillful_hand == "right")
+											Derecho
+										@else
+											Izquierdo
+										@endif
+									</td>
 									<td>{{ $player->city->region->name }}</td>
 									<td>{{ $player->city->name }}</td>
 									<td>
