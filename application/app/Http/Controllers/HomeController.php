@@ -351,4 +351,33 @@ class HomeController extends Controller
         return view('club',['club' => $club, 
             'site' => $site, 'notices_header' => $notices_header, 'staffs' => $staffs, 'galleries' => $galleries, 'notices' => $notices, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
+
+    public function profile($id = NULL){
+
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $user = User::where('id','=',$id)->first();
+
+        $clubes = Club::orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::all();
+
+        $player_categories = PlayerCategory::all();
+
+
+        return view('profile',['user' => $user, 
+            'site' => $site, 'notices_header' => $notices_header, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
+    }
 }

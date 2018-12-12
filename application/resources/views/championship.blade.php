@@ -157,7 +157,7 @@
 						  </figure>
 						  <div class="ftb-team-dec">
 							<div class="text">
-							  <a href="#">{{ $player->user->name }}</a>
+							  <a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->user->name }}</a>
 							  <p></p>
 							</div>
 							<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>

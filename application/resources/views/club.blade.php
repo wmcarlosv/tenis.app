@@ -159,7 +159,7 @@
 								</tr>
 								@foreach($club->users as $player)
 								<tr class="kode_ply_two">
-									<td>{{ $player->name }}</td>
+									<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
 									<td></td>
 									<td>{{ $player->player_category->name }}</td>
 									<td></td>
@@ -168,7 +168,7 @@
 									<td>
 									<center>
 										@if($player->avatar)
-											<img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150">
+											<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
 										@else
 											Sin Foto
 										@endif

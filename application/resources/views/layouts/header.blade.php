@@ -197,7 +197,7 @@
             <li><a href="{{ url('/championships') }}">Campeonatos</a> </li>
             <li><a href="{{ url('/clubes') }}">Clubes</a></li>
             <li><a href="{{ url('/galleries') }}">Galeria</a></li>
-            <li><a href="blog.html">Ranking</a></li>
+            <!--<li><a href="blog.html">Ranking</a></li>-->
           </ul>
           <div id="kode-responsive-navigation" class="dl-menuwrapper">
           <button class="dl-trigger">Open Menu</button>
@@ -207,7 +207,7 @@
               <li class="menu-item kode-parent-menu"><a href="fixtures.html">Campeonatos</a></li>
               <li class="menu-item kode-parent-menu"><a href="{{ url('/clubes') }}">Clubes</a></li>
               <li class="menu-item kode-parent-menu"><a href="{{ url('/galleries') }}">Galeria</a></li>
-              <li class="menu-item kode-parent-menu"><a href="#">Ranking</a></li>
+              <!--<li class="menu-item kode-parent-menu"><a href="#">Ranking</a></li>-->
             </ul>
           </div>
           </div>

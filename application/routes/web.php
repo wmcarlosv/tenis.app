@@ -23,6 +23,7 @@ Route::get('/championships','HomeController@championships')->name('home.champion
 Route::get('/championship/{id}','HomeController@championship')->name('home.championship');
 Route::get('/clubes','HomeController@clubes')->name('home.clubes');
 Route::get('/club/{slug}','HomeController@club')->name('home.club');
+Route::get('/profile/{id}','HomeController@profile')->name('home.profile');
 Route::get('/galleries','HomeController@galleries')->name('home.galleries');
 Route::post('/custom_register','HomeController@custom_register')->name('home.custom_register');
 Route::post('/custom_login','HomeController@custom_login')->name('home.custom_login');
