@@ -161,6 +161,10 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'Configuracion de sitio',
                             'url'  => 'admin/sites/edit',
                             'icon' => 'home',
+                        ],[
+                            'text' => 'Perfil',
+                            'url'  => 'admin/users/user_profile/'.Auth::user()->id,
+                            'icon' => 'user',
                         ]);
 
                     break;

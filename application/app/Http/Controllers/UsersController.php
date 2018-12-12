@@ -89,6 +89,18 @@ class UsersController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
+
+        $user->birthdate = date('Y-m-d',strtotime($request->input('birthdate')));
+        $user->about = $request->input('about');
+        $user->weight = $request->input('weight');
+        $user->height = $request->input('height');
+        $user->skillful_hand = $request->input('skillful_hand');
+        $user->facebook = $request->input('facebook');
+        $user->twitter = $request->input('twitter');
+        $user->googleplus = $request->input('googleplus');
+        $user->instagram = $request->input('instagram');
+        $user->youtube = $request->input('youtube');
+
         $user->city_id = $request->input('city_id');
         $user->address = $request->input('address');
         $user->club_id = $request->input('club_id');

@@ -30,7 +30,7 @@
                     <div class="tab-content">
                       <div id="personal_data" class="tab-pane fade in active">
                         <h3>Datos Personales</h3>
-                        {!! Form::open(['method' => 'PUT', 'route' => ['users.update',Auth::user()->id], 'files' => true]) !!}
+                    {!! Form::open(['method' => 'PUT', 'route' => ['users.update',Auth::user()->id], 'files' => true, 'autocomplete' => 'off']) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre: ') !!}
                             {!! Form::text('name',Auth::user()->name,['class' => 'form-control', 'id' => 'name']) !!}
@@ -42,6 +42,46 @@
                         <div class="form-group">
                             {!! Form::label('phone', 'Telefono: ') !!}
                             {!! Form::text('phone',Auth::user()->phone,['class' => 'form-control', 'id' => 'phone']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('about', 'Sobre Mi: ') !!}
+                            {!! Form::textarea('about',Auth::user()->about,['class' => 'form-control', 'id' => 'about']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('weight', 'Peso: ') !!}
+                            {!! Form::text('weight',Auth::user()->weight,['class' => 'form-control', 'id' => 'weight']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('height', 'Altura: ') !!}
+                            {!! Form::text('height',Auth::user()->height,['class' => 'form-control', 'id' => 'height']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('birthdate', 'Fecha de Nacimiento: ') !!}
+                            {!! Form::text('birthdate',date('d/m/Y',strtotime(Auth::user()->birthdate)),['class' => 'form-control date-picker', 'id' => 'birthdate']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('skillful_hand', 'Mano Activa: ') !!}
+                            {!! Form::select('skillful_hand',['left' => 'Izqueirda','right' => 'Derecha'],Auth::user()->skillful_hand,['class' => 'form-control', 'id' => 'skillful_hand']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('facebook', 'Facebook: ') !!}
+                            {!! Form::text('facebook',Auth::user()->facebook,['class' => 'form-control', 'id' => 'facebook']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('twitter', 'Twitter: ') !!}
+                            {!! Form::text('twitter',Auth::user()->twitter,['class' => 'form-control', 'id' => 'twitter']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('googleplus', 'Google Plus: ') !!}
+                            {!! Form::text('googleplus',Auth::user()->googleplus,['class' => 'form-control', 'id' => 'googleplus']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('instagram', 'Instagram: ') !!}
+                            {!! Form::text('instagram',Auth::user()->instagram,['class' => 'form-control', 'id' => 'instagram']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('youtube', 'Youtube: ') !!}
+                            {!! Form::text('youtube',Auth::user()->youtube,['class' => 'form-control', 'id' => 'youtube']) !!}
                         </div>
                             {!! Form::label('region_id', 'Region: ') !!}
                             {!! Form::select('region_id',$regions,Auth::user()->city->region_id,['class' => 'form-control', 'id' => 'region_id']) !!}
@@ -98,21 +138,34 @@
     </div>
 </div>
 @endsection
-@section('js')
-<script type="text/javascript">
-    $("#delete-image-profile").click(function(){
-        if(confirm("Estas seguro de eliminar la Imagen de Perfil")){
-            var url = "{{ url('admin/users/delete_profile_image/'.Auth::user()->id) }}";
 
-            $.get(url, function( response ){
-                var data = JSON.parse(response);
-                if(data.borrado == "yes"){
-                    $("#avatar-content").remove();
-                    $("#avatar").show();
-                    alert("Imagen de Perfil Eliminada con Exito!!");
-                }
-            });
-        }
+@section('css')
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@stop
+@section('js')
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".date-picker").datepicker({
+            dateFormat : 'dd/mm/yy',
+            changeYear : true,
+            changeMonth : true
+        });
+
+        $("#delete-image-profile").click(function(){
+            if(confirm("Estas seguro de eliminar la Imagen de Perfil")){
+                var url = "{{ url('admin/users/delete_profile_image/'.Auth::user()->id) }}";
+
+                $.get(url, function( response ){
+                    var data = JSON.parse(response);
+                    if(data.borrado == "yes"){
+                        $("#avatar-content").remove();
+                        $("#avatar").show();
+                        alert("Imagen de Perfil Eliminada con Exito!!");
+                    }
+                });
+            }
+        });
     });
 </script>
 @stop
