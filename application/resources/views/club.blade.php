@@ -222,7 +222,7 @@
 									<div class="form-group">
 										<input type="text" name="message" class="form-control" placeholder="Mensaje">
 									</div>
-									<button type="sumit" class="btn btn-success">Enviar Mensaje</button>
+									<button type="sumit" class="btn btn-danger">Enviar Mensaje</button>
 								</form>
 								</div>
 							</div>
