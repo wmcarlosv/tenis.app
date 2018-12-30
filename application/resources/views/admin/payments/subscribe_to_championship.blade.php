@@ -24,8 +24,21 @@
                 <div class="panel-body">
                     <div class="alert alert-info">
                       <strong>Información del Pago!</strong><br>
-                      Para poder participar en un campeonato es necesario Subscrirce al mismo, el precio es de <strong>{{ $product->price }}$ Chilenos</strong>
+                      Para poder participar en un campeonato es necesario Subscrirce al mismo, el precio es de <strong>{{ number_format($product->price) }}$</strong>
                       para todos los campeonatos.
+                      <br>
+                      <br>
+                      <strong>Información Bancaria!</strong>
+                      <br>
+                      <p>
+                        <b>Banco Santander - Cuenta Corriente</b>
+                        <br />
+                        <b>Numero de cuenta - 70-73015-4</b>
+                        <br />
+                        <b>Nombre: Jean Gottreux</b>
+                        <br />
+                        <b>Rut: 18210700-K</b>
+                      </p>
                     </div>
                     {!! Form::open(['route' => 'payments.store','autocomplete' => 'off', 'files' => true]) !!}
 
