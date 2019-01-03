@@ -170,6 +170,7 @@ class HomeController extends Controller
 
 
     public function championship($id = NULL){
+
         $this->init();
         $site = Site::where('title','<>',null)->first();
         if(!$site){

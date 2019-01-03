@@ -34,7 +34,13 @@
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->city->region->name }}</td>
                                     <td>{{ $user->city->name }}</td>
-                                    <td>{{ $user->club->name }}</td>
+                                    <td>
+                                        @if(isset($user->club->name) and !empty($user->club->name))
+                                            {{ $user->club->name }}
+                                        @else
+                                            Sin Equipo
+                                        @endif
+                                    </td>
                                     <td>{{ $user->player_category->name }}</td>
                                     <td>
                                         {!! Form::open(['method' => 'DELETE','style' => 'display:inline','route' => ['users.destroy', $user->id]]) !!}

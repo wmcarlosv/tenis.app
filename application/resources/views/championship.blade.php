@@ -160,7 +160,7 @@
 							  <a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->user->name }}</a>
 							  <p></p>
 							</div>
-							<a class="arrow-iconbtn" href="#"><i class="fa fa-arrow-right "></i></a>
+							<a class="arrow-iconbtn" href="{{ route('home.profile',['id' => $player->id]) }}"><i class="fa fa-arrow-right "></i></a>
 						  </div>
 						</div>
 					</div>

@@ -134,7 +134,11 @@
 													<div class="col-md-6 col-sm-6 col-xs-6">
 														<div class="kode_ply_list">
 															<a href="#">Club:<span>
-																{{ $user->club->name }}
+																@if(isset($user->club->name) and !empty($user->club->name))
+																	{{ $user->club->name }}
+																@else
+																 Sin Club
+																@endif
 															</span></a>
 														</div>
 													</div>
