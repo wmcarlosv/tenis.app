@@ -54,6 +54,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::get('/users/delete_profile_image/{id}','UsersController@delete_profile_image')->name('users.delete_profile_image');
 
+	Route::get('/users/player_to_site/{id}','UsersController@player_to_site')->name('users.player_to_site');
+	Route::get('/users/player_to_chmp/{user_id}/{championship_id}/{player_category_id}','UsersController@player_to_chmp')->name('users.player_to_chmp');
+
 	Route::resource('payments','PaymentsController');
 	Route::get('/payments/my_payments/{id}','PaymentsController@my_payments')->name('payments.my_payments');
 

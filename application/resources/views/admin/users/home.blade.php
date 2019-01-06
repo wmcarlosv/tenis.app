@@ -43,9 +43,11 @@
                                     </td>
                                     <td>{{ $user->player_category->name }}</td>
                                     <td>
-                                        {!! Form::open(['method' => 'DELETE','style' => 'display:inline','route' => ['users.destroy', $user->id]]) !!}
+                                        <a class="btn btn-info" href="{{ route('users.show',['id' => $user->id]) }}"><i class="fa fa-eye"></i> Ver Usuario</a>
+
+                                        <!--{!! Form::open(['method' => 'DELETE','style' => 'display:inline','route' => ['users.destroy', $user->id]]) !!}
                                             {!! Form::button('<i class="fa fa-times"></i> Eliminar',['type' => 'submit', 'class' => 'btn btn-danger delete-button']) !!}
-                                        {!! Form::close() !!}
+                                        {!! Form::close() !!}-->
                                     </td>
                                 </tr>
                             @endforeach

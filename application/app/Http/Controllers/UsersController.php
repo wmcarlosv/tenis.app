@@ -10,6 +10,10 @@ use App\City;
 use App\Club;
 use App\PlayerCategory;
 use Auth;
+use App\Championship;
+use App\Payment;
+use App\Product;
+use App\ChampionshipPlayer;
 
 class UsersController extends Controller
 {
@@ -84,6 +88,9 @@ class UsersController extends Controller
     public function show($id)
     {
         //
+        $user = User::findorfail($id);
+        $championships = Championship::all();
+        return view('admin.users.view',['user' => $user, 'championships' => $championships]);
     }
 
     /**
@@ -225,5 +232,67 @@ class UsersController extends Controller
         $user->update();
 
         print json_encode(['borrado' => 'yes']);
+    }
+
+    public function player_to_site($user_id = NULL){
+
+        $product = Product::where('id','=',1)->first();
+
+        $ver_pay = Payment::where([
+            ['user_id','=',$user_id],
+            ['product_id','=',1]
+        ])->first();
+
+        if(!$ver_pay){
+            $payment = new Payment();
+            $payment->product_id = 1;
+            $payment->user_id = $user_id;
+            $payment->payment_method_id = 1;
+            $payment->amount = $product->price;
+            $payment->payment_date = date('Y-m-d H:m:s');
+            $payment->status = 2;
+            $payment->attachment = 'public/payments/attachments/empty.jpg';
+            $payment->reference_number = '00000000';
+            $payment->save();
+
+            print json_encode(['registro' => 'yes']);
+        }else{
+            print json_encode(['registro' => 'existe']); 
+        }   
+    }
+
+    public function player_to_chmp($user_id = NULL, $championship_id = NULL, $player_category_id = NULL){
+
+        $product = Product::where('id','=',2)->first();
+
+        $ver_champ = ChampionshipPlayer::where([
+            ['user_id','=',$user_id],
+            ['championship_id','=',$championship_id]
+        ])->first();
+
+        if(!$ver_champ){
+            $payment = new Payment();
+            $payment->product_id = 2;
+            $payment->user_id = $user_id;
+            $payment->payment_method_id = 1;
+            $payment->amount = $product->price;
+            $payment->payment_date = date('Y-m-d H:m:s');
+            $payment->status = 2;
+            $payment->attachment = 'public/payments/attachments/empty.jpg';
+            $payment->reference_number = '00000000';
+            $payment->save();
+
+            $chm_ply = new ChampionshipPlayer();
+            $chm_ply->championship_id = $championship_id;
+            $chm_ply->user_id = $user_id;
+            $chm_ply->payment_id = $payment->id;
+            $chm_ply->player_category_id = $player_category_id;
+            $chm_ply->save();
+
+            print json_encode(['registro' => 'yes']);
+
+        }else{
+           print json_encode(['registro' => 'existe']); 
+        }
     }
 }
