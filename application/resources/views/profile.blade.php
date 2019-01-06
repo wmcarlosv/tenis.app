@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','user')
+@section('title','Jugador')
 @section('css')
 <style type="text/css">
 	div.kode_benner1{

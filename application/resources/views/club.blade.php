@@ -158,29 +158,31 @@
 									<th>Foto</th>
 								</tr>
 								@foreach($club->users as $player)
-								<tr class="kode_ply_two">
-									<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
-									<td>{{ date('d-m-Y',strtotime($player->birthdate)) }}</td>
-									<td>{{ $player->player_category->name }}</td>
-									<td>
-										@if($player->skillful_hand == "right")
-											Derecho
-										@else
-											Izquierdo
-										@endif
-									</td>
-									<td>{{ $player->city->region->name }}</td>
-									<td>{{ $player->city->name }}</td>
-									<td>
-									<center>
-										@if($player->avatar)
-											<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
-										@else
-											Sin Foto
-										@endif
-									</center>
-									</td>
-								</tr>
+									@if($player->role == "player")
+										<tr class="kode_ply_two">
+											<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
+											<td>{{ date('d-m-Y',strtotime($player->birthdate)) }}</td>
+											<td>{{ $player->player_category->name }}</td>
+											<td>
+												@if($player->skillful_hand == "right")
+													Derecho
+												@else
+													Izquierdo
+												@endif
+											</td>
+											<td>{{ $player->city->region->name }}</td>
+											<td>{{ $player->city->name }}</td>
+											<td>
+											<center>
+												@if($player->avatar)
+													<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
+												@else
+													Sin Foto
+												@endif
+											</center>
+											</td>
+										</tr>
+									@endif
 								@endforeach
 							</table>
 						</div>
