@@ -231,7 +231,7 @@ class HomeController extends Controller
             $notices_header = [];
         }
 
-        $clubes = Club::orderBy('created_at','desc')->get();
+        $clubes = Club::where('id','<>',1)->orderBy('created_at','desc')->get();
 
         if(!$clubes){
             $clubes = [];
