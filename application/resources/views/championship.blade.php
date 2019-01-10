@@ -143,7 +143,7 @@
 			<div class="heading5 black margin">
 			  <h4>Ultimos Jugadores <span>Inscritos</span></h4>
 			</div>
-			<div class="row">
+			<!--<div class="row">
 			@foreach($players as $player)
 				@if($player->payment->status == 2)
 				  	<div class="col-md-3 col-sm-6">
@@ -166,7 +166,50 @@
 					</div>
 				@endif  
 			@endforeach
-			</div>
+			</div>-->
+			<div class="kode_ply_gallery gly_3">
+							<!--<div class="heading5 black b_2">
+							  <h4><span>Jugadores</span></h4>
+							</div>-->
+							<table class="kode_ply_table">
+								<tr class="kode_ply_first">
+									<th>Nombre</th>
+									<th>Nacimiento</th>
+									<th>Categoria</th>
+									<th>Mano Habil</th>
+									<th>Region</th>
+									<th>Ciudad</th>
+									<th>Foto</th>
+								</tr>
+								@foreach($players as $player)
+									@if($player->role == "player")
+										<tr class="kode_ply_two">
+											<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
+											<td>{{ date('d-m-Y',strtotime($player->birthdate)) }}</td>
+											<td>{{ $player->player_category->name }}</td>
+											<td>
+												@if($player->skillful_hand == "right")
+													Derecho
+												@else
+													Izquierdo
+												@endif
+											</td>
+											<td>{{ $player->city->region->name }}</td>
+											<td>{{ $player->city->name }}</td>
+											<td>
+											<center>
+												@if($player->avatar)
+													<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
+												@else
+													Sin Foto
+												@endif
+											</center>
+											</td>
+										</tr>
+									@endif
+								@endforeach
+							</table>
+						</div>
 		  </div>
 		</section>
 	</div>
