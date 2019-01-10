@@ -56,7 +56,7 @@
                           </div>
                           <div class="kode_model_btn">
                             <button type="submit">Etnrar</button>
-                            <a href="#">forget password?</a>
+                            <a href="{{ url('password/reset') }}">Olvidaste tu Contrase&ntilde;a?</a>
                           </div>
                         </form>
                       </div>
