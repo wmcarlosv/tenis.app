@@ -213,7 +213,7 @@
 											<td>
 											<center>
 												@if($player->user->avatar)
-													<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
+													<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->user->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
 												@else
 													Sin Foto
 												@endif
