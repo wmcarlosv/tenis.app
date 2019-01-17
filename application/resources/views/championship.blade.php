@@ -58,6 +58,20 @@
 		padding: 10px;
 		border-radius: 10px;
 	}
+	tr.kode_ply_two{
+		background: white !important;
+		border-bottom: 1px solid #999;
+		border-left: 1px solid #999;
+		border-right: 1px solid #999;
+	}
+
+	tr.kode_ply_first{
+		border-right: 1px solid #999;
+	}
+
+	tr.kode_ply_two td{
+		color:black !important;
+	}
 </style>
 @stop
 @section('content')
@@ -182,23 +196,23 @@
 									<th>Foto</th>
 								</tr>
 								@foreach($players as $player)
-									@if($player->role == "player")
+									@if($player->user->role == "player")
 										<tr class="kode_ply_two">
-											<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->name }}</a></td>
-											<td>{{ date('d-m-Y',strtotime($player->birthdate)) }}</td>
-											<td>{{ $player->player_category->name }}</td>
+											<td><a href="{{ route('home.profile',['id' => $player->id]) }}">{{ $player->user->name }}</a></td>
+											<td>{{ date('d-m-Y',strtotime($player->user->birthdate)) }}</td>
+											<td>{{ $player->user->player_category->name }}</td>
 											<td>
-												@if($player->skillful_hand == "right")
+												@if($player->user->skillful_hand == "right")
 													Derecho
 												@else
 													Izquierdo
 												@endif
 											</td>
-											<td>{{ $player->city->region->name }}</td>
-											<td>{{ $player->city->name }}</td>
+											<td>{{ $player->user->city->region->name }}</td>
+											<td>{{ $player->user->city->name }}</td>
 											<td>
 											<center>
-												@if($player->avatar)
+												@if($player->user->avatar)
 													<a href="{{ route('home.profile',['id' => $player->id]) }}"><img src="{{ asset('application/storage/app/'.$player->avatar) }}" class="img-thumbnail" width="100" height="150"></a>
 												@else
 													Sin Foto
