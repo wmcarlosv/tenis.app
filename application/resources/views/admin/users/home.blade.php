@@ -35,7 +35,7 @@
                                     <td>
                                         @if($user->role == 'administrator')
                                             Administrador
-                                        @elseif($user->role = 'club_manager')
+                                        @elseif($user->role == 'club_manager')
                                             Administrador de Club
                                         @else
                                             Jugador
