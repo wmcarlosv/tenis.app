@@ -59,7 +59,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('users.show',['id' => $user->id]) }}"><i class="fa fa-eye"></i> Ver Usuario</a>
+                                        <a class="btn btn-info" href="{{ route('users.show',['id' => $user->id]) }}" title="Ver Usuario"><i class="fa fa-eye"></i></a>
+
+                                        <a class="btn btn-success" href="{{ route('users.edit',['id' => $user->id]) }}" title="Editar Usuario"><i class="fa fa-pencil"></i></a>
 
                                         <!--{!! Form::open(['method' => 'DELETE','style' => 'display:inline','route' => ['users.destroy', $user->id]]) !!}
                                             {!! Form::button('<i class="fa fa-times"></i> Eliminar',['type' => 'submit', 'class' => 'btn btn-danger delete-button']) !!}

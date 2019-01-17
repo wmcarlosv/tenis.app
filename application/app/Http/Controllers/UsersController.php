@@ -107,7 +107,12 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $regions = Region::all();
+        $cities = City::where('region_id','=',$user->city->region_id)->get();
+        $clubes = Club::all();
+        $player_categories = PlayerCategory::all();
+        return view('admin.users.edit', ['user' => $user, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories, 'cities' => $cities]);
     }
 
     /**
@@ -164,6 +169,38 @@ class UsersController extends Controller
         }else{
             return redirect()->route('users.index');
         }
+    }
+
+    public function update_admin(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'role' => 'required',
+            'region_id' => 'required',
+            'city_id' => 'required',
+            'club_id' => 'required',
+            'player_category_id' => 'required'
+        ]);
+
+        $user = User::findorfail($id);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
+        $user->role = $request->input('role');
+        $user->city_id = $request->input('city_id');
+        $user->address = $request->input('address');
+        $user->club_id = $request->input('club_id');
+        $user->player_category_id = $request->input('player_category_id');
+        if($request->hasFile('avatar')){
+            $user->avatar = $request->avatar->store('public/users/avatars');
+        }
+        flash()->overlay('Datos de usuario actualzado con Exito!!', 'Alerta!!');
+        $user->update();
+
+
+        return redirect()->route('users.index');
     }
 
     /**

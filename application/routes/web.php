@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::put('/sites/update','SitesController@update')->name('sites.update');
 	Route::get('/sites/drop_image/{image}','SitesController@drop_image')->name('sites.drop_image');
 	Route::resource('users','UsersController');
+	Route::put('/users/update_admin/{id}','UsersController@update_admin')->name('users.update_admin');
 	Route::get('/users/user_profile/{id}','UsersController@user_profile')->name('users.user_profile');
 	Route::put('/users/change_password/{id}','UsersController@change_password')->name('users.change_password');
 
