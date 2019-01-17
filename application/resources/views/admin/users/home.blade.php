@@ -23,6 +23,7 @@
                             <th>Ciudad</th>
                             <th>Equipo</th>
                             <th>Categoria</th>
+                            <th>Avatar</th>
                             <th>Acciones</th>
                         </thead>
                         <tbody>
@@ -31,7 +32,15 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    <td>
+                                        @if($user->role == 'administrator')
+                                            Administrador
+                                        @elseif($user->role = 'club_manager')
+                                            Administrador de Club
+                                        @else
+                                            Jugador
+                                        @endif
+                                    </td>
                                     <td>{{ $user->city->region->name }}</td>
                                     <td>{{ $user->city->name }}</td>
                                     <td>
@@ -42,6 +51,13 @@
                                         @endif
                                     </td>
                                     <td>{{ $user->player_category->name }}</td>
+                                    <td>
+                                        @if(isset($user->avatar) and !empty($user->avatar))
+                                            <img src="{{ asset('application/storage/app/'.$user->avatar) }}" class="img-thumbnail">
+                                        @else
+                                            Sin Imagen
+                                        @endif
+                                    </td>
                                     <td>
                                         <a class="btn btn-info" href="{{ route('users.show',['id' => $user->id]) }}"><i class="fa fa-eye"></i> Ver Usuario</a>
 

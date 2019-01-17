@@ -22,7 +22,7 @@
                     <h2>Nuevo Usuario</h2>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'users.store','autocomplete' => 'off']) !!}
+                    {!! Form::open(['route' => 'users.store','autocomplete' => 'off', 'files' => true]) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre: ') !!}
                             {!! Form::text('name',null,['class' => 'form-control', 'id' => 'name']) !!}
@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('role', 'Rol: ') !!}
-                            {!! Form::select('role',['' => '-','administrator' => 'Administrador','club_manager' => 'administrador de Club'],null,['class' => 'form-control', 'id' => 'role']) !!}
+                            {!! Form::select('role',['' => '-','administrator' => 'Administrador','club_manager' => 'administrador de Club','player' => 'Jugador'],null,['class' => 'form-control', 'id' => 'role']) !!}
                         </div>
                         <div class="form-group">
                             <label for="region_id">Region</label>
@@ -71,6 +71,10 @@
                         <div class="form-group">
                             {!! Form::label('password', 'Contraseña: ') !!}
                             {!! Form::text('password',null,['class' => 'form-control', 'id' => 'password']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('avatar', 'Avatar: ') !!}
+                            {!! Form::file('avatar',['class' => 'form-control', 'id' => 'avatar']) !!}
                         </div>
                         {!! Form::button('<i class="fa fa-floppy-o"></i> Guardar',['type' => 'submit', 'class' => 'btn btn-success']) !!}
                         <a href="{{ route('users.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>

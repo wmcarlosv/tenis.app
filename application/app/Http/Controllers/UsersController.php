@@ -72,6 +72,12 @@ class UsersController extends Controller
         $user->player_category_id = $request->input('player_category_id');
         $user->password = bcrypt($request->input('password'));
 
+        if($request->hasFile('avatar')){
+            $user->avatar = $request->avatar->store('public/users/avatars');
+        }else{
+            $user->avatar = NULL;
+        }
+
         $user->save();
 
         flash()->overlay('Registro Insertado con Exito!!', 'Alerta!!');
