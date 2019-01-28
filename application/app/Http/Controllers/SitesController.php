@@ -12,6 +12,7 @@ use App\Club;
 use App\Region;
 use App\PlayerCategory;
 use App\Gallery;
+use App\Ranking;
 
 class SitesController extends Controller
 {
@@ -54,7 +55,19 @@ class SitesController extends Controller
             $photos = [];
         }
 
-    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories, 'photos' => $photos]);
+        $last_championship = Championship::orderby('datefrom','DESC')->first();
+        $show_ranking = false;
+        if( strtotime($last_championship->dateto) > strtotime(date('Y-m-d')) ){
+            $show_ranking = true;
+        }
+
+        $players_and_categories = [];
+
+        foreach($player_categories as $index => $pc){
+            $players_and_categories[$pc->id] = $this->list_rankings($pc->id);
+        }
+
+    	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories, 'photos' => $photos, 'show_ranking' => $show_ranking, 'players_and_categories' => $players_and_categories]);
     }
 
     public function edit(){
@@ -203,5 +216,22 @@ class SitesController extends Controller
         $site->save();
 
         print json_encode(['borrado' => 'si']);
+    }
+
+    public function list_rankings($player_category_id = NULL){
+        $rankings = [];
+        if($player_category_id != NULL){
+            $last_championship = Championship::orderby('datefrom','DESC')->first();
+            $rankings = Ranking::where([
+                ['championship_id','=',$last_championship->id],
+                ['player_category_id','=',$player_category_id]
+            ])->orderBy("points","DESC")->get();
+
+            if(count($rankings) <= 0){
+                $rankings = [];
+            }
+        }
+
+        return $rankings;
     }
 }

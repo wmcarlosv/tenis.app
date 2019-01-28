@@ -53,8 +53,9 @@ class ChampionshipsController extends Controller
         }else{
             $championship->cover = NULL;
         }
-        $championship->datefrom = date('Y-m-d',strtotime($request->input('datefrom')));
-        $championship->dateto = date('Y-m-d',strtotime($request->input('dateto')));
+        $championship->datefrom = $request->input('datefrom');
+        $championship->dateto = $request->input('dateto');
+
         $championship->point_to_winner_game = $request->input('point_to_winner_game');
         $championship->total_points = $request->input('total_points');
         $championship->save();
@@ -110,14 +111,16 @@ class ChampionshipsController extends Controller
             'total_points' => 'required'
         ]);
 
+        //dd($request);
+
         $championship = Championship::findOrFail($id);
         $championship->title = $request->input('title');
         $championship->description = $request->input('description');
         if($request->hasFile('cover')){
             $championship->cover = $request->cover->store('public/championships/covers');
         }
-        $championship->datefrom = date('Y/m/d',strtotime($request->input('datefrom')));
-        $championship->dateto = date('Y/m/d',strtotime($request->input('dateto')));
+        $championship->datefrom = $request->input('datefrom');
+        $championship->dateto = $request->input('dateto');
         $championship->point_to_winner_game = $request->input('point_to_winner_game');
         $championship->total_points = $request->input('total_points');
         $championship->update();

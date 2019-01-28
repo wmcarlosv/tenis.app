@@ -147,8 +147,8 @@ class AppServiceProvider extends ServiceProvider
                             'icon' => 'money',
                         ],
                         [
-                            'text' => 'Calificaciones',
-                            'url'  => 'admin/qualifications',
+                            'text' => 'Rankings',
+                            'url'  => 'admin/rankings',
                             'icon' => 'star',
                         ],
                         'SEGURIDAD',

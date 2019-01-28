@@ -52,11 +52,11 @@
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('datefrom', 'Fecha Inicio: ') !!}
-                                    {!! Form::text('datefrom',date('d/m/Y',strtotime($championship->datefrom)),['class' => 'form-control date-picker', 'id' => 'datefrom', 'readOnly' => 'readOnly']) !!}
+                                    {!! Form::text('datefrom',date('Y/m/d',strtotime($championship->datefrom)),['class' => 'form-control date-picker', 'id' => 'datefrom', 'readOnly' => 'readOnly']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('dateto', 'Fecha Hasta: ') !!}
-                                    {!! Form::text('dateto',date('d/m/Y',strtotime($championship->dateto)),['class' => 'form-control date-picker', 'id' => 'dateto', 'readOnly' => 'readOnly']) !!}
+                                    {!! Form::text('dateto',date('Y/m/d',strtotime($championship->dateto)),['class' => 'form-control date-picker', 'id' => 'dateto', 'readOnly' => 'readOnly']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('point_to_winner_game', 'Puntos para Ganador: ') !!}
@@ -89,7 +89,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".date-picker").datepicker({
-            dateFormat : 'dd/mm/yy',
+            dateFormat : 'yy/mm/dd',
             changeYear : true,
             changeMonth : true
         });

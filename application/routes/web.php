@@ -69,5 +69,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::get('/payments/deaproved_payment/{id}','PaymentsController@deaproved_payment')->name('payments.deaproved_payment');
 	Route::resource('galleries','GalleriesController');
+	Route::get('/rankings','RankingsController@index')->name('rankings.index');
+	Route::post('/rankigs/store','RankingsController@store')->name('rankings.store');
+	Route::get('/rankings/players-by-category/{championship_id}/{player_category_id}','RankingsController@playersbycategory')->name('rankings.player-by-category');
 });
 Route::get('admin/cities/getCities/{id}','CitiesController@getCities');

@@ -81,7 +81,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".date-picker").datepicker({
-            dateFormat : 'dd/mm/yy',
+            dateFormat : 'yy/mm/dd',
             changeYear : true,
             changeMonth : true
         });

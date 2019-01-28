@@ -54,6 +54,10 @@
     width: 290px;
     height: 60px;
   }
+
+  .ftb-tabs-wrap .nav-tabs li{
+    margin:0px 5px 0px 0px !important;
+  }
 </style>
 @stop
 @section('content')
@@ -117,7 +121,6 @@
 </div>
 </li>
 @endif
-
 </ul>
 </div>
 </div>
@@ -196,13 +199,60 @@
 </div>
 </div>-->
 </div>
+
+
+
+
+
+@if($show_ranking)
+<!--Rankings -->
+<div class="container">
+  <div class="ftb-tabs-wrap">
+      <ul class="nav nav-tabs" role="tablist">
+      @foreach($player_categories as $index => $pc)
+        @if($index == 0)
+          <li role="presentation" class="active"><a  class="hire" href="#cat_{{ $pc->id }}" aria-controls="cat_{{ $pc->id }}" role="tab" data-toggle="tab">{{ $pc->name }}</a></li>
+        @else
+          <li role="presentation"><a  class="hire" href="#cat_{{ $pc->id }}" aria-controls="cat_{{ $pc->id }}" role="tab" data-toggle="tab">{{ $pc->name }}</a></li>
+        @endif
+      @endforeach
+      </ul>
+      @foreach($players_and_categories as $index => $player_and_category)
+        <div role="tabpanel" class="tab-pane" id="cat_{{ $index }}">
+          <ul class="kode_ticket_list list_2">
+            @foreach($player_and_category as $pac)
+              <li>
+                <span>{{ $loop->index + 1 }}<i>Pos</i></span>
+                <div class="kode_ticket_text">
+                  <h6>{{ $pac->user->name }}</h6>
+                  <div class="ticket_title">
+                    <h2>{{ $pac->user->club->name }}</h2>
+                    <!--<span>VS</span>
+                    <h2>Somalian Titans</h2>-->
+                  </div>
+                  <!--<p>15:30 PM, Soccer Stadium, Dubai</p>-->
+                </div>
+                <div class="ticket_btn">
+                  <a href="#">{{ $pac->points }} pts</a>
+                </div>
+              </li>
+            @endforeach
+          </ul> 
+        </div>
+      @endforeach
+  </div>
+</div>
+<!--Fin Rankings-->
+@endif
+
+
+
+
+
 <div class="ftb-latestnew-wrap">
 <div class="container">
 <div class="row">
-<!--// FOOTBALL LATEST NEWS //-->
 <div class="col-md-7">
-<!--// HEADING 5 //-->
-
 <div class="heading5 text-left">
   <h4>Ultimas <span>Noticias</span></h4>
 </div>
