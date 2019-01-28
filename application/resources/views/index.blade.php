@@ -207,6 +207,9 @@
 @if($show_ranking)
 <!--Rankings -->
 <div class="container">
+  <div class="heading5 black">
+  <h4>Rankings del <span>Campeonato</span></h4>
+  </div>
   <div class="ftb-tabs-wrap">
       <ul class="nav nav-tabs" role="tablist">
       @foreach($player_categories as $index => $pc)
