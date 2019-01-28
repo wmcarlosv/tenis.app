@@ -219,7 +219,7 @@
       </ul>
       <div class="tab-content">
       @foreach($players_and_categories as $index => $player_and_category)
-        <div role="tabpanel" class="tab-pane" id="cat_{{ $index }}">
+        <div role="tabpanel" class="tab-pane @if($index == 1) active @endif" id="cat_{{ $index }}">
           <ul class="kode_ticket_list list_2">
             @foreach($player_and_category as $pac)
               <li>
