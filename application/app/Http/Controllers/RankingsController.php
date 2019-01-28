@@ -67,20 +67,22 @@ class RankingsController extends Controller
     		}else{
     			$cont = 0;
     			foreach ($players as $player) {
-    				$data[$cont]['id'] = $player->user_id;
-    				$data[$cont]['name'] = $player->user->name;
-    				$data[$cont]['club'] = $player->user->club->name;
-    				$ranking = Ranking::where([
-    					['championship_id','=',$championship_id],
-    					['player_category_id','=',$player_category_id],
-    					['user_id','=',$player->user_id]
-    				])->first();
-    				if(isset($ranking->id) and !empty($ranking->id)){
-    					$data[$cont]['points'] = $ranking->points;
-    				}else{
-    					$data[$cont]['points'] = 0;
+    				if($player->user->role == "player"){
+	    				$data[$cont]['id'] = $player->user_id;
+	    				$data[$cont]['name'] = $player->user->name;
+	    				$data[$cont]['club'] = $player->user->club->name;
+	    				$ranking = Ranking::where([
+	    					['championship_id','=',$championship_id],
+	    					['player_category_id','=',$player_category_id],
+	    					['user_id','=',$player->user_id]
+	    				])->first();
+	    				if(isset($ranking->id) and !empty($ranking->id)){
+	    					$data[$cont]['points'] = $ranking->points;
+	    				}else{
+	    					$data[$cont]['points'] = 0;
+	    				}
+	    				$cont++;	
     				}
-    				$cont++;	
     			}
     		}
 
