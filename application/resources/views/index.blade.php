@@ -217,6 +217,7 @@
         @endif
       @endforeach
       </ul>
+      <div class="tab-content">
       @foreach($players_and_categories as $index => $player_and_category)
         <div role="tabpanel" class="tab-pane" id="cat_{{ $index }}">
           <ul class="kode_ticket_list list_2">
@@ -241,6 +242,7 @@
           </ul> 
         </div>
       @endforeach
+      </div>
   </div>
 </div>
 <!--Fin Rankings-->
