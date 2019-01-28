@@ -64,7 +64,7 @@ class SitesController extends Controller
         $players_and_categories = [];
 
         foreach($player_categories as $index => $pc){
-            $players_and_categories[$pc->id] = $this->list_rankings($pc->id);
+            $players_and_categories[$pc->id] = $this->list_rankings_home($pc->id);
         }
 
     	return view('index', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories, 'photos' => $photos, 'show_ranking' => $show_ranking, 'players_and_categories' => $players_and_categories]);
@@ -226,6 +226,23 @@ class SitesController extends Controller
                 ['championship_id','=',$last_championship->id],
                 ['player_category_id','=',$player_category_id]
             ])->orderBy("points","DESC")->get();
+
+            if(count($rankings) <= 0){
+                $rankings = [];
+            }
+        }
+
+        return $rankings;
+    }
+
+    public function list_rankings_home($player_category_id = NULL){
+        $rankings = [];
+        if($player_category_id != NULL){
+            $last_championship = Championship::orderby('datefrom','DESC')->first();
+            $rankings = Ranking::where([
+                ['championship_id','=',$last_championship->id],
+                ['player_category_id','=',$player_category_id]
+            ])->orderBy("points","DESC")->limit(10)->get();
 
             if(count($rankings) <= 0){
                 $rankings = [];
