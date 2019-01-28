@@ -60,7 +60,7 @@
   }
 
   div.heading5{
-    margin:30px 0px 5px 0px;
+    margin:35px 0px 5px 0px;
   }
 </style>
 @stop
@@ -212,7 +212,7 @@
 <!--Rankings -->
 <div class="container">
   <div class="heading5 black">
-  <h4>Rankings del <span>Campeonato</span></h4>
+  <h4>Rankings por <span>Categoria </span></h4>
   </div>
   <div class="ftb-tabs-wrap">
       <ul class="nav nav-tabs" role="tablist">
