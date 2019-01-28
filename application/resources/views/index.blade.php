@@ -226,7 +226,8 @@
                 <div class="kode_ticket_text">
                   <h6>{{ $pac->user->name }}</h6>
                   <div class="ticket_title">
-                    <h2>{{ $pac->user->club->name }}</h2>
+                    <h2>
+                      {{ $pac->user->club->name }}</h2>
                     <!--<span>VS</span>
                     <h2>Somalian Titans</h2>-->
                   </div>

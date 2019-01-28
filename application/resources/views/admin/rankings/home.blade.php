@@ -68,7 +68,7 @@
                     var data = JSON.parse(response);
                     if(data.length > 0){
                         $.each(data, function(index, value){
-                            $("#load_player_data").append("<tr><td><input type='hidden' name='users_ids[]' value='"+index+"' />"+value.id+"</td><td>"+value.name+"</td><td>"+value.club+"</td><td><input type='text' size='3' class='form-control' value='"+value.points+"' name='points[]' /></td></tr>");
+                            $("#load_player_data").append("<tr><td><input type='hidden' name='users_ids[]' value='"+value.id+"' />"+value.id+"</td><td>"+value.name+"</td><td>"+value.club+"</td><td><input type='text' size='3' class='form-control' value='"+value.points+"' name='points[]' /></td></tr>");
                         }); 
                     }else{
                         $("#load_player_data").append('<tr><td colspan="4"><center>Sin Datos</center></td></tr>');
