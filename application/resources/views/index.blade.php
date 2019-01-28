@@ -58,6 +58,10 @@
   .ftb-tabs-wrap .nav-tabs li{
     margin:0px 5px 0px 0px !important;
   }
+
+  div.heading5{
+    margin:30px 0px 5px 0px;
+  }
 </style>
 @stop
 @section('content')
