@@ -27,6 +27,7 @@ Route::get('/profile/{id}','HomeController@profile')->name('home.profile');
 Route::get('/galleries','HomeController@galleries')->name('home.galleries');
 Route::post('/custom_register','HomeController@custom_register')->name('home.custom_register');
 Route::post('/custom_login','HomeController@custom_login')->name('home.custom_login');
+Route::get('/ranking','SitesController@ranking')->name('site.ranking');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('regions','RegionsController');

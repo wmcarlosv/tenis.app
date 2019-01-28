@@ -234,4 +234,57 @@ class SitesController extends Controller
 
         return $rankings;
     }
+
+    public function ranking(){
+        $site = Site::where('title','<>',null)->first();
+        if(!$site){
+            $site = [];
+        }
+
+        $notices = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(5)->get();
+
+        if(!$notices){
+            $notices = [];
+        }
+
+        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
+
+        if(!$notices_header){
+            $notices_header = [];
+        }
+
+        $championships = Championship::orderby('datefrom','ASC')->limit(4)->get();
+
+        if(!$championships){
+            $championships = [];
+        }
+
+        $clubes = Club::orderby('created_at','DESC')->get();
+        if(!$clubes){
+            $clubes = [];
+        }
+
+        $regions = Region::all();
+
+        $player_categories = PlayerCategory::all();
+
+        $photos = Gallery::orderBy("created_at","DESC")->get();
+        if(!$photos){
+            $photos = [];
+        }
+
+        $last_championship = Championship::orderby('datefrom','DESC')->first();
+        $show_ranking = false;
+        if( strtotime($last_championship->dateto) > strtotime(date('Y-m-d')) ){
+            $show_ranking = true;
+        }
+
+        $players_and_categories = [];
+
+        foreach($player_categories as $index => $pc){
+            $players_and_categories[$pc->id] = $this->list_rankings($pc->id);
+        }
+
+        return view('ranking', ['site' => $site, 'notices' => $notices, 'notices_header' => $notices_header,'championships' => $championships,'clubes' => $clubes, 'regions' => $regions, 'player_categories' => $player_categories, 'photos' => $photos, 'show_ranking' => $show_ranking, 'players_and_categories' => $players_and_categories]);
+    }
 }
