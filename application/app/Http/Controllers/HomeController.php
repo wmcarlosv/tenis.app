@@ -382,40 +382,4 @@ class HomeController extends Controller
             'site' => $site, 'notices_header' => $notices_header, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
     }
 
-    public function ranking(){
-
-        $site = Site::where('title','<>',null)->first();
-        if(!$site){
-            $site = [];
-        }
-
-        $notices_header = Notice::where('status','=','publisher')->orderBy('publisher_date','desc')->limit(3)->get();
-
-        if(!$notices_header){
-            $notices_header = [];
-        }
-
-        return view('club',['club' => $club, 
-            'site' => $site, 'notices_header' => $notices_header, 'staffs' => $staffs, 'galleries' => $galleries, 'notices' => $notices, 'regions' => $regions, 'clubes' => $clubes, 'player_categories' => $player_categories]);
-    }
-
-    public function list_rankings($player_category_id = NULL){
-        $rankings = [];
-        if($player_category_id != NULL){
-            $last_championship = Championship::orderby('datefrom','DESC')->first();
-            $rankings = Ranking::where([
-                ['championship_id','=',$last_championship->id],
-                ['player_category_id','=',$player_category_id]
-            ])->orderBy("points","DESC")->get();
-
-            if(count($rankings) <= 0){
-                $rankings = [];
-            }
-        }
-
-        return $rankings;
-    }
-
-
-
 }

@@ -62,6 +62,18 @@
   div.heading5{
     margin:35px 0px 5px 0px;
   }
+
+  ul.kode_ticket_list li{
+    padding:8px;
+  }
+
+  ul.nav-tabs{
+    padding:8px !important;
+  }
+
+  ul.nav-tabs li a{
+    padding: 15px !important;
+  }
 </style>
 @stop
 @section('content')
