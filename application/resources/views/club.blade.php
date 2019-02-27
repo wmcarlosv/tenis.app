@@ -67,14 +67,11 @@
 								<div class="col-md-5">
 									<div class="kode_player_fig fig_2">
 										<figure>
-											<img src="{{ asset('application/storage/app/public/clubes/covers/'.$club->cover) }}" class="club-image" alt="">
-											<!--<figcaption>
-												<a href="#"><img src="{{ asset('images/ftb-result.png') }}" alt=""></a>
-												<div class="kode_player_text">
-													<h6>Team : Eagle Sharks </h6>
-													<h6>Player No : 10</h6>
-												</div>
-											</figcaption>-->
+											@if(isset($club->cover) and !empty($club->cover))
+												<img src="{{ asset('application/storage/app/public/clubes/covers/'.$club->cover) }}" class="club-image" alt="">
+											@else
+												<img src="{{ asset('images/photo_not_available.gif') }}" class="club-image" alt="">
+											@endif
 										</figure>
 									</div>
 								</div>
