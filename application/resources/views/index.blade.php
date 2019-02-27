@@ -37,12 +37,18 @@
 	}
 
   img.club-image{
-    width: 380px;
-    height: 340px;
+    width: 320px;
+    height: 270px;
   }
 
   div.ftb-gallery ul li{
     padding:5px;
+
+  }
+
+  div.ftb-gallery ul li figure{
+    width: 320px;
+    height: 270px;
   }
 
   img.footer-notice-image{
@@ -330,7 +336,12 @@
   @foreach($clubes as $club)
   <li>
   <figure>
-    <img src="{{ asset('application/storage/app/public/clubes/logos/'.$club->logo) }}" class="club-image" alt="">
+    @if(isset($club->logo) and !empty($club->logo))
+      <img src="{{ asset('application/storage/app/public/clubes/logos/'.$club->logo) }}" class="club-image" alt="">
+    @else
+      <img src="{{ asset('images/photo_not_available.gif') }}" class="club-image" alt="">
+    @endif
+    
     <figcaption>
     <h4>{{ $club->name }}</h4>
     <a href="{{ route('home.club',['slug' => $club->slug]) }}"><i class="fa fa-eye"></i></a>
