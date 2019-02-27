@@ -361,7 +361,7 @@
 				  <div class="ftb-team-dec">
 				  <div class="text">
 				    <a href="{{ route('home.championship',['id' => $ch->id]) }}">{{ $ch->title }}</a>
-				    <p>{{ $ch->description }}</p>
+				    <p>{{ str_limit(strip_tags($ch->description),150) }}</p>
 				  </div>
 				  <a class="arrow-iconbtn" href="{{ route('home.championship',['id' => $ch->id]) }}"><i class="fa fa-arrow-right "></i></a>
 				  </div>
